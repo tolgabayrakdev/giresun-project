@@ -4,13 +4,46 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
+// Sadeleştirilmiş animasyon variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1 // 0.2'den 0.1'e düşürdük
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 10, opacity: 0 }, // y değerini 20'den 10'a düşürdük
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5 // Daha hızlı geçiş
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.3
+    }
+  },
+  hover: {
+    scale: 1.02, // 1.05'ten 1.02'ye düşürdük
+    transition: {
+      duration: 0.2
+    }
+  }
+};
 
 const categories = {
   turistik: [
@@ -112,27 +145,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Mobil Menü */}
-      <div className="lg:hidden fixed top-4 right-4 z-50">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="bg-white/90 backdrop-blur-sm">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <nav className="flex flex-col gap-4 mt-8">
-              <Button variant="ghost" className="w-full justify-start">Anasayfa</Button>
-              <Button variant="ghost" className="w-full justify-start">Gezilecek Yerler</Button>
-              <Button variant="ghost" className="w-full justify-start">Restoranlar</Button>
-              <Button variant="ghost" className="w-full justify-start">Alışveriş</Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </div>
-
-      {/* Hero Section - Mobil Uyumlu */}
-      <div className="relative">
+      {/* Hero Section */}
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 to-green-800/90" />
         <div className="relative min-h-[400px] md:h-[600px] flex items-center"
           style={{
@@ -141,16 +160,35 @@ export default function Home() {
             backgroundSize: "cover"
           }}>
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-white space-y-4 md:space-y-6 py-12">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <motion.div 
+              className="max-w-2xl text-white space-y-4 md:space-y-6 py-12"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.h1 
+                className="text-4xl md:text-5xl font-bold leading-tight"
+                variants={itemVariants}
+              >
                 Karadeniz'in Yeşil İncisi
-                <span className="block text-5xl md:text-6xl mt-2">GİRESUN</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-100">
+                <motion.span 
+                  className="block text-5xl md:text-6xl mt-2"
+                  variants={itemVariants}
+                >
+                  GİRESUN
+                </motion.span>
+              </motion.h1>
+              <motion.p 
+                className="text-lg md:text-xl text-gray-100"
+                variants={itemVariants}
+              >
                 Eşsiz doğası, tarihi yapıları, yaylaları ve fındığıyla
                 keşfedilmeyi bekleyen şehir
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              </motion.p>
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-3"
+                variants={itemVariants}
+              >
                 <Button 
                   size="lg" 
                   className="bg-green-600 hover:bg-green-700 text-white font-semibold"
@@ -164,33 +202,46 @@ export default function Home() {
                 >
                   Daha Fazla Bilgi
                 </Button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Yeni Section: İstatistikler */}
+      {/* İstatistikler */}
       <section className="py-12 bg-green-900 text-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">1500+</div>
-              <div className="text-sm text-gray-300">Yıllık Tarih</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">12</div>
-              <div className="text-sm text-gray-300">Popüler Yayla</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">180km</div>
-              <div className="text-sm text-gray-300">Sahil Şeridi</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">%25</div>
-              <div className="text-sm text-gray-300">Dünya Fındık Üretimi</div>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {[
+              { number: "1500+", text: "Yıllık Tarih" },
+              { number: "12", text: "Popüler Yayla" },
+              { number: "16", text: "İlçe" },
+              { number: "%25", text: "Dünya Fındık Üretimi" }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="space-y-2"
+                variants={itemVariants}
+              >
+                <motion.div 
+                  className="text-3xl md:text-4xl font-bold"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-sm text-gray-300">{stat.text}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -365,30 +416,51 @@ export default function Home() {
 
           {Object.entries(categories).map(([key, items]) => (
             <TabsContent key={key} value={key}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div 
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 {items.map((item, index) => (
-                  <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
-                    <div className="relative">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm md:text-base text-muted-foreground mb-4">{item.description}</p>
-                      <div className="flex items-center text-muted-foreground text-sm">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        <span>{item.location}</span>
+                  <motion.div
+                    key={index}
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    whileHover="hover"
+                  >
+                    <Card className="overflow-hidden">
+                      <div className="relative">
+                        <motion.img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-48 object-cover"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                        <motion.div 
+                          className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                          initial={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
+                          transition={{ duration: 0.2 }}
+                        />
                       </div>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm md:text-base text-muted-foreground mb-4">{item.description}</p>
+                        <div className="flex items-center text-muted-foreground text-sm">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          <span>{item.location}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </TabsContent>
           ))}
         </Tabs>
