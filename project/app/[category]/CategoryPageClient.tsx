@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useCallback, useMemo } from "react";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MapPin, Search, SlidersHorizontal, ArrowLeft, Star, Navigation } from "lucide-react";
@@ -39,8 +39,8 @@ const placesData: Record<string, Place[]> = {
     {
       id: "1",
       title: "Giresun Kalesi",
-      description: "Şehre hakim tepede yer alan tarihi kale, muhteşem manzarası ile ünlüdür.",
-      image: "/api/placeholder/400/300",
+      description: "Şehre hakim tepede yer alan tarihi kale, muhteşem manzarası ile ünlüdür. Karadeniz'in en güzel manzaralarından birini sunar.",
+      image: "/turist/giresun-kalesi.jpeg",
       location: "Merkez",
       geoLocation: { lat: 40.912977, lng: 38.389834 },
       rating: 4.5,
@@ -50,7 +50,7 @@ const placesData: Record<string, Place[]> = {
       id: "2",
       title: "Giresun Adası",
       description: "Doğu Karadeniz'in tek adası, antik kalıntıları ve doğal güzelliği ile öne çıkar.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/giresun-adasi.jpg",
       location: "Merkez sahil",
       geoLocation: { lat: 40.925642, lng: 38.385867 },
       rating: 4.7,
@@ -191,9 +191,34 @@ const categoryDetails: Record<string, { title: string, description: string }> = 
   }
 };
 
+// Varsayılan görsel için base64 string
+const placeholderImage = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkLzYvLy02Mi85OEI2PTZFOT5ZXVlZfG1+fW5/Z3xkfGVsZGR7Z3v/2wBDARUXFx4aHh8fHHtsOCw4bGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=";
+
 interface CategoryPageClientProps {
   category: string;
 }
+
+// Görsel bileşeni
+const ImageWithFallback = ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  const [error, setError] = useState(false);
+
+  return (
+    <div className="relative h-64 md:h-full bg-gray-100">
+      {!error ? (
+        <img
+          src={src}
+          alt={alt}
+          {...props}
+          onError={() => setError(true)}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-100">
+          <span className="text-gray-400">Görsel Bulunamadı</span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function CategoryPageClient({ category }: CategoryPageClientProps) {
   const router = useRouter();
@@ -201,26 +226,58 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
   const [priceFilter, setPriceFilter] = useState<string[]>([]);
 
-  const categoryInfo = categoryDetails[category] || {
-    title: "Mekanlar",
-    description: "Giresun'un en iyi mekanlarını keşfedin"
-  };
+  // Kategori bilgilerini memoize edelim
+  const categoryInfo = useMemo(() => 
+    categoryDetails[category] || {
+      title: "Mekanlar",
+      description: "Giresun'un en iyi mekanlarını keşfedin"
+    },
+    [category]
+  );
 
-  const places = placesData[category] || [];
-  const allFeatures = Array.from(new Set(places.flatMap(place => place.features)));
+  // Places ve features'ları memoize edelim
+  const places = useMemo(() => placesData[category] || [], [category]);
+  const allFeatures = useMemo(() => 
+    Array.from(new Set(places.flatMap(place => place.features))),
+    [places]
+  );
 
-  const filteredPlaces = places.filter(place => {
-    const matchesSearch = place.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      place.description.toLowerCase().includes(searchQuery.toLowerCase());
+  // Filtreleme fonksiyonunu memoize edelim
+  const filteredPlaces = useMemo(() => {
+    return places.filter(place => {
+      const matchesSearch = place.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        place.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesFeatures = selectedFeatures.length === 0 ||
-      selectedFeatures.every(feature => place.features.includes(feature));
+      const matchesFeatures = selectedFeatures.length === 0 ||
+        selectedFeatures.every(feature => place.features.includes(feature));
 
-    const matchesPrice = priceFilter.length === 0 ||
-      (place.priceLevel && priceFilter.includes(place.priceLevel));
+      const matchesPrice = priceFilter.length === 0 ||
+        (place.priceLevel && priceFilter.includes(place.priceLevel));
 
-    return matchesSearch && matchesFeatures && matchesPrice;
-  });
+      return matchesSearch && matchesFeatures && matchesPrice;
+    });
+  }, [places, searchQuery, selectedFeatures, priceFilter]);
+
+  // Event handler'ları useCallback ile optimize edelim
+  const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  }, []);
+
+  const handleFeatureChange = useCallback((feature: string, checked: boolean) => {
+    setSelectedFeatures(prev => 
+      checked ? [...prev, feature] : prev.filter(f => f !== feature)
+    );
+  }, []);
+
+  const handlePriceChange = useCallback((price: string, checked: boolean) => {
+    setPriceFilter(prev =>
+      checked ? [...prev, price] : prev.filter(p => p !== price)
+    );
+  }, []);
+
+  const handleNavigate = useCallback(() => {
+    router.push('/#kategoriler');
+  }, [router]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -230,9 +287,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
           variant="outline" 
           size="icon" 
           className="bg-white/90 backdrop-blur-sm hover:bg-white"
-          onClick={() => {
-            router.push('/#kategoriler');
-          }}
+          onClick={handleNavigate}
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
@@ -259,7 +314,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
               placeholder="Mekan ara..."
               className="pl-10"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearch}
             />
           </div>
           <Sheet>
@@ -281,13 +336,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                       <Checkbox
                         id={feature}
                         checked={selectedFeatures.includes(feature)}
-                        onCheckedChange={(checked) => {
-                          if (checked) {
-                            setSelectedFeatures([...selectedFeatures, feature]);
-                          } else {
-                            setSelectedFeatures(selectedFeatures.filter(f => f !== feature));
-                          }
-                        }}
+                        onCheckedChange={(checked) => handleFeatureChange(feature, !!checked)}
                       />
                       <label htmlFor={feature} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                         {feature}
@@ -305,13 +354,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                           <Checkbox
                             id={price}
                             checked={priceFilter.includes(price)}
-                            onCheckedChange={(checked) => {
-                              if (checked) {
-                                setPriceFilter([...priceFilter, price]);
-                              } else {
-                                setPriceFilter(priceFilter.filter(p => p !== price));
-                              }
-                            }}
+                            onCheckedChange={(checked) => handlePriceChange(price, !!checked)}
                           />
                           <label htmlFor={price} className="text-sm font-medium leading-none">
                             {price}
@@ -329,90 +372,89 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
         {/* Sonuçlar */}
         <div className="space-y-4">
           {filteredPlaces.map((place) => (
-            <Card key={place.id} className="overflow-hidden">
-              <div className="relative">
-                <img
-                  src={place.image}
-                  alt={place.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              </div>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <CardTitle className="text-lg md:text-xl">{place.title}</CardTitle>
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                    <span className="text-sm">{place.rating}</span>
-                  </div>
+            <Card key={place.id} className="overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
+              <div className="md:flex">
+                <div className="md:w-1/3">
+                  <ImageWithFallback
+                    src={place.image}
+                    alt={place.title}
+                    className="w-full h-full object-cover"
+                    style={{ aspectRatio: '4/3' }}
+                  />
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground mb-4">
-                  {place.description}
-                </p>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {place.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center text-muted-foreground text-sm">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span>{place.location}</span>
+                
+                <div className="md:w-2/3 p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold">{place.title}</h3>
+                    <div className="flex items-center">
+                      <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                      <span className="text-sm font-medium">{place.rating}</span>
                     </div>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 text-green-600 hover:text-green-700"
-                        onClick={() => {
-                          // Kullanıcının konumunu al
-                          if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition((position) => {
-                              const userLat = position.coords.latitude;
-                              const userLng = position.coords.longitude;
-                              // Google Maps yol tarifi URL'i
-                              const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
-                              window.open(url, '_blank');
-                            }, () => {
-                              // Konum alınamazsa direkt mekanın konumuna git
+                  </div>
+
+                  <p className="text-gray-600 mb-4">{place.description}</p>
+
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {place.features.map((feature) => (
+                        <span
+                          key={feature}
+                          className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between pt-4 border-t">
+                      <div className="flex items-center text-gray-500">
+                        <MapPin className="h-4 w-4 mr-2" />
+                        <span className="text-sm">{place.location}</span>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center gap-2 text-green-600 hover:text-green-700"
+                          onClick={() => {
+                            if (navigator.geolocation) {
+                              navigator.geolocation.getCurrentPosition((position) => {
+                                const userLat = position.coords.latitude;
+                                const userLng = position.coords.longitude;
+                                const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                window.open(url, '_blank');
+                              }, () => {
+                                const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                window.open(url, '_blank');
+                              });
+                            } else {
                               const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
                               window.open(url, '_blank');
-                            });
-                          } else {
-                            // Tarayıcı geolocation desteklemiyorsa direkt mekanın konumuna git
+                            }
+                          }}
+                        >
+                          <Navigation className="h-4 w-4" />
+                          <span className="hidden sm:inline">Yol Tarifi</span>
+                        </Button>
+
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                          onClick={() => {
                             const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
                             window.open(url, '_blank');
-                          }
-                        }}
-                      >
-                        <Navigation className="h-4 w-4" />
-                        Yol Tarifi
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
-                        onClick={() => {
-                          const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
-                          window.open(url, '_blank');
-                        }}
-                      >
-                        <MapPin className="h-4 w-4" />
-                        Konumu Gör
-                      </Button>
+                          }}
+                        >
+                          <MapPin className="h-4 w-4" />
+                          <span className="hidden sm:inline">Konumu Gör</span>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>
