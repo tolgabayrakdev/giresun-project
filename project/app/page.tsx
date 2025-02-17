@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter } from "lucide-react";
+import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -28,7 +28,7 @@ const categories = {
     },
     {
       title: "Kümbet Yaylası",
-      description: "Giresun'un en ünlü yaylalarından biri, doğal güzellikleri ve şenlikleri ile meşhur.",
+      description: "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla.",
       image: "/api/placeholder/400/300",
       location: "Merkeze 40 km",
     },
@@ -71,44 +71,38 @@ const categories = {
       location: "Merkez",
     },
   ],
-  alisveris: [
+  yaylalar: [
     {
-      title: "Giresun Çarşısı",
-      description: "Geleneksel el sanatları, fındık ürünleri ve hediyelik eşyalar.",
+      title: "Bektaş Yaylası",
+      description: "Doğal güzellikleri ve temiz havasıyla ünlü, kamp ve trekking için ideal yayla.",
       image: "/api/placeholder/400/300",
-      location: "Merkez",
+      location: "Dereli",
     },
     {
-      title: "Fındık Pazarı",
-      description: "Yöresel fındık ürünleri ve fındık ezmeleri.",
+      title: "Kulakkaya Yaylası",
+      description: "Kış sporları ve doğa yürüyüşleri için popüler, eşsiz manzaralı yayla.",
       image: "/api/placeholder/400/300",
-      location: "Merkez",
-    },
-    {
-      title: "Gedikkaya AVM",
-      description: "Modern alışveriş merkezi ve eğlence kompleksi.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
+      location: "Dereli",
     },
   ],
-  oteller: [
+  festivaller: [
     {
-      title: "Giresun Grand Hotel",
-      description: "Şehir merkezinde 5 yıldızlı konfor ve deniz manzarası.",
+      title: "Aksu Festivali",
+      description: "Her yıl Mayıs ayında düzenlenen, müzik, kültür ve sanat etkinliklerinin buluştuğu festival.",
       image: "/api/placeholder/400/300",
       location: "Merkez",
     },
     {
-      title: "Yayla Resort",
-      description: "Kümbet Yaylası'nda doğa ile iç içe konaklama deneyimi.",
+      title: "Fındık Festivali",
+      description: "Ağustos ayında düzenlenen, fındık hasadını kutlayan geleneksel festival.",
       image: "/api/placeholder/400/300",
-      location: "Kümbet Yaylası",
+      location: "Merkez",
     },
     {
-      title: "Sahil Butik Otel",
-      description: "Sahile sıfır konumu ile huzurlu bir konaklama.",
+      title: "Yayla Şenlikleri",
+      description: "Yaz aylarında yaylalarda düzenlenen geleneksel horon ve müzik şenlikleri.",
       image: "/api/placeholder/400/300",
-      location: "Sahil",
+      location: "Çeşitli Yaylalar",
     },
   ],
 };
@@ -317,19 +311,19 @@ export default function Home() {
             <Button 
               variant="outline" 
               className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/oteller'}
+              onClick={() => window.location.href = '/yaylalar'}
             >
-              <Building2 className="h-8 w-8 text-green-600" />
-              <span>Oteller</span>
+              <Mountain className="h-8 w-8 text-green-600" />
+              <span>Yaylalar</span>
             </Button>
             
             <Button 
               variant="outline" 
               className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/alisveris'}
+              onClick={() => window.location.href = '/festivaller'}
             >
-              <ShoppingBag className="h-8 w-8 text-green-600" />
-              <span>Alışveriş</span>
+              <Music className="h-8 w-8 text-green-600" />
+              <span>Festivaller</span>
             </Button>
           </div>
         </div>
@@ -338,54 +332,56 @@ export default function Home() {
       {/* Ana İçerik - Mobil Uyumlu Tabs */}
       <main className="container mx-auto px-4 py-8 md:py-16">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-green-900">Giresun'u Keşfedin</h2>
-          <p className="text-sm md:text-base text-muted-foreground mt-2">
-            Şehrin en güzel mekanları, restoranları ve alışveriş noktaları
+          <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-4">Giresun'u Keşfedin</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Tarihi yerlerden doğal güzelliklere, yerel lezzetlerden festivallere kadar 
+            Giresun'un en güzel deneyimlerini keşfedin
           </p>
         </div>
 
         <Tabs defaultValue="turistik" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="turistik" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
               <Camera className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Gezilecek Yerler</span>
-              <span className="sm:hidden">Gezi</span>
+              <span className="hidden sm:inline">Tarihi Yerler</span>
+              <span className="sm:hidden">Tarih</span>
+            </TabsTrigger>
+            <TabsTrigger value="yaylalar" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
+              <Mountain className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Yaylalar</span>
+              <span className="sm:hidden">Yayla</span>
             </TabsTrigger>
             <TabsTrigger value="restoranlar" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
               <Utensils className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Restoranlar</span>
+              <span className="hidden sm:inline">Lezzetler</span>
               <span className="sm:hidden">Yemek</span>
             </TabsTrigger>
-            <TabsTrigger value="oteller" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <Building2 className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Oteller</span>
-              <span className="sm:hidden">Otel</span>
-            </TabsTrigger>
-            <TabsTrigger value="alisveris" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <ShoppingBag className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Alışveriş</span>
-              <span className="sm:hidden">AVM</span>
+            <TabsTrigger value="festivaller" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
+              <Music className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Festivaller</span>
+              <span className="sm:hidden">Etkinlik</span>
             </TabsTrigger>
           </TabsList>
 
           {Object.entries(categories).map(([key, items]) => (
             <TabsContent key={key} value={key}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {items.map((item, index) => (
-                  <Card key={index} className="overflow-hidden">
+                  <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div className="relative">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <CardHeader>
                       <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
-                      <div className="flex items-center mt-4 text-muted-foreground text-sm">
+                      <p className="text-sm md:text-base text-muted-foreground mb-4">{item.description}</p>
+                      <div className="flex items-center text-muted-foreground text-sm">
                         <MapPin className="h-4 w-4 mr-2" />
                         <span>{item.location}</span>
                       </div>
