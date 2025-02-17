@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { MapPin, Search, SlidersHorizontal, ArrowLeft, Star } from "lucide-react";
+import { MapPin, Search, SlidersHorizontal, ArrowLeft, Star, Navigation } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -49,12 +49,12 @@ const placesData: Record<string, Place[]> = {
     {
       id: "2",
       title: "Giresun Adası",
-      description: "Karadeniz'in tek adası, antik kalıntıları ve doğal güzelliği ile büyüleyici.",
+      description: "Doğu Karadeniz'in tek adası, antik kalıntıları ve doğal güzelliği ile öne çıkar.",
       image: "/api/placeholder/400/300",
       location: "Merkez sahil",
       geoLocation: { lat: 40.925642, lng: 38.385867 },
       rating: 4.7,
-      features: ["Doğal Güzellik", "Tekne Turu", "Tarihi"]
+      features: ["Ada", "Tekne Turu", "Tarihi"]
     },
     {
       id: "3",
@@ -74,7 +74,7 @@ const placesData: Record<string, Place[]> = {
       description: "Taze Karadeniz balıkları ve meze çeşitleri.",
       image: "/api/placeholder/400/300",
       location: "Sahil yolu",
-      geoLocation: { lat: 40.912977, lng: 38.389834 },
+      geoLocation: { lat: 40.917890, lng: 38.391234 },
       rating: 4.2,
       priceLevel: "₺₺",
       features: ["Deniz Ürünleri", "Manzaralı", "Alkollü"]
@@ -171,6 +171,26 @@ const placesData: Record<string, Place[]> = {
   ]
 };
 
+// Kategori başlıkları ve açıklamaları için obje
+const categoryDetails: Record<string, { title: string, description: string }> = {
+  turistik: {
+    title: "Gezilecek Yerler",
+    description: "Giresun'un tarihi ve doğal güzelliklerini keşfedin"
+  },
+  restoranlar: {
+    title: "Restoranlar",
+    description: "Giresun'un eşsiz lezzetlerini tadın"
+  },
+  yaylalar: {
+    title: "Yaylalar",
+    description: "Giresun'un muhteşem yaylalarını keşfedin"
+  },
+  festivaller: {
+    title: "Festivaller ve Etkinlikler",
+    description: "Giresun'un kültürel etkinliklerini deneyimleyin"
+  }
+};
+
 interface CategoryPageClientProps {
   category: string;
 }
@@ -180,6 +200,11 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
   const [priceFilter, setPriceFilter] = useState<string[]>([]);
+
+  const categoryInfo = categoryDetails[category] || {
+    title: "Mekanlar",
+    description: "Giresun'un en iyi mekanlarını keşfedin"
+  };
 
   const places = placesData[category] || [];
   const allFeatures = Array.from(new Set(places.flatMap(place => place.features)));
@@ -197,13 +222,6 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
     return matchesSearch && matchesFeatures && matchesPrice;
   });
 
-  const categoryTitles: Record<string, string> = {
-    turistik: "Gezilecek Yerler",
-    restoranlar: "Restoranlar",
-    oteller: "Oteller",
-    alisveris: "Alışveriş Mekanları"
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Geri Dön Butonu */}
@@ -212,7 +230,9 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
           variant="outline" 
           size="icon" 
           className="bg-white/90 backdrop-blur-sm hover:bg-white"
-          onClick={() => router.push('/')}
+          onClick={() => {
+            router.push('/#kategoriler');
+          }}
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
@@ -222,10 +242,10 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
       <div className="bg-green-900 text-white py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            {categoryTitles[category]}
+            {categoryInfo.title}
           </h1>
           <p className="text-gray-200">
-            Giresun'un en iyi mekanlarını keşfedin
+            {categoryInfo.description}
           </p>
         </div>
       </div>
@@ -309,34 +329,30 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
         {/* Sonuçlar */}
         <div className="space-y-4">
           {filteredPlaces.map((place) => (
-            <Card key={place.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-1/3 h-48 md:h-auto">
-                  <img
-                    src={place.image}
-                    alt={place.title}
-                    className="w-full h-full object-cover"
-                  />
+            <Card key={place.id} className="overflow-hidden">
+              <div className="relative">
+                <img
+                  src={place.image}
+                  alt={place.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg md:text-xl">{place.title}</CardTitle>
+                  <div className="flex items-center">
+                    <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                    <span className="text-sm">{place.rating}</span>
+                  </div>
                 </div>
-                <div className="flex-1 p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold">{place.title}</h3>
-                    {place.priceLevel && (
-                      <span className="text-sm text-gray-500">{place.priceLevel}</span>
-                    )}
-                  </div>
-                  <p className="text-gray-600 mb-4">{place.description}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      <span>{place.location}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Star className="h-4 w-4 mr-1 text-yellow-400" />
-                      <span>{place.rating}</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm md:text-base text-muted-foreground mb-4">
+                  {place.description}
+                </p>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
                     {place.features.map((feature) => (
                       <span
                         key={feature}
@@ -346,8 +362,57 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                       </span>
                     ))}
                   </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-muted-foreground text-sm">
+                      <MapPin className="h-4 w-4 mr-2" />
+                      <span>{place.location}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2 text-green-600 hover:text-green-700"
+                        onClick={() => {
+                          // Kullanıcının konumunu al
+                          if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition((position) => {
+                              const userLat = position.coords.latitude;
+                              const userLng = position.coords.longitude;
+                              // Google Maps yol tarifi URL'i
+                              const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
+                              window.open(url, '_blank');
+                            }, () => {
+                              // Konum alınamazsa direkt mekanın konumuna git
+                              const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                              window.open(url, '_blank');
+                            });
+                          } else {
+                            // Tarayıcı geolocation desteklemiyorsa direkt mekanın konumuna git
+                            const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                            window.open(url, '_blank');
+                          }
+                        }}
+                      >
+                        <Navigation className="h-4 w-4" />
+                        Yol Tarifi
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                        onClick={() => {
+                          const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                          window.open(url, '_blank');
+                        }}
+                      >
+                        <MapPin className="h-4 w-4" />
+                        Konumu Gör
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </CardContent>
             </Card>
           ))}
         </div>

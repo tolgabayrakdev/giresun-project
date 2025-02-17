@@ -191,12 +191,6 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold"
-                >
-                  Rehberi Keşfet
-                </Button>
-                <Button 
-                  size="lg" 
                   className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-semibold"
                   onClick={() => router.push('/about')}
                 >
@@ -336,8 +330,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Kategori Butonları Section'ı ekleyelim */}
-      <section className="py-16 bg-white">
+      {/* Kategori Butonları Section'ı */}
+      <section id="kategoriler" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-green-900">Kategorilere Göz Atın</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

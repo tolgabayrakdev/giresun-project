@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Info, Users, MapPin, Cloud, Mountain, Ship, Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 // İlçe bilgileri için type
 type District = {
@@ -141,12 +143,60 @@ const historicalEvents = [
 ];
 
 export default function AboutPageClient() {
+  // Sayfanın client-side'da yüklendiğinden emin olmak için
+  const [isClient, setIsClient] = useState(false);
+  
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const router = useRouter();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  if (!isClient) {
+    return null; // veya loading state
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Geri Dön Butonu */}
-      <div className="fixed top-4 left-4 z-50">
+      <motion.div 
+        className="fixed top-4 left-4 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
         <Button 
           variant="outline" 
           size="icon" 
@@ -155,7 +205,7 @@ export default function AboutPageClient() {
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
-      </div>
+      </motion.div>
 
       {/* Hero Section */}
       <div className="bg-green-900 text-white py-16">
@@ -171,10 +221,23 @@ export default function AboutPageClient() {
       </div>
 
       {/* Genel Bilgiler */}
-      <section className="py-12 bg-white">
+      <motion.section 
+        className="py-12 bg-white"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-green-900 mb-8">Genel Bilgiler</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.h2 
+            className="text-3xl font-bold text-green-900 mb-8"
+            variants={itemVariants}
+          >
+            Genel Bilgiler
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+          >
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -223,22 +286,33 @@ export default function AboutPageClient() {
                 <p>Fındık üretiminde dünya lideri. Tarım, turizm ve balıkçılık önemli gelir kaynakları.</p>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Tarih Bölümü */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-green-900 mb-8">Tarihi Geçmiş</h2>
+          <motion.h2 
+            className="text-3xl font-bold text-green-900 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Tarihi Geçmiş
+          </motion.h2>
           <div className="relative">
-            {/* Timeline çizgisi */}
-            <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-green-200 transform -translate-x-1/2"></div>
-            
+            <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-green-200 transform -translate-x-1/2" />
             <div className="space-y-12">
               {historicalEvents.map((event, index) => (
-                <div key={event.period} className={`relative flex flex-col md:flex-row gap-8 items-center md:items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  {/* Timeline noktası */}
+                <motion.div 
+                  key={event.period}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`relative flex flex-col md:flex-row gap-8 items-center md:items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                >
                   <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-green-600 rounded-full transform -translate-x-1/2"></div>
                   
                   <div className="w-full md:w-5/12">
@@ -264,7 +338,7 @@ export default function AboutPageClient() {
                       </CardContent>
                     </Card>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -274,34 +348,53 @@ export default function AboutPageClient() {
       {/* İlçeler */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-green-900 mb-8">İlçeler</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {districts.map((district) => (
-              <Card key={district.name} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-start">
-                    <span>{district.name}</span>
-                    <span className="text-sm text-gray-500">
-                      {district.population.toLocaleString()} kişi
-                    </span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{district.info}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {district.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
-                      >
-                        {feature}
+          <motion.h2 
+            className="text-3xl font-bold text-green-900 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            İlçeler
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {districts.map((district, index) => (
+              <motion.div
+                key={district.name}
+                variants={cardVariants}
+                custom={index}
+              >
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex justify-between items-start">
+                      <span>{district.name}</span>
+                      <span className="text-sm text-gray-500">
+                        {district.population.toLocaleString()} kişi
                       </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">{district.info}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {district.features.map((feature) => (
+                        <span
+                          key={feature}
+                          className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
