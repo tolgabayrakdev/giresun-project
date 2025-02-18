@@ -166,7 +166,7 @@ export default function Home() {
               backgroundRepeat: "repeat",
             }}
           />
-          <div className="absolute -right-20 top-20 text-[20rem] font-bold text-white/5 rotate-12 select-none pointer-events-none">
+          <div className="absolute -right-20 top-20 text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] font-bold text-white/5 rotate-12 select-none pointer-events-none">
             GİRESUN
           </div>
         </div>
