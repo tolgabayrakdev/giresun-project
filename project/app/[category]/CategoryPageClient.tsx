@@ -140,7 +140,7 @@ const placesData: Record<string, Place[]> = {
       id: "1",
       title: "Haşlamacı Giresun",
       description: "Et Haşlama ve sebze yemekleri",
-      image: "/api/placeholder/400/300",
+      image: "/restaurant/haslama.jpg",
       location: "Sahil yolu",
       district: "Merkez",
       geoLocation: { lat: 40.917890, lng: 38.391234 },

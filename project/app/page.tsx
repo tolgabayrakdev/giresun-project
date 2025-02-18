@@ -338,133 +338,171 @@ export default function Home() {
       </section>
 
       {/* Kategori Butonları Section'ı */}
-      <section id="kategoriler" className="py-16 bg-white">
+      <section id="kategoriler" className="py-16 bg-gradient-to-b from-white to-green-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-green-900">Kategorilere Göz Atın</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Button 
-              variant="outline" 
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/turistik'}
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">Kategorilere Göz Atın</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Giresun'un tüm güzelliklerini keşfetmek için aşağıdaki kategorilerden birini seçin ve yolculuğunuza başlayın
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
             >
-              <Camera className="h-8 w-8 text-green-600" />
-              <span>Gezilecek Yerler</span>
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/restoranlar'}
+              <Button 
+                variant="outline" 
+                className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
+                onClick={() => window.location.href = '/turistik'}
+              >
+                <div className="p-3 rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
+                  <Camera className="h-8 w-8 text-green-600" />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-lg block">Gezilecek Yerler</span>
+                  <span className="text-sm text-gray-500 block">Tarihi ve Doğal Güzellikler</span>
+                </div>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
             >
-              <Utensils className="h-8 w-8 text-green-600" />
-              <span>Restoranlar</span>
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/yaylalar'}
+              <Button 
+                variant="outline" 
+                className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
+                onClick={() => window.location.href = '/restoranlar'}
+              >
+                <div className="p-3 rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
+                  <Utensils className="h-8 w-8 text-green-600" />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-lg block">Restoranlar</span>
+                  <span className="text-sm text-gray-500 block">Yerel Lezzetler</span>
+                </div>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
             >
-              <Mountain className="h-8 w-8 text-green-600" />
-              <span>Yaylalar</span>
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 border-2"
-              onClick={() => window.location.href = '/festivaller'}
+              <Button 
+                variant="outline" 
+                className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
+                onClick={() => window.location.href = '/yaylalar'}
+              >
+                <div className="p-3 rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
+                  <Mountain className="h-8 w-8 text-green-600" />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-lg block">Yaylalar</span>
+                  <span className="text-sm text-gray-500 block">Doğa ve Huzur</span>
+                </div>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
             >
-              <Music className="h-8 w-8 text-green-600" />
-              <span>Festivaller</span>
-            </Button>
+              <Button 
+                variant="outline" 
+                className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
+                onClick={() => window.location.href = '/festivaller'}
+              >
+                <div className="p-3 rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
+                  <Music className="h-8 w-8 text-green-600" />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-lg block">Festivaller</span>
+                  <span className="text-sm text-gray-500 block">Etkinlik ve Şenlikler</span>
+                </div>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Ana İçerik - Mobil Uyumlu Tabs */}
+      {/* Öne Çıkan Yerler */}
       <main className="container mx-auto px-4 py-8 md:py-16">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-4">Giresun'u Keşfedin</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-4">Öne Çıkan Deneyimler</h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tarihi yerlerden doğal güzelliklere, yerel lezzetlerden festivallere kadar 
-            Giresun'un en güzel deneyimlerini keşfedin
+            Giresun'un eşsiz doğası, tarihi ve kültürel zenginlikleri ile unutulmaz anılar biriktirin
           </p>
         </div>
 
-        <Tabs defaultValue="turistik" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="turistik" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <Camera className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Tarihi Yerler</span>
-              <span className="sm:hidden">Tarih</span>
-            </TabsTrigger>
-            <TabsTrigger value="yaylalar" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <Mountain className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Yaylalar</span>
-              <span className="sm:hidden">Yayla</span>
-            </TabsTrigger>
-            <TabsTrigger value="restoranlar" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <Utensils className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Lezzetler</span>
-              <span className="sm:hidden">Yemek</span>
-            </TabsTrigger>
-            <TabsTrigger value="festivaller" className="flex items-center gap-1 md:gap-2 text-xs md:text-base">
-              <Music className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="hidden sm:inline">Festivaller</span>
-              <span className="sm:hidden">Etkinlik</span>
-            </TabsTrigger>
-          </TabsList>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            onClick={() => router.push('/turistik')}
+          >
+            <img 
+              src="/turist/giresun-kalesi.jpeg" 
+              alt="Tarihi Yerler"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+              <h3 className="text-white text-xl font-bold mb-2">Tarihi Keşfet</h3>
+              <p className="text-gray-200 text-sm">2000 yıllık tarihi, kaleleri ve antik yerleşimleri ile zamanda yolculuğa çıkın</p>
+            </div>
+          </motion.div>
 
-          {Object.entries(categories).map(([key, items]) => (
-            <TabsContent key={key} value={key}>
-              <motion.div 
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {items.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={cardVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    whileHover="hover"
-                  >
-                    <Card className="overflow-hidden">
-                      <div className="relative">
-                        <motion.img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-48 object-cover"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                        <motion.div 
-                          className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                          initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
-                          transition={{ duration: 0.2 }}
-                        />
-                      </div>
-                      <CardHeader>
-                        <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm md:text-base text-muted-foreground mb-4">{item.description}</p>
-                        <div className="flex items-center text-muted-foreground text-sm">
-                          <MapPin className="h-4 w-4 mr-2" />
-                          <span>{item.location}</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </TabsContent>
-          ))}
-        </Tabs>
+          <motion.div
+            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            onClick={() => router.push('/yaylalar')}
+          >
+            <img 
+              src="/turist/kumbet-yaylasi.jpg" 
+              alt="Doğal Güzellikler"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+              <h3 className="text-white text-xl font-bold mb-2">Doğayla Buluş</h3>
+              <p className="text-gray-200 text-sm">Yemyeşil yaylaları, şelaleleri ve eşsiz manzaraları ile doğanın kalbine yolculuk</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            onClick={() => router.push('/restoranlar')}
+          >
+            <img 
+              src="/restaurant/balik-izgara.jpg" 
+              alt="Yerel Lezzetler"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+              <h3 className="text-white text-xl font-bold mb-2">Lezzetleri Tat</h3>
+              <p className="text-gray-200 text-sm">Karadeniz mutfağının eşsiz lezzetleri ve yerel tatları ile gastronomi yolculuğu</p>
+            </div>
+          </motion.div>
+        </div>
       </main>
 
       {/* Mobil Uyumlu Footer */}
@@ -480,7 +518,7 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">İletişim</h3>
               <p className="text-sm md:text-base text-gray-300">
-                info@giresunrehberi.com<br />
+                tolgabayrakj@gmail.com<br />
                 +90 00 000 00 
               </p>
             </div>
