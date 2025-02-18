@@ -50,25 +50,25 @@ const categories = {
     {
       title: "Giresun Kalesi",
       description: "Şehre hakim tepede yer alan tarihi kale, muhteşem manzarası ile ünlüdür.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/giresun-kalesi.jpeg",
       location: "Merkez",
     },
     {
       title: "Giresun Adası",
       description: "Doğu Karadeniz'in tek adası, antik dönem kalıntıları ve doğal güzelliği ile öne çıkar.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/giresun-adasi.jpg",
       location: "Merkez sahil",
     },
     {
       title: "Kümbet Yaylası",
       description: "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/kumbet-yaylasi.jpg",
       location: "Merkeze 40 km",
     },
     {
       title: "Zeytinlik Mahallesi",
       description: "Tarihi Giresun evlerinin bulunduğu, nostaljik sokakları ile ünlü mahalle.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/zeytinlik-mahallesi.jpg",
       location: "Merkez",
     },
     {

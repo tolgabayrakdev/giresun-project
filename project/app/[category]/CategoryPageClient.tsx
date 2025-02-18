@@ -60,11 +60,31 @@ const placesData: Record<string, Place[]> = {
       id: "3",
       title: "Kümbet Yaylası",
       description: "1800 metre yükseklikte, yeşilin her tonunu barındıran muhteşem yayla.",
-      image: "/api/placeholder/400/300",
+      image: "/turist/kumbet-yaylasi.jpg",
       location: "Merkeze 40 km",
       geoLocation: { lat: 40.693056, lng: 38.455833 },
       rating: 4.8,
       features: ["Yayla", "Doğa", "Kamp"]
+    },
+    {
+      id: "4",
+      title: "Zeytinlik Mahallesi",
+      description: "Tarihi Giresun evlerinin bulunduğu, nostaljik sokakları ile ünlü mahalle.",
+      image: "/turist/zeytinlik-mahallesi.jpg",
+      location: "Merkez",
+      geoLocation: { lat: 40.917890, lng: 38.391234 },
+      rating: 4.6,
+      features: ["Mahalle", "Tarihi", "Yöresel"]
+    },
+    {
+      id: "5",
+      title: "Kulakkaya Yaylası",
+      description: "Kulakkaya Yaylası, Giresun'un tarihi ve doğal Güzellikleriyle ünlüdür.",
+      image: "/turist/kulakkaya.jpg",
+      location: "Merkez",
+      geoLocation: { lat: 40.917890, lng: 38.391234 },
+      rating: 4.9,
+      features: ["Yayla", "Doğa", "Kamp", "Tarih"]
     }
   ],
   restoranlar: [
