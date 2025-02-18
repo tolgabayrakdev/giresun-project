@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { i } from "framer-motion/client";
 
 // Sadeleştirilmiş animasyon variants
 const containerVariants = {
@@ -73,8 +74,8 @@ const categories = {
     },
     {
       title: "Mavi Göl",
-      description: "Dereli ilçesinde bulunan doğal güzelliği ile büyüleyen göl.",
-      image: "/api/placeholder/400/300",
+      description: "Dereli ilçesinde bulunan doğal güzelliği ile büyüleyen göl. Kesinlikle ziyaret etmelisiniz.",
+      image: "/turist/mavi-gol.jpg",
       location: "Dereli",
     },
   ],
@@ -82,13 +83,13 @@ const categories = {
     {
       title: "Çıtır Balık",
       description: "Taze Karadeniz balıkları ve meze çeşitleri.",
-      image: "/api/placeholder/400/300",
+      image: "/restaurant/balik-izgara.jpg",
       location: "Sahil yolu",
     },
     {
       title: "Karadeniz Pide Salonu",
       description: "Geleneksel Giresun pidesi ve kaygana.",
-      image: "/api/placeholder/400/300",
+      image: "/restaurant/lahmacun.jpg",
       location: "Merkez",
     },
     {
@@ -103,6 +104,12 @@ const categories = {
       image: "/api/placeholder/400/300",
       location: "Merkez",
     },
+    {
+      title: "Hazal Pide Lahmacun",
+      description: "Lahmacun ve pide çeşitleri",
+      image: "/api/placeholder/400/300",
+      location: "Merkez",
+    }
   ],
   yaylalar: [
     {
@@ -247,7 +254,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">Aksu Festivali</CardTitle>
-                <p className="text-sm text-gray-500">20-23 Mayıs 2024</p>
+                <p className="text-sm text-gray-500">20-23 Mayıs 2025</p>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">Geleneksel hale gelen festivalde konserler, yöresel ürünler ve kültürel etkinlikler.</p>
@@ -256,7 +263,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">Fındık Hasadı Şenliği</CardTitle>
-                <p className="text-sm text-gray-500">15-20 Ağustos 2024</p>
+                <p className="text-sm text-gray-500">15-20 Ağustos 2025</p>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">Fındık hasadı kutlamaları, yerel müzik ve dans gösterileri.</p>
@@ -265,7 +272,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">Yayla Şenlikleri</CardTitle>
-                <p className="text-sm text-gray-500">Temmuz-Ağustos 2024</p>
+                <p className="text-sm text-gray-500">Temmuz-Ağustos 2025</p>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">Kümbet ve Bektaş yaylalarında geleneksel şenlikler ve horon gösterileri.</p>
@@ -474,7 +481,7 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-bold mb-4">İletişim</h3>
               <p className="text-sm md:text-base text-gray-300">
                 info@giresunrehberi.com<br />
-                +90 454 123 45 67
+                +90 00 000 00 
               </p>
             </div>
             <div className="text-center sm:text-left">
@@ -500,7 +507,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-sm md:text-base text-gray-300">
-            <p>© 2025 Giresun Şehir Rehberi. Tüm hakları saklıdır.</p>
+            <p>© 2025 Giresun Şehir Rehberi. Tüm hakları saklıdır. @tolgabayrak</p>
           </div>
         </div>
       </footer>

@@ -85,30 +85,41 @@ const placesData: Record<string, Place[]> = {
       geoLocation: { lat: 40.917890, lng: 38.391234 },
       rating: 4.9,
       features: ["Yayla", "Doğa", "Kamp", "Tarih"]
+    },
+    {
+      id: "6",
+      title: "Mavi Göl",
+      description: "Dereli ilçesinde bulunan doğal güzelliği ile büyüleyen göl. Kesinlikle ziyaret etmelisiniz.",
+      image: "/turist/mavi-gol.jpg",
+      location: "Dereli",
+      geoLocation: { lat: 40.917890, lng: 38.391234 },
+      rating: 4.8,
+      features: ["Güzellikler", "Yöresel", "Doğa"]
+
     }
   ],
   restoranlar: [
     {
       id: "1",
-      title: "Çıtır Balık",
-      description: "Taze Karadeniz balıkları ve meze çeşitleri.",
+      title: "Haşlamacı Giresun",
+      description: "Et Haşlama ve sebze yemekleri",
       image: "/api/placeholder/400/300",
       location: "Sahil yolu",
       geoLocation: { lat: 40.917890, lng: 38.391234 },
       rating: 4.2,
       priceLevel: "₺₺",
-      features: ["Deniz Ürünleri", "Manzaralı", "Alkollü"]
+      features: ["Et Yemekleri", "Sebze Yemekleri"]
     },
     {
       id: "2",
-      title: "Fındık Pide Salonu",
-      description: "Geleneksel Giresun pidesi ve yöresel lezzetler.",
+      title: "Hazal Pide Lahmacun",
+      description: "Pide ve lahmacun çeşitleri",
       image: "/api/placeholder/400/300",
       location: "Merkez",
       geoLocation: { lat: 40.917543, lng: 38.392765 },
-      rating: 4.6,
+      rating: 3.9,
       priceLevel: "₺",
-      features: ["Pide", "Karadeniz Mutfağı", "Aile Mekanı"]
+      features: ["Pide", "Lahmacun", "Aile Mekanı"]
     },
     {
       id: "3",
@@ -120,6 +131,17 @@ const placesData: Record<string, Place[]> = {
       rating: 4.4,
       priceLevel: "₺₺",
       features: ["Yöresel", "Kahvaltı", "Aile Mekanı"]
+    },
+    {
+      id: "4",
+      title: "Grava Lounge",
+      description: "Taze kahvaltı ve ana yemekler.",
+      image: "/api/placeholder/400/300",
+      location: "Güre",
+      geoLocation: { lat: 40.917890, lng: 38.391234 },
+      rating: 4.5,
+      priceLevel: "₺₺",
+      features: ["Yöresel", "Pide", "Aile Mekanı"]
     }
   ],
   oteller: [
