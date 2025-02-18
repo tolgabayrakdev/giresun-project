@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Kategoriler için veri tipleri
 type Location = {
@@ -377,9 +378,19 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <motion.div 
+      className="min-h-screen bg-gray-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       {/* Geri Dön Butonu */}
-      <div className="fixed top-4 left-4 z-50">
+      <motion.div 
+        className="fixed top-4 left-4 z-50"
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
         <Button 
           variant="outline" 
           size="icon" 
@@ -388,10 +399,15 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
-      </div>
+      </motion.div>
 
       {/* Header */}
-      <div className="bg-green-900 text-white py-12">
+      <motion.div 
+        className="bg-green-900 text-white py-12"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {categoryInfo.title}
@@ -400,10 +416,15 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
             {categoryInfo.description}
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* İlçe Seçimi ve Arama - Mobil Uyumlu */}
-      <div className="container mx-auto px-4 py-4">
+      <motion.div 
+        className="container mx-auto px-4 py-4"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         <div className="flex flex-col md:flex-row gap-4">
           <Select
             value={selectedDistrict}
@@ -484,27 +505,145 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
             </Sheet>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Arama ve Filtreleme */}
       <div className="container mx-auto px-4 py-8">
-        <div className="space-y-4">
-          {filteredPlaces.length > 0 ? (
-            selectedDistrict === 'Tümü' ? (
-              // İlçelere göre grupla
-              Object.entries(
-                filteredPlaces.reduce((acc, place) => {
-                  const district = place.district;
-                  if (!acc[district]) acc[district] = [];
-                  acc[district].push(place);
-                  return acc;
-                }, {} as Record<string, Place[]>)
-              ).map(([district, places]) => (
-                <div key={district}>
-                  <h2 className="text-xl font-semibold text-green-800 mb-4">{district}</h2>
-                  <div className="space-y-4">
-                    {places.map(place => (
-                      <Card key={place.id} className="overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={selectedDistrict + searchQuery}
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {filteredPlaces.length > 0 ? (
+              selectedDistrict === 'Tümü' ? (
+                // İlçelere göre grupla
+                Object.entries(
+                  filteredPlaces.reduce((acc, place) => {
+                    const district = place.district;
+                    if (!acc[district]) acc[district] = [];
+                    acc[district].push(place);
+                    return acc;
+                  }, {} as Record<string, Place[]>)
+                ).map(([district, places], index) => (
+                  <motion.div 
+                    key={district}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <h2 className="text-xl font-semibold text-green-800 mb-4">{district}</h2>
+                    <div className="space-y-4">
+                      {places.map((place, placeIndex) => (
+                        <motion.div
+                          key={place.id}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: (index * places.length + placeIndex) * 0.05 }}
+                        >
+                          <Card className="overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
+                            <div className="md:flex">
+                              <div className="md:w-1/3">
+                                <ImageWithFallback
+                                  src={place.image}
+                                  alt={place.title}
+                                  className="w-full h-full object-cover"
+                                  style={{ aspectRatio: '4/3' }}
+                                />
+                              </div>
+                              
+                              <div className="md:w-2/3 p-6">
+                                <div className="flex justify-between items-start mb-2">
+                                  <h3 className="text-xl font-semibold">{place.title}</h3>
+                                  <div className="flex items-center">
+                                    <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                                    <span className="text-sm font-medium">{place.rating}</span>
+                                  </div>
+                                </div>
+
+                                <p className="text-gray-600 mb-4">{place.description}</p>
+
+                                <div className="space-y-4">
+                                  <div className="flex flex-wrap gap-2">
+                                    {place.features.map((feature) => (
+                                      <span
+                                        key={feature}
+                                        className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                                      >
+                                        {feature}
+                                      </span>
+                                    ))}
+                                  </div>
+
+                                  <div className="flex items-center justify-between pt-4 border-t">
+                                    <div className="flex items-center text-gray-500">
+                                      <MapPin className="h-4 w-4 mr-2" />
+                                      <span className="text-sm">{place.location}</span>
+                                    </div>
+
+                                    <div className="flex gap-2">
+                                      <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="flex items-center gap-2 text-green-600 hover:text-green-700"
+                                        onClick={() => {
+                                          if (navigator.geolocation) {
+                                            navigator.geolocation.getCurrentPosition((position) => {
+                                              const userLat = position.coords.latitude;
+                                              const userLng = position.coords.longitude;
+                                              const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                              window.open(url, '_blank');
+                                            }, () => {
+                                              const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                              window.open(url, '_blank');
+                                            });
+                                          } else {
+                                            const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                            window.open(url, '_blank');
+                                          }
+                                        }}
+                                      >
+                                        <Navigation className="h-4 w-4" />
+                                        <span className="hidden sm:inline">Yol Tarifi</span>
+                                      </Button>
+
+                                      <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                                        onClick={() => {
+                                          const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                          window.open(url, '_blank');
+                                        }}
+                                      >
+                                        <MapPin className="h-4 w-4" />
+                                        <span className="hidden sm:inline">Konumu Gör</span>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </Card>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))
+              ) : (
+                // Seçili ilçe için direkt liste
+                <div className="space-y-4">
+                  {filteredPlaces.map((place, index) => (
+                    <motion.div
+                      key={place.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Card className="overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
                         <div className="md:flex">
                           <div className="md:w-1/3">
                             <ImageWithFallback
@@ -588,108 +727,23 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                           </div>
                         </div>
                       </Card>
-                    ))}
-                  </div>
+                    </motion.div>
+                  ))}
                 </div>
-              ))
+              )
             ) : (
-              // Seçili ilçe için direkt liste
-              <div className="space-y-4">
-                {filteredPlaces.map(place => (
-                  <Card key={place.id} className="overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
-                    <div className="md:flex">
-                      <div className="md:w-1/3">
-                        <ImageWithFallback
-                          src={place.image}
-                          alt={place.title}
-                          className="w-full h-full object-cover"
-                          style={{ aspectRatio: '4/3' }}
-                        />
-                      </div>
-                      
-                      <div className="md:w-2/3 p-6">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-xl font-semibold">{place.title}</h3>
-                          <div className="flex items-center">
-                            <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                            <span className="text-sm font-medium">{place.rating}</span>
-                          </div>
-                        </div>
-
-                        <p className="text-gray-600 mb-4">{place.description}</p>
-
-                        <div className="space-y-4">
-                          <div className="flex flex-wrap gap-2">
-                            {place.features.map((feature) => (
-                              <span
-                                key={feature}
-                                className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-
-                          <div className="flex items-center justify-between pt-4 border-t">
-                            <div className="flex items-center text-gray-500">
-                              <MapPin className="h-4 w-4 mr-2" />
-                              <span className="text-sm">{place.location}</span>
-                            </div>
-
-                            <div className="flex gap-2">
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="flex items-center gap-2 text-green-600 hover:text-green-700"
-                                onClick={() => {
-                                  if (navigator.geolocation) {
-                                    navigator.geolocation.getCurrentPosition((position) => {
-                                      const userLat = position.coords.latitude;
-                                      const userLng = position.coords.longitude;
-                                      const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
-                                      window.open(url, '_blank');
-                                    }, () => {
-                                      const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
-                                      window.open(url, '_blank');
-                                    });
-                                  } else {
-                                    const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
-                                    window.open(url, '_blank');
-                                  }
-                                }}
-                              >
-                                <Navigation className="h-4 w-4" />
-                                <span className="hidden sm:inline">Yol Tarifi</span>
-                              </Button>
-
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
-                                onClick={() => {
-                                  const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
-                                  window.open(url, '_blank');
-                                }}
-                              >
-                                <MapPin className="h-4 w-4" />
-                                <span className="hidden sm:inline">Konumu Gör</span>
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            )
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-500">Aramanıza uygun sonuç bulunamadı.</p>
-            </div>
-          )}
-        </div>
+              <motion.div 
+                className="text-center py-12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <p className="text-gray-500">Aramanıza uygun sonuç bulunamadı.</p>
+              </motion.div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 } 
