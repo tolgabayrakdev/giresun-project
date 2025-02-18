@@ -206,7 +206,7 @@ export default function Home() {
               transition={{ delay: 0.6 }}
             >
               <motion.img
-                src="/icons/findik-icon.png"
+                src="/findik-icon.png"
                 alt="Fındık"
                 className="w-16 h-16"
                 animate={{
