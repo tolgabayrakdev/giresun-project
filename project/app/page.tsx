@@ -342,61 +342,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Öne Çıkan Özellikler - Mobil Grid */}
-      <section className="py-8 md:py-16 bg-gradient-to-b from-green-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="space-y-2">
-                <Mountain className="h-8 w-8 md:h-12 md:w-12 text-green-600" />
-                <CardTitle className="text-lg md:text-xl">Yaylalar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Kümbet, Bektaş ve daha birçok yayla ile doğanın kalbinde unutulmaz deneyimler
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="space-y-2">
-                <Coffee className="h-8 w-8 md:h-12 md:w-12 text-green-600" />
-                <CardTitle className="text-lg md:text-xl">Yerel Lezzetler</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Fındık ürünleri, Giresun pidesi ve yöresel tatlar
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="space-y-2">
-                <Ship className="h-8 w-8 md:h-12 md:w-12 text-green-600" />
-                <CardTitle className="text-lg md:text-xl">Ada Turu</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Giresun Adası'na tekne turları ve tarihi keşif
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardHeader className="space-y-2">
-                <Trees className="h-8 w-8 md:h-12 md:w-12 text-green-600" />
-                <CardTitle className="text-lg md:text-xl">Doğa Sporları</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Trekking, kamp ve doğa yürüyüşü aktiviteleri
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Kategori Butonları Section'ı */}
       <section id="kategoriler" className="py-16 bg-gradient-to-b from-white to-green-50">
         <div className="container mx-auto px-4">
@@ -497,73 +442,115 @@ export default function Home() {
       </section>
 
       {/* Öne Çıkan Yerler */}
-      <main className="container mx-auto px-4 py-8 md:py-16">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-4">Öne Çıkan Deneyimler</h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Giresun'un eşsiz doğası, tarihi ve kültürel zenginlikleri ile unutulmaz anılar biriktirin
-          </p>
+      <section className="py-16 bg-gradient-to-b from-green-50 to-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">Öne Çıkan Deneyimler</h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Giresun'un eşsiz doğası, tarihi ve kültürel zenginlikleri ile unutulmaz anılar biriktirin
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {/* Tarihi Yerler Kartı */}
+            <motion.div
+              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              variants={itemVariants}
+            >
+              <div className="aspect-[4/5]">
+                <img 
+                  src="/turist/giresun-kalesi.jpeg" 
+                  alt="Tarihi Yerler"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
+                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <h3 className="text-white text-2xl font-bold mb-3">Tarihi Keşfet</h3>
+                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      2000 yıllık tarihi, kaleleri ve antik yerleşimleri ile zamanda yolculuğa çıkın.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏰 Kale Turu</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">📸 Fotoğraf Turu</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏛️ Tarihi Sokaklar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Doğa Deneyimi Kartı */}
+            <motion.div
+              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              variants={itemVariants}
+            >
+              <div className="aspect-[4/5]">
+                <img 
+                  src="/turist/kumbet-yaylasi.jpg" 
+                  alt="Doğal Güzellikler"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
+                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <h3 className="text-white text-2xl font-bold mb-3">Doğayla Buluş</h3>
+                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Yemyeşil yaylalarda kamp yapın, doğa yürüyüşlerine katılın ve eşsiz manzaraların tadını çıkarın.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">⛺ Kamp</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥾 Trekking</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏞️ Yayla Turu</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏞️ Fotoğrafçılık</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Gastronomi Kartı */}
+            <motion.div
+              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              variants={itemVariants}
+            >
+              <div className="aspect-[4/5]">
+                <img 
+                  src="/restaurant/balik-izgara.jpg" 
+                  alt="Yerel Lezzetler"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
+                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
+                    <h3 className="text-white text-2xl font-bold mb-3">Lezzetleri Keşfet</h3>
+                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Yöresel mutfağın tadına varın, fındık bahçelerini gezin ve taze balık keyfi yaşayın.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🐟 Balık Restoranları</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥜 Fındık Tadımı</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥘 Yöresel Mutfak</span>
+                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">☕ Kahve Molası</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <motion.div
-            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            onClick={() => router.push('/turistik')}
-          >
-            <img 
-              src="/turist/giresun-kalesi.jpeg" 
-              alt="Tarihi Yerler"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-              <h3 className="text-white text-xl font-bold mb-2">Tarihi Keşfet</h3>
-              <p className="text-gray-200 text-sm">2000 yıllık tarihi, kaleleri ve antik yerleşimleri ile zamanda yolculuğa çıkın</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            onClick={() => router.push('/yaylalar')}
-          >
-            <img 
-              src="/turist/kumbet-yaylasi.jpg" 
-              alt="Doğal Güzellikler"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-              <h3 className="text-white text-xl font-bold mb-2">Doğayla Buluş</h3>
-              <p className="text-gray-200 text-sm">Yemyeşil yaylaları, şelaleleri ve eşsiz manzaraları ile doğanın kalbine yolculuk</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative rounded-lg overflow-hidden h-[300px] group cursor-pointer"
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            onClick={() => router.push('/restoranlar')}
-          >
-            <img 
-              src="/restaurant/balik-izgara.jpg" 
-              alt="Yerel Lezzetler"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-              <h3 className="text-white text-xl font-bold mb-2">Lezzetleri Tat</h3>
-              <p className="text-gray-200 text-sm">Karadeniz mutfağının eşsiz lezzetleri ve yerel tatları ile gastronomi yolculuğu</p>
-            </div>
-          </motion.div>
-        </div>
-      </main>
+      </section>
 
       {/* Mobil Uyumlu Footer */}
       <footer className="bg-green-900 text-white mt-8 md:mt-12">
