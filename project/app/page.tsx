@@ -445,19 +445,21 @@ export default function Home() {
       <section className="py-16 bg-gradient-to-b from-green-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-12 space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">Öne Çıkan Deneyimler</h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+              Öne Çıkan Deneyimler
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Giresun'un eşsiz doğası, tarihi ve kültürel zenginlikleri ile unutulmaz anılar biriktirin
             </p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -465,55 +467,124 @@ export default function Home() {
           >
             {/* Tarihi Yerler Kartı */}
             <motion.div
-              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               variants={itemVariants}
             >
-              <div className="aspect-[4/5]">
+              <div className="relative h-[400px]">
                 <img 
                   src="/turist/giresun-kalesi.jpeg" 
                   alt="Tarihi Yerler"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
-                    <h3 className="text-white text-2xl font-bold mb-3">Tarihi Keşfet</h3>
-                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Overlay - Normal durumda hafif gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
+                
+                {/* Hover durumunda görünecek overlay */}
+                <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Başlık - Her zaman görünür ama hover'da yukarı kayar */}
+                <div className="absolute bottom-6 left-6 right-6 transition-all duration-500 group-hover:translate-y-[-280px]">
+                  <h3 className="text-white text-2xl font-bold">Tarihi Keşfet</h3>
+                </div>
+
+                {/* İçerik - Hover'da görünür */}
+                <div className="absolute inset-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  <div className="space-y-4">
+                    <p className="text-white/90 text-base">
                       2000 yıllık tarihi, kaleleri ve antik yerleşimleri ile zamanda yolculuğa çıkın.
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏰 Kale Turu</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">📸 Fotoğraf Turu</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏛️ Tarihi Sokaklar</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🏰 Kale Turu
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        📸 Fotoğraf Turu
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Doğa Deneyimi Kartı */}
+            {/* Yeni Kart: Kültür Turu */}
             <motion.div
-              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               variants={itemVariants}
             >
-              <div className="aspect-[4/5]">
+              <div className="relative h-[400px]">
+                <img 
+                  src="/turist/zeytinlik-mahallesi.jpg" 
+                  alt="Kültür Turu"
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay - Normal durumda hafif gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
+                
+                {/* Hover durumunda görünecek overlay */}
+                <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Başlık - Her zaman görünür ama hover'da yukarı kayar */}
+                <div className="absolute bottom-6 left-6 right-6 transition-all duration-500 group-hover:translate-y-[-280px]">
+                  <h3 className="text-white text-2xl font-bold">Kültür Turu</h3>
+                </div>
+
+                {/* İçerik - Hover'da görünür */}
+                <div className="absolute inset-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  <div className="space-y-4">
+                    <p className="text-white/90 text-base">
+                      Zeytinlik Mahallesi'nde tarihi evler arasında yürüyüş ve yerel yaşamı keşfedin.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🏘️ Tarihi Evler
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🎨 Sanat Galerileri
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Doğa Deneyimi Kartı - Güncellendi */}
+            <motion.div
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+              variants={itemVariants}
+            >
+              <div className="relative h-[400px]">
                 <img 
                   src="/turist/kumbet-yaylasi.jpg" 
                   alt="Doğal Güzellikler"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
-                    <h3 className="text-white text-2xl font-bold mb-3">Doğayla Buluş</h3>
-                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Overlay - Normal durumda hafif gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
+                
+                {/* Hover durumunda görünecek overlay */}
+                <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Başlık - Her zaman görünür ama hover'da yukarı kayar */}
+                <div className="absolute bottom-6 left-6 right-6 transition-all duration-500 group-hover:translate-y-[-280px]">
+                  <h3 className="text-white text-2xl font-bold">Doğayla Buluş</h3>
+                </div>
+
+                {/* İçerik - Hover'da görünür */}
+                <div className="absolute inset-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  <div className="space-y-4">
+                    <p className="text-white/90 text-base">
                       Yemyeşil yaylalarda kamp yapın, doğa yürüyüşlerine katılın ve eşsiz manzaraların tadını çıkarın.
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">⛺ Kamp</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥾 Trekking</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏞️ Yayla Turu</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🏞️ Fotoğrafçılık</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        ⛺ Kamp
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🥾 Trekking
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🏞️ Yayla Turu
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -522,32 +593,48 @@ export default function Home() {
 
             {/* Gastronomi Kartı */}
             <motion.div
-              className="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               variants={itemVariants}
             >
-              <div className="aspect-[4/5]">
+              <div className="relative h-[400px]">
                 <img 
                   src="/restaurant/balik-izgara.jpg" 
                   alt="Yerel Lezzetler"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"/>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm">
-                    <h3 className="text-white text-2xl font-bold mb-3">Lezzetleri Keşfet</h3>
-                    <p className="text-gray-200 text-sm transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Yöresel mutfağın tadına varın, fındık bahçelerini gezin ve taze balık keyfi yaşayın.
+                {/* Overlay - Normal durumda hafif gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
+                
+                {/* Hover durumunda görünecek overlay */}
+                <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                {/* Başlık - Her zaman görünür ama hover'da yukarı kayar */}
+                <div className="absolute bottom-6 left-6 right-6 transition-all duration-500 group-hover:translate-y-[-280px]">
+                  <h3 className="text-white text-2xl font-bold">Lezzet Turu</h3>
+                </div>
+
+                {/* İçerik - Hover'da görünür */}
+                <div className="absolute inset-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  <div className="space-y-4">
+                    <p className="text-white/90 text-base">
+                      Karadeniz mutfağının eşsiz lezzetlerini tadın, taze balık ve fındık ürünlerinin keyfini çıkarın.
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🐟 Balık Restoranları</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥜 Fındık Tadımı</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">🥘 Yöresel Mutfak</span>
-                      <span className="px-2 py-1 bg-white/20 rounded-full text-xs text-white backdrop-blur-sm">☕ Kahve Molası</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🐟 Balık Restoranları
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🥜 Fındık Tadımı
+                      </span>
+                      <span className="px-3 py-1.5 bg-white/20 rounded-full text-sm text-white">
+                        🍳 Yöresel Mutfak
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
+
           </motion.div>
         </div>
       </section>
