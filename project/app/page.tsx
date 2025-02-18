@@ -153,61 +153,121 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <motion.div 
-        className="relative"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 to-green-800/90" />
-        <div className="relative min-h-[400px] md:h-[600px] flex items-center"
-          style={{
-            backgroundImage: "url('/api/placeholder/1920/1080')",
-            backgroundPosition: "center",
-            backgroundSize: "cover"
-          }}>
-          <div className="container mx-auto px-4">
-            <motion.div 
-              className="max-w-2xl text-white space-y-4 md:space-y-6 py-12"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.h1 
-                className="text-4xl md:text-5xl font-bold leading-tight"
-                variants={itemVariants}
-              >
-                Karadeniz'in Yeşil İncisi
-                <motion.span 
-                  className="block text-5xl md:text-6xl mt-2"
-                  variants={itemVariants}
-                >
-                  GİRESUN
-                </motion.span>
-              </motion.h1>
-              <motion.p 
-                className="text-lg md:text-xl text-gray-100"
-                variants={itemVariants}
-              >
-                Eşsiz doğası, tarihi yapıları, yaylaları ve fındığıyla
-                keşfedilmeyi bekleyen şehir
-              </motion.p>
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-3"
-                variants={itemVariants}
-              >
-                <Button 
-                  size="lg" 
-                  className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-semibold"
-                  onClick={() => router.push('/about')}
-                >
-                  Daha Fazla Bilgi
-                </Button>
-              </motion.div>
-            </motion.div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Arka plan deseni */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-green-900/90 to-green-800/90" />
+          <div className="absolute inset-0 backdrop-blur-sm" />
+          <div 
+            className="absolute inset-0 opacity-10 text-white select-none pointer-events-none"
+            style={{
+              backgroundImage: "url('/patterns/findik-pattern.png')",
+              backgroundSize: "500px",
+              backgroundRepeat: "repeat",
+            }}
+          />
+          <div className="absolute -right-20 top-20 text-[20rem] font-bold text-white/5 rotate-12 select-none pointer-events-none">
+            GİRESUN
           </div>
         </div>
-      </motion.div>
+
+        {/* İçerik */}
+        <div className="container mx-auto px-4 relative">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center text-white space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1 
+              className="text-4xl md:text-6xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Karadeniz'in İncisi <br />
+              <span className="text-green-300">Giresun</span>'u Keşfedin
+            </motion.h1>
+            
+            <motion.p 
+              className="text-lg md:text-xl text-gray-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Fındığın başkenti, yaylaların cenneti, tarihin ve doğanın buluşma noktası
+            </motion.p>
+
+            {/* Fındık animasyonu */}
+            <motion.div 
+              className="flex justify-center gap-8 mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <motion.img
+                src="/icons/findik-icon.png"
+                alt="Fındık"
+                className="w-16 h-16"
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                  y: [0, -5, 0]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
+
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <Button 
+                size="lg" 
+                className="bg-white text-green-900 hover:bg-green-50 font-semibold"
+                onClick={() => document.getElementById('kategoriler')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Keşfetmeye Başla
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-semibold"
+                onClick={() => router.push('/about')}
+              >
+                Daha Fazla Bilgi
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <motion.div
+            className="w-6 h-10 border-2 border-white/50 rounded-full p-1"
+            animate={{
+              y: [0, 5, 0]
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="w-1 h-2 bg-white/50 rounded-full mx-auto" />
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* İstatistikler */}
       <section className="py-12 bg-green-900 text-white">
