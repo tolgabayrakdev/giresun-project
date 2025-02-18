@@ -237,7 +237,7 @@ export default function Home() {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="bg-transparent hover:bg-white/20 text-white border-2 border-white font-semibold"
+                className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
                 onClick={() => router.push('/about')}
               >
                 Daha Fazla Bilgi
