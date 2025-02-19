@@ -22,6 +22,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { motion, AnimatePresence } from "framer-motion";
+import placesData from '@/data/places.json';
+import restaurantsData from '@/data/restaurants.json';
+import plateausData from '@/data/plateaus.json';
+import festivalsData from '@/data/festivals.json';
+import { BasePlace, Restaurant, PlacesData } from '@/types/places';
 
 // Kategoriler için veri tipleri
 type Location = {
@@ -48,263 +53,12 @@ type District = 'Merkez' | 'Dereli' | 'Bulancak' | 'Tirebolu' | 'Görele' |
                 'Güce' | 'Çamoluk' | 'Alucra' | 'Çanakçı' | 'Doğankent' | 
                 'Yağlıdere' | 'Tümü';
 
-// Genişletilmiş örnek veri
-const placesData: Record<string, Place[]> = {
-  turistik: [
-    // Merkez
-    {
-      id: "1",
-      title: "Giresun Kalesi",
-      description: "Şehre hakim tepede yer alan tarihi kale, muhteşem manzarası ile ünlüdür.",
-      image: "/turist/giresun-kalesi.jpeg",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.912977, lng: 38.389834 },
-      rating: 4.5,
-      features: ["Tarihi Yapı", "Manzara", "Yürüyüş"]
-    },
-    {
-      id: "2",
-      title: "Giresun Adası",
-      description: "Doğu Karadeniz'in tek adası, antik kalıntıları ve doğal güzelliği ile öne çıkar.",
-      image: "/turist/giresun-adasi.jpg",
-      location: "Merkez sahil",
-      district: "Merkez",
-      geoLocation: { lat: 40.925642, lng: 38.385867 },
-      rating: 4.7,
-      features: ["Ada", "Tekne Turu", "Tarihi"]
-    },
-    // Dereli
-    {
-      id: "3",
-      title: "Kuzalan Şelalesi",
-      description: "Dereli'nin en önemli doğal güzelliklerinden, muhteşem şelale ve yürüyüş parkurları.",
-      image: "/turist/kuzalan.jpg",
-      location: "Dereli",
-      district: "Dereli",
-      geoLocation: { lat: 40.693056, lng: 38.455833 },
-      rating: 4.8,
-      features: ["Şelale", "Doğa", "Yürüyüş"]
-    },
-    // Şebinkarahisar
-    {
-      id: "4",
-      title: "Şebinkarahisar Kalesi",
-      description: "Tarihi kale ve eşsiz manzarasıyla ünlü turistik mekan.",
-      image: "/turist/sbin-kalesi.jpeg",
-      location: "Şebinkarahisar",
-      district: "Şebinkarahisar",
-      geoLocation: { lat: 40.286389, lng: 38.422778 },
-      rating: 4.6,
-      features: ["Tarihi Kale", "Manzara", "Kültürel Miras"]
-    },
-    // Tirebolu
-    {
-      id: "5",
-      title: "Tirebolu Kalesi",
-      description: "Deniz kıyısında tarihi kale ve muhteşem manzara.",
-      image: "/turist/tirebolu-kalesi.png",
-      location: "Tirebolu",
-      district: "Tirebolu",
-      geoLocation: { lat: 41.005833, lng: 38.813611 },
-      rating: 4.5,
-      features: ["Tarihi Kale", "Deniz", "Manzara"]
-    },
-    // Bulancak
-    {
-      id: "6",
-      title: "Bulancak Sahili",
-      description: "Uzun sahil şeridi ve yürüyüş alanları.",
-      image: "/turist/bulancak-sahili.jpg",
-      location: "Bulancak",
-      district: "Bulancak",
-      geoLocation: { lat: 40.938333, lng: 38.232778 },
-      rating: 4.3,
-      features: ["Sahil", "Yürüyüş", "Deniz"]
-    },
-    // Espiye
-    {
-      id: "7",
-      title: "Yaylaköy Şelalesi",
-      description: "Doğal güzelliği ile ünlü şelale ve mesire alanı.",
-      image: "/turist/yayla-selalesi.jpg",
-      location: "Espiye",
-      district: "Espiye",
-      geoLocation: { lat: 40.792778, lng: 38.702778 },
-      rating: 4.4,
-      features: ["Şelale", "Piknik", "Doğa"]
-    }
-  ],
-  restoranlar: [
-    {
-      id: "1",
-      title: "Haşlamacı Giresun",
-      description: "Et Haşlama ve sebze yemekleri",
-      image: "/restaurant/haslama.jpg",
-      location: "Sahil yolu",
-      district: "Merkez",
-      geoLocation: { lat: 40.917890, lng: 38.391234 },
-      rating: 4.2,
-      priceLevel: "₺₺",
-      features: ["Et Yemekleri", "Sebze Yemekleri"]
-    },
-    {
-      id: "2",
-      title: "Hazal Pide Lahmacun",
-      description: "Pide ve lahmacun çeşitleri",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.917543, lng: 38.392765 },
-      rating: 3.9,
-      priceLevel: "₺",
-      features: ["Pide", "Lahmacun", "Aile Mekanı"]
-    },
-    {
-      id: "3",
-      title: "Karadeniz Sofrası",
-      description: "Otantik atmosferde yöresel Karadeniz mutfağı.",
-      image: "/api/placeholder/400/300",
-      location: "Çınarlar",
-      district: "Merkez",
-      geoLocation: { lat: 40.915678, lng: 38.387654 },
-      rating: 4.4,
-      priceLevel: "₺₺",
-      features: ["Yöresel", "Kahvaltı", "Aile Mekanı"]
-    },
-    {
-      id: "4",
-      title: "Grava Lounge",
-      description: "Taze kahvaltı ve ana yemekler.",
-      image: "/api/placeholder/400/300",
-      location: "Güre",
-      district: "Merkez",
-      geoLocation: { lat: 40.917890, lng: 38.391234 },
-      rating: 4.5,
-      priceLevel: "₺₺",
-      features: ["Yöresel", "Pide", "Aile Mekanı"]
-    },
-    {
-      id: "5",
-      title: "Kumyalı Simit Fırını",
-      description: "Giresun'a özgü harika simit ve daha fazlası",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.917190, lng: 38.391204 },
-      rating: 4.3,
-      priceLevel: "₺",
-      features: ["Yöresel", "Simit", "Fırın"]
-    }
-  ],
-  oteller: [
-    {
-      id: "1",
-      title: "Amazon Otel",
-      description: "Şehir merkezinde 4 yıldızlı konfor ve deniz manzarası.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.916789, lng: 38.390123 },
-      rating: 4.3,
-      priceLevel: "₺₺₺",
-      features: ["Deniz Manzarası", "Spa", "Restoran", "Ücretsiz Otopark"]
-    },
-    {
-      id: "2",
-      title: "Kümbet Dağ Evi",
-      description: "Kümbet Yaylası'nda doğayla iç içe konaklama deneyimi.",
-      image: "/api/placeholder/400/300",
-      location: "Kümbet Yaylası",
-      district: "Merkez",
-      geoLocation: { lat: 40.693456, lng: 38.456789 },
-      rating: 4.7,
-      priceLevel: "₺₺",
-      features: ["Doğa", "Şömine", "Kahvaltı", "Trekking"]
-    },
-    {
-      id: "3",
-      title: "Sahil Butik Otel",
-      description: "Sahile sıfır konumu ile huzurlu bir konaklama.",
-      image: "/api/placeholder/400/300",
-      location: "Sahil",
-      district: "Merkez",
-      geoLocation: { lat: 40.913456, lng: 38.388901 },
-      rating: 4.5,
-      priceLevel: "₺₺",
-      features: ["Deniz Manzarası", "Kahvaltı", "Wifi"]
-    }
-  ],
-  alisveris: [
-    {
-      id: "1",
-      title: "Giresun Çarşısı",
-      description: "Geleneksel el sanatları ve yöresel ürünler.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.917890, lng: 38.391234 },
-      rating: 4.4,
-      features: ["Hediyelik Eşya", "Yöresel Ürünler", "Fındık Ürünleri"]
-    },
-    {
-      id: "2",
-      title: "Forum Giresun",
-      description: "Modern alışveriş merkezi ve eğlence kompleksi.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.918901, lng: 38.392345 },
-      rating: 4.3,
-      features: ["AVM", "Sinema", "Yeme-İçme", "Otopark"]
-    },
-    {
-      id: "3",
-      title: "Fındık Pazarı",
-      description: "Yerel fındık üreticilerinin taze ürünleri.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-      district: "Merkez",
-      geoLocation: { lat: 40.916789, lng: 38.390123 },
-      rating: 4.6,
-      features: ["Fındık", "Yöresel Ürünler", "Organik"]
-    }
-  ],
-  yaylalar: [
-    {
-      id: "1",
-      title: "Kümbet Yaylası",
-      description: "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla. Kış turizmi için de ideal bir lokasyon.",
-      image: "/turist/kumbet-yaylasi.jpg",
-      location: "Merkeze 40 km",
-      district: "Merkez",
-      geoLocation: { lat: 40.5697, lng: 38.4172 },
-      rating: 4.8,
-      features: ["Kış Turizmi", "Yayla Şenlikleri", "Doğa Yürüyüşü", "Kamp"]
-    },
-    {
-      id: "2",
-      title: "Kulakkaya Yaylası",
-      description: "1600 metre rakımda, doğal güzellikleri ve temiz havasıyla ünlü yayla. Kış sporları ve doğa yürüyüşleri için ideal.",
-      image: "/turist/kulakkaya.jpg",
-      location: "Merkeze 45 km",
-      district: "Dereli",
-      geoLocation: { lat: 40.6425, lng: 38.4561 },
-      rating: 4.7,
-      features: ["Kayak Merkezi", "Trekking", "Kamp Alanı", "Dağ Bisikleti"]
-    },
-    {
-      id: "3",
-      title: "Bektaş Yaylası",
-      description: "Doğal güzellikleri ve temiz havasıyla ünlü, kamp ve trekking için ideal yayla.",
-      image: "/turist/bektas-yayla.jpg",
-      location: "Dereli",
-      district: "Dereli",
-      geoLocation: { lat: 40.6789, lng: 38.4123 },
-      rating: 4.6,
-      features: ["Doğa Yürüyüşü", "Kamp", "Yayla Şenlikleri"]
-    }
-  ]
+// Tüm verileri birleştir
+const allData: Record<string, BasePlace[] | Restaurant[]> = {
+  turistik: placesData.turistik,
+  restoranlar: restaurantsData.restoranlar,
+  yaylalar: plateausData.yaylalar,
+  festivaller: festivalsData.festivaller,
 };
 
 // Kategori başlıkları ve açıklamaları için obje
@@ -320,10 +74,6 @@ const categoryDetails: Record<string, { title: string, description: string }> = 
   yaylalar: {
     title: "Yaylalar",
     description: "Giresun'un muhteşem yaylalarını keşfedin"
-  },
-  festivaller: {
-    title: "Festivaller ve Etkinlikler",
-    description: "Giresun'un kültürel etkinliklerini deneyimleyin"
   }
 };
 
@@ -356,6 +106,11 @@ const ImageWithFallback = ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLI
   );
 };
 
+// Type guard ekleyelim
+function isRestaurant(place: BasePlace): place is Restaurant {
+  return 'priceLevel' in place;
+}
+
 export default function CategoryPageClient({ category }: CategoryPageClientProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
@@ -373,7 +128,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   );
 
   // Places ve features'ları memoize edelim
-  const places = useMemo(() => placesData[category] || [], [category]);
+  const places = useMemo(() => allData[category] || [], [category]);
   const allFeatures = useMemo(() => 
     Array.from(new Set(places.flatMap(place => place.features))),
     [places]
@@ -397,7 +152,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
       const matchesDistrict = selectedDistrict === 'Tümü' || place.district === selectedDistrict;
 
       const matchesPrice = priceFilter.length === 0 ||
-        (place.priceLevel && priceFilter.includes(place.priceLevel));
+        (isRestaurant(place) && priceFilter.includes(place.priceLevel));
 
       return matchesSearch && matchesFeatures && matchesDistrict && matchesPrice;
     });

@@ -1,0 +1,37 @@
+{
+    "yaylalar": [
+      {
+        "id": "1",
+        "title": "Kümbet Yaylası",
+        "description": "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla. Kış turizmi için de ideal bir lokasyon.",
+        "image": "/turist/kumbet-yaylasi.jpg",
+        "location": "Merkeze 40 km",
+        "district": "Merkez",
+        "geoLocation": { "lat": 40.5697, "lng": 38.4172 },
+        "rating": 4.8,
+        "features": ["Kış Turizmi", "Yayla Şenlikleri", "Doğa Yürüyüşü", "Kamp"]
+      },
+      {
+        "id": "2",
+        "title": "Kulakkaya Yaylası",
+        "description": "1600 metre rakımda, doğal güzellikleri ve temiz havasıyla ünlü yayla. Kış sporları ve doğa yürüyüşleri için ideal.",
+        "image": "/turist/kulakkaya.jpg",
+        "location": "Merkeze 45 km",
+        "district": "Dereli",
+        "geoLocation": { "lat": 40.6425, "lng": 38.4561 },
+        "rating": 4.7,
+        "features": ["Kayak Merkezi", "Trekking", "Kamp Alanı", "Dağ Bisikleti"]
+      },
+      {
+        "id": "3",
+        "title": "Bektaş Yaylası",
+        "description": "Doğal güzellikleri ve temiz havasıyla ünlü, kamp ve trekking için ideal yayla.",
+        "image": "/turist/bektas-yayla.jpg",
+        "location": "Dereli",
+        "district": "Dereli",
+        "geoLocation": { "lat": 40.6789, "lng": 38.4123 },
+        "rating": 4.6,
+        "features": ["Doğa Yürüyüşü", "Kamp", "Yayla Şenlikleri"]
+      }
+    ]
+  }

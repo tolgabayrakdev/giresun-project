@@ -1,0 +1,15 @@
+{
+  "festivaller": [
+    {
+      "id": "1",
+      "title": "Aksu Festivali",
+      "description": "Her yıl Mayıs ayında düzenlenen, müzik, kültür ve sanat etkinliklerinin buluştuğu festival.",
+      "image": "/api/placeholder/400/300",
+      "location": "Merkez",
+      "district": "Merkez",
+      "geoLocation": { "lat": 40.917890, "lng": 38.391234 },
+      "rating": 4.6,
+      "features": ["Müzik", "Kültür", "Sanat"]
+    }
+  ]
+} 

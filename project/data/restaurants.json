@@ -1,0 +1,64 @@
+{
+  "restoranlar": [
+      {
+          "id": "1",
+          "title": "Haşlamacı Giresun",
+          "description": "Et Haşlama ve sebze yemekleri",
+          "image": "/restaurant/haslama.jpg",
+          "location": "Sahil yolu",
+          "district": "Merkez",
+          "geoLocation": { "lat": 40.917890, "lng": 38.391234 },
+          "rating": 4.2,
+          "priceLevel": "₺₺",
+          "features": ["Et Yemekleri", "Sebze Yemekleri"]
+      },
+      {
+          "id": "2",
+          "title": "Hazal Pide Lahmacun",
+          "description": "Pide ve lahmacun çeşitleri",
+          "image": "/api/placeholder/400/300",
+          "location": "Merkez",
+          "district": "Merkez",
+          "geoLocation": { "lat": 40.917543, "lng": 38.392765 },
+          "rating": 3.9,
+          "priceLevel": "₺",
+          "features": ["Pide", "Lahmacun", "Aile Mekanı"]
+      },
+      {
+          "id": "3",
+          "title": "Karadeniz Sofrası",
+          "description": "Otantik atmosferde yöresel Karadeniz mutfağı.",
+          "image": "/api/placeholder/400/300",
+          "location": "Çınarlar",
+          "district": "Merkez",
+          "geoLocation": { "lat": 40.915678, "lng": 38.387654 },
+          "rating": 4.4,
+          "priceLevel": "₺₺",
+          "features": ["Yöresel", "Kahvaltı", "Aile Mekanı"]
+      },
+      {
+          "id": "4",
+          "title": "Grava Lounge",
+          "description": "Taze kahvaltı ve ana yemekler.",
+          "image": "/api/placeholder/400/300",
+          "location": "Güre",
+          "district": "Merkez",
+          "geoLocation": { "lat": 40.917890, "lng": 38.391234 },
+          "rating": 4.5,
+          "priceLevel": "₺₺",
+          "features": ["Yöresel", "Pide", "Aile Mekanı"]
+      },
+      {
+          "id": "5",
+          "title": "Kumyalı Simit Fırını",
+          "description": "Giresun'a özgü harika simit ve daha fazlası",
+          "image": "/api/placeholder/400/300",
+          "location": "Merkez",
+          "district": "Merkez",
+          "geoLocation": { "lat": 40.917190, "lng": 38.391204 },
+          "rating": 4.3,
+          "priceLevel": "₺",
+          "features": ["Yöresel", "Simit", "Fırın"]
+      }
+  ]
+}
