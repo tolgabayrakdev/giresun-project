@@ -7,7 +7,6 @@
           "image": "/restaurant/haslama.jpg",
           "location": "Sahil yolu",
           "district": "Merkez",
-          "geoLocation": { "lat": 40.917890, "lng": 38.391234 },
           "rating": 4.2,
           "priceLevel": "₺₺",
           "features": ["Et Yemekleri", "Sebze Yemekleri"]
@@ -19,7 +18,6 @@
           "image": "/api/placeholder/400/300",
           "location": "Merkez",
           "district": "Merkez",
-          "geoLocation": { "lat": 40.917543, "lng": 38.392765 },
           "rating": 3.9,
           "priceLevel": "₺",
           "features": ["Pide", "Lahmacun", "Aile Mekanı"]
@@ -31,7 +29,6 @@
           "image": "/api/placeholder/400/300",
           "location": "Çınarlar",
           "district": "Merkez",
-          "geoLocation": { "lat": 40.915678, "lng": 38.387654 },
           "rating": 4.4,
           "priceLevel": "₺₺",
           "features": ["Yöresel", "Kahvaltı", "Aile Mekanı"]
@@ -43,7 +40,6 @@
           "image": "/api/placeholder/400/300",
           "location": "Güre",
           "district": "Merkez",
-          "geoLocation": { "lat": 40.917890, "lng": 38.391234 },
           "rating": 4.5,
           "priceLevel": "₺₺",
           "features": ["Yöresel", "Pide", "Aile Mekanı"]
@@ -55,7 +51,6 @@
           "image": "/api/placeholder/400/300",
           "location": "Merkez",
           "district": "Merkez",
-          "geoLocation": { "lat": 40.917190, "lng": 38.391204 },
           "rating": 4.3,
           "priceLevel": "₺",
           "features": ["Yöresel", "Simit", "Fırın"]

@@ -5,16 +5,12 @@ export interface BasePlace {
   image: string;
   location: string;
   district: string;
-  geoLocation: {
-    lat: number;
-    lng: number;
-  };
   rating: number;
   features: string[];
 }
 
 export interface Restaurant extends BasePlace {
-  priceLevel: string;
+  priceLevel: "₺" | "₺₺" | "₺₺₺" | "₺₺₺₺";
 }
 
 export interface PlacesData {

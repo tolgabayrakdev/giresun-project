@@ -6,7 +6,7 @@
         "description": "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla. Kış turizmi için de ideal bir lokasyon.",
         "image": "/turist/kumbet-yaylasi.jpg",
         "location": "Merkeze 40 km",
-        "district": "Merkez",
+        "district": "Dereli",
         "geoLocation": { "lat": 40.5697, "lng": 38.4172 },
         "rating": 4.8,
         "features": ["Kış Turizmi", "Yayla Şenlikleri", "Doğa Yürüyüşü", "Kamp"]

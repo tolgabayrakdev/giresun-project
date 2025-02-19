@@ -34,19 +34,6 @@ type Location = {
   lng: number;
 };
 
-type Place = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  location: string;
-  district: string;
-  geoLocation: Location;
-  rating: number;
-  priceLevel?: "₺" | "₺₺" | "₺₺₺" | "₺₺₺₺";
-  features: string[];
-};
-
 // İlçe bazlı filtreleme için yeni tip
 type District = 'Merkez' | 'Dereli' | 'Bulancak' | 'Tirebolu' | 'Görele' | 
                 'Şebinkarahisar' | 'Espiye' | 'Keşap' | 'Piraziz' | 'Eynesil' |
@@ -329,7 +316,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                     if (!acc[district]) acc[district] = [];
                     acc[district].push(place);
                     return acc;
-                  }, {} as Record<string, Place[]>)
+                  }, {} as Record<string, BasePlace[]>)
                 ).map(([district, places], index) => (
                   <motion.div 
                     key={district}
@@ -392,18 +379,23 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                         size="sm"
                                         className="flex items-center gap-2 text-green-600 hover:text-green-700"
                                         onClick={() => {
+                                          // Google Maps yol tarifi URL'i
+                                          const destination = `${place.title}, ${place.location}, Giresun`;
+                                          const encodedDestination = encodeURIComponent(destination);
+                                          
                                           if (navigator.geolocation) {
                                             navigator.geolocation.getCurrentPosition((position) => {
                                               const userLat = position.coords.latitude;
                                               const userLng = position.coords.longitude;
-                                              const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                              const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${encodedDestination}`;
                                               window.open(url, '_blank');
                                             }, () => {
-                                              const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                              // Konum alınamazsa direkt olarak varış noktasına yönlendir
+                                              const url = `https://www.google.com/maps/dir//${encodedDestination}`;
                                               window.open(url, '_blank');
                                             });
                                           } else {
-                                            const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                            const url = `https://www.google.com/maps/dir//${encodedDestination}`;
                                             window.open(url, '_blank');
                                           }
                                         }}
@@ -417,7 +409,10 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                         size="sm"
                                         className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
                                         onClick={() => {
-                                          const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                          // Google Maps arama URL'i
+                                          const query = `${place.title}, ${place.location}, Giresun`;
+                                          const encodedQuery = encodeURIComponent(query);
+                                          const url = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
                                           window.open(url, '_blank');
                                         }}
                                       >
@@ -491,18 +486,23 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                     size="sm"
                                     className="flex items-center gap-2 text-green-600 hover:text-green-700"
                                     onClick={() => {
+                                      // Google Maps yol tarifi URL'i
+                                      const destination = `${place.title}, ${place.location}, Giresun`;
+                                      const encodedDestination = encodeURIComponent(destination);
+                                      
                                       if (navigator.geolocation) {
                                         navigator.geolocation.getCurrentPosition((position) => {
                                           const userLat = position.coords.latitude;
                                           const userLng = position.coords.longitude;
-                                          const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                          const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${encodedDestination}`;
                                           window.open(url, '_blank');
                                         }, () => {
-                                          const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                          // Konum alınamazsa direkt olarak varış noktasına yönlendir
+                                          const url = `https://www.google.com/maps/dir//${encodedDestination}`;
                                           window.open(url, '_blank');
                                         });
                                       } else {
-                                        const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                        const url = `https://www.google.com/maps/dir//${encodedDestination}`;
                                         window.open(url, '_blank');
                                       }
                                     }}
@@ -516,7 +516,10 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                     size="sm"
                                     className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
                                     onClick={() => {
-                                      const url = `https://www.google.com/maps/search/?api=1&query=${place.geoLocation.lat},${place.geoLocation.lng}`;
+                                      // Google Maps arama URL'i
+                                      const query = `${place.title}, ${place.location}, Giresun`;
+                                      const encodedQuery = encodeURIComponent(query);
+                                      const url = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
                                       window.open(url, '_blank');
                                     }}
                                   >
