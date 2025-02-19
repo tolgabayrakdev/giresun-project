@@ -183,6 +183,18 @@ const placesData: Record<string, Place[]> = {
       rating: 4.5,
       priceLevel: "₺₺",
       features: ["Yöresel", "Pide", "Aile Mekanı"]
+    },
+    {
+      id: "5",
+      title: "Kumyalı Simit Fırını",
+      description: "Giresun'a özgü harika simit ve daha fazlası",
+      image: "/api/placeholder/400/300",
+      location: "Merkez",
+      district: "Merkez",
+      geoLocation: { lat: 40.917190, lng: 38.391204 },
+      rating: 4.3,
+      priceLevel: "₺",
+      features: ["Yöresel", "Simit", "Fırın"]
     }
   ],
   oteller: [
