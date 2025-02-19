@@ -7,6 +7,48 @@ import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, M
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { i } from "framer-motion/client";
+import type { Metadata } from 'next'
+
+// Üst kısma metadata ekleyelim
+export const metadata: Metadata = {
+  title: 'Giresun Şehir Rehberi | Karadeniz\'in İncisi',
+  description: 'Giresun\'un tarihi yerleri, yaylaları, restoranları ve festivalleri hakkında detaylı bilgi. Fındığın başkenti Giresun\'u keşfedin.',
+  keywords: 'Giresun, yayla, fındık, Karadeniz, Giresun Kalesi, Kümbet Yaylası, Giresun Adası, turizm',
+  openGraph: {
+    title: 'Giresun Şehir Rehberi',
+    description: 'Karadeniz\'in incisi Giresun\'u keşfedin. Yaylalar, tarihi yerler, lezzetler ve daha fazlası.',
+    images: [
+      {
+        url: '/og-image.jpg', // Ana sayfa için bir Open Graph görseli ekleyin
+        width: 1200,
+        height: 630,
+        alt: 'Giresun Şehir Manzarası',
+      },
+    ],
+    locale: 'tr_TR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Giresun Şehir Rehberi',
+    description: 'Karadeniz\'in incisi Giresun\'u keşfedin. Yaylalar, tarihi yerler, lezzetler ve daha fazlası.',
+    images: ['/twitter-image.jpg'], // Twitter için özel görsel
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'Google Search Console doğrulama kodu',
+  },
+}
 
 // Sadeleştirilmiş animasyon variants
 const containerVariants = {
@@ -153,7 +195,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <main className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Arka plan deseni */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-green-900/90 to-green-800/90" />
@@ -267,10 +309,10 @@ export default function Home() {
             <div className="w-1 h-2 bg-white/50 rounded-full mx-auto" />
           </motion.div>
         </motion.div>
-      </section>
+      </main>
 
       {/* İstatistikler */}
-      <section className="py-12 bg-green-900 text-white">
+      <section aria-label="İstatistikler" className="py-12 bg-green-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
@@ -307,7 +349,7 @@ export default function Home() {
       </section>
 
       {/* Yeni Section: Öne Çıkan Etkinlikler */}
-      <section className="py-16 bg-gray-50">
+      <section aria-label="Yaklaşan Etkinlikler" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-green-900">Yaklaşan Etkinlikler</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -343,7 +385,7 @@ export default function Home() {
       </section>
 
       {/* Kategori Butonları Section'ı */}
-      <section id="kategoriler" className="py-16 bg-gradient-to-b from-white to-green-50">
+      <nav aria-label="Kategori Navigasyonu" id="kategoriler" className="py-16 bg-gradient-to-b from-white to-green-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-12"
@@ -439,10 +481,10 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </nav>
 
       {/* Öne Çıkan Yerler */}
-      <section className="py-16 bg-gradient-to-b from-green-50 to-white">
+      <section aria-label="Öne Çıkan Deneyimler" className="py-16 bg-gradient-to-b from-green-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-12 space-y-4"
@@ -640,7 +682,7 @@ export default function Home() {
       </section>
 
       {/* Mobil Uyumlu Footer */}
-      <footer className="bg-green-900 text-white mt-8 md:mt-12">
+      <footer role="contentinfo" className="bg-green-900 text-white mt-8 md:mt-12">
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center sm:text-left">
@@ -682,6 +724,24 @@ export default function Home() {
             <p>© 2025 Giresun Şehir Rehberi. Tüm hakları saklıdır. @tolgabayrak</p>
           </div>
         </div>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "TouristInformation",
+              "name": "Giresun Şehir Rehberi",
+              "description": "Karadeniz'in incisi Giresun'u keşfetmek için kapsamlı rehber",
+              "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "Giresun",
+                "addressCountry": "TR"
+              },
+              "url": "https://giresun-rehberi.com",
+              "telephone": "+90 00 000 00",
+              "email": "tolgabayrakj@gmail.com"
+            }
+          `}
+        </script>
       </footer>
     </div>
   );
