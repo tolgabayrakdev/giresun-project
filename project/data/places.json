@@ -74,7 +74,7 @@
       "id": "8",
       "title": "Bulancak İskele",
       "description": " Denizin dalga sesi ile birlikte güneşin doğuşunu ve batışını izleyebileceğiniz nadide bir ortamdadır.",
-      "image": "/turist/bulancak-sahili.jpg",
+      "image": "/turist/bulancak-iskele.jpg",
       "location": "Bulancak",
       "district": "Bulancak",
       "rating": 4.5,
@@ -89,6 +89,16 @@
       "district": "Bulancak",
       "rating": 4.9,
       "features": ["Cami", "Tarihi", "Manzara"]
+    },
+    {
+      "id": "10",
+      "title": "Seyyid Vakkas Türbesi",
+      "description": "Rivâyete göre peygamberin soyundan gelen Seyyid Vakkas ve birlikleri Giresun'u almak için büyük mücadele verirler. ",
+      "image": "/turist/seyyid-vakkas.jpg",
+      "location": "Merkez",
+      "district": "Merkez",
+      "rating": 4.8,
+      "features": ["Türbe", "Tarihi", "İbadet"]
     }
   ]
 }
