@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import CategoryPageClient from "./CategoryPageClient";
+import { notFound } from 'next/navigation';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -40,7 +41,7 @@ export default async function CategoryPage({ params }: Props) {
   const validCategories = ['turistik', 'restoranlar', 'yaylalar', 'festivaller'];
   
   if (!validCategories.includes(category)) {
-    return null; // 404 sayfasına yönlendirecek
+    notFound(); // 404 sayfasına yönlendirir
   }
 
   return <CategoryPageClient category={category} />;
