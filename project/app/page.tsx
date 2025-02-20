@@ -640,7 +640,7 @@ export default function Home() {
       {/* Mobil Uyumlu Footer */}
       <footer className="bg-green-900 text-white mt-8 md:mt-12">
         <div className="container mx-auto px-4 py-8 md:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">giresunhakkinda.com</h3>
               <p className="text-sm md:text-base text-gray-300">
@@ -650,8 +650,7 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">İletişim</h3>
               <p className="text-sm md:text-base text-gray-300">
-                tolgabayrakj@gmail.com<br />
-                +90 00 000 00 
+                tolgabayrakj@gmail.com
               </p>
             </div>
             <div className="text-center sm:text-left">
@@ -674,6 +673,16 @@ export default function Home() {
                   <span className="sr-only">Twitter</span>
                 </Button>
               </div>
+            </div>
+            <div className="text-center sm:text-left">
+              <h3 className="text-lg md:text-xl font-bold mb-4">Proje Hakkında</h3>
+              <Button 
+                variant="link" 
+                className="text-gray-300 hover:text-white p-0 h-auto font-normal"
+                onClick={() => router.push('/hakkimda')}
+              >
+                Bu projenin hikayesini keşfedin →
+              </Button>
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-sm md:text-base text-gray-300">
