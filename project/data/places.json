@@ -22,6 +22,16 @@
     },
     {
       "id": "3",
+      "title": "Mavi Göl",
+      "description": "Ağaçlarla kaplı yamaçlardan taşlı bir havuza dökülen şelale ve ahşap merdivenlerden çıkılan seyir noktası.",
+      "image": "/turist/mavi-gol.jpg",
+      "location": "Dereli",
+      "district": "Dereli",
+      "rating": 4.5,
+      "features": ["Şelale", "Doğa", "Yürüyüş"]
+    },
+    {
+      "id": "4",
       "title": "Kuzalan Şelalesi",
       "description": "Dereli'nin en önemli doğal güzelliklerinden, muhteşem şelale ve yürüyüş parkurları.",
       "image": "/turist/kuzalan.jpg",
@@ -31,7 +41,7 @@
       "features": ["Şelale", "Doğa", "Yürüyüş"]
     },
     {
-      "id": "4",
+      "id": "5",
       "title": "Şebinkarahisar Kalesi",
       "description": "Tarihi kale ve eşsiz manzarasıyla ünlü turistik mekan.",
       "image": "/turist/sbin-kalesi.jpeg",
@@ -41,7 +51,7 @@
       "features": ["Tarihi Kale", "Manzara", "Kültürel Miras"]
     },
     {
-      "id": "5",
+      "id": "6",
       "title": "Tirebolu Kalesi",
       "description": "Deniz kıyısında tarihi kale ve muhteşem manzara.",
       "image": "/turist/tirebolu-kalesi.png",
@@ -51,7 +61,7 @@
       "features": ["Tarihi Kale", "Deniz", "Manzara"]
     },
     {
-      "id": "6",
+      "id": "7",
       "title": "Taflanaltı Renkli Sokak",
       "description": "Tarihi sokak ve muhteşem renkleriyle ünlü turistik mekan.",
       "image": "/turist/taflanalti-sokak.jpg",
@@ -61,7 +71,7 @@
       "features": ["Sokak", "Tarihi", "Renkli"]
     },
     {
-      "id": "6",
+      "id": "8",
       "title": "Bulancak İskele",
       "description": " Denizin dalga sesi ile birlikte güneşin doğuşunu ve batışını izleyebileceğiniz nadide bir ortamdadır.",
       "image": "/turist/bulancak-sahili.jpg",
@@ -69,6 +79,16 @@
       "district": "Bulancak",
       "rating": 4.5,
       "features": ["Sahil", "Deniz"]
+    },
+    {
+      "id": "9",
+      "title": "Sarayburnu Camii",
+      "description": "Yapımı 29 yıl süren, yığma taş ile yapılmış tarihi camii.",
+      "image": "/turist/sarayburnu-camii.jpg",
+      "location": "Bulancak",
+      "district": "Bulancak",
+      "rating": 4.9,
+      "features": ["Cami", "Tarihi", "Manzara"]
     }
   ]
 }
