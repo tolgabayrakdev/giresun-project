@@ -236,7 +236,7 @@ export default function Home() {
                 size="lg" 
                 variant="outline"
                 className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
-                onClick={() => router.push('/about')}
+                onClick={() => router.push('/giresun-hakkinda')}
               >
                 Daha Fazla Bilgi
               </Button>
@@ -642,7 +642,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center sm:text-left">
-              <h3 className="text-lg md:text-xl font-bold mb-4">Giresun Şehir Rehberi</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-4">giresunhakkinda.com</h3>
               <p className="text-sm md:text-base text-gray-300">
                 Karadeniz'in incisi Giresun'u keşfetmek için en kapsamlı rehber
               </p>
@@ -677,7 +677,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-sm md:text-base text-gray-300">
-            <p>© 2025 Giresun Şehir Rehberi. Tüm hakları saklıdır. @tolgabayrak</p>
+            <p>© 2025 giresunhakkinda.com. Tüm hakları saklıdır. @tolgabayrak</p>
           </div>
         </div>
       </footer>
