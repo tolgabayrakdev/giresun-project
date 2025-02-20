@@ -7,7 +7,6 @@
       "image": "/turist/giresun-kalesi.jpeg",
       "location": "Merkez",
       "district": "Merkez",
-      "geoLocation": { "lat": 40.912977, "lng": 38.389834 },
       "rating": 4.5,
       "features": ["Tarihi Yapı", "Manzara", "Yürüyüş"]
     },
@@ -18,7 +17,6 @@
       "image": "/turist/giresun-adasi.jpg",
       "location": "Merkez sahil",
       "district": "Merkez",
-      "geoLocation": { "lat": 40.925642, "lng": 38.385867 },
       "rating": 4.7,
       "features": ["Ada", "Tekne Turu", "Tarihi"]
     },
@@ -29,8 +27,7 @@
       "image": "/turist/kuzalan.jpg",
       "location": "Dereli",
       "district": "Dereli",
-      "geoLocation": { "lat": 40.693056, "lng": 38.455833 },
-      "rating": 4.8,
+      "rating": 4.6,
       "features": ["Şelale", "Doğa", "Yürüyüş"]
     },
     {
@@ -40,8 +37,7 @@
       "image": "/turist/sbin-kalesi.jpeg",
       "location": "Şebinkarahisar",
       "district": "Şebinkarahisar",
-      "geoLocation": { "lat": 40.286389, "lng": 38.422778 },
-      "rating": 4.6,
+      "rating": 4.4,
       "features": ["Tarihi Kale", "Manzara", "Kültürel Miras"]
     },
     {
@@ -51,31 +47,28 @@
       "image": "/turist/tirebolu-kalesi.png",
       "location": "Tirebolu",
       "district": "Tirebolu",
-      "geoLocation": { "lat": 41.005833, "lng": 38.813611 },
-      "rating": 4.5,
+      "rating": 4.4,
       "features": ["Tarihi Kale", "Deniz", "Manzara"]
     },
     {
       "id": "6",
-      "title": "Bulancak Sahili",
-      "description": "Uzun sahil şeridi ve yürüyüş alanları.",
+      "title": "Taflanaltı Renkli Sokak",
+      "description": "Tarihi sokak ve muhteşem renkleriyle ünlü turistik mekan.",
+      "image": "/turist/taflanalti-sokak.jpg",
+      "location": "Tirebolu",
+      "district": "Tirebolu",
+      "rating": 4.4,
+      "features": ["Sokak", "Tarihi", "Renkli"]
+    },
+    {
+      "id": "6",
+      "title": "Bulancak İskele",
+      "description": " Denizin dalga sesi ile birlikte güneşin doğuşunu ve batışını izleyebileceğiniz nadide bir ortamdadır.",
       "image": "/turist/bulancak-sahili.jpg",
       "location": "Bulancak",
       "district": "Bulancak",
-      "geoLocation": { "lat": 40.938333, "lng": 38.232778 },
-      "rating": 4.3,
-      "features": ["Sahil", "Yürüyüş", "Deniz"]
-    },
-    {
-      "id": "7",
-      "title": "Yaylaköy Şelalesi",
-      "description": "Doğal güzelliği ile ünlü şelale ve mesire alanı.",
-      "image": "/turist/yayla-selalesi.jpg",
-      "location": "Espiye",
-      "district": "Espiye",
-      "geoLocation": { "lat": 40.792778, "lng": 38.702778 },
-      "rating": 4.4,
-      "features": ["Şelale", "Piknik", "Doğa"]
+      "rating": 4.5,
+      "features": ["Sahil", "Deniz"]
     }
   ]
 }
