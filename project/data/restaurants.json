@@ -120,6 +120,28 @@
         "rating": 4.9,
         "priceLevel": "₺",
         "features": ["Yöresel", "Tatlılar"]
-      }
+      },
+      {
+        "id": "12",
+        "title": "Giresun Turkuaz Cafe",
+        "description": "Harika manzara ve doğal güzellikleriyle sizleri bekliyor.",
+        "image": "/restaurant/turkuaz-cafe.jpg",
+        "location": "Merkez",
+        "district": "Merkez",
+        "rating": 4.0,
+        "priceLevel": "₺",
+        "features": ["Sakin Mekan", "Cafe", "Aile Mekanı"]
+      },
+      {
+        "id": "13",
+        "title": "Yıldız Cafe Restaurant",
+        "description": "Taze kahvaltı, deniz manzarası ve daha fazlasıyla sizleri bekliyor.",
+        "image": "/restaurant/yildiz-cafe.jpg",
+        "location": "Güre",
+        "district": "Merkez",
+        "rating": 4.6,
+        "priceLevel": "₺₺",
+        "features": ["Kahvaltı", "Sahil", "Aile Mekanı", "Deniz"]
+    }
   ]
 }

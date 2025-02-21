@@ -99,6 +99,26 @@
       "district": "Merkez",
       "rating": 4.8,
       "features": ["Türbe", "Tarihi", "İbadet"]
+    },
+    {
+      "id": "11",
+      "title": "Uluburun Plajı",
+      "description": "Harika bir plaj ve deniz güzellikleriyle sizleri bekliyor.",
+      "image": "/turist/uluburun-plaji.jpg",
+      "location": "Espiye",
+      "district": "Espiye",
+      "rating": 4.2,
+      "features": ["Plaj", "Deniz", "Manzara"]
+    },
+    {
+      "id": "12",
+      "title": "Deliklitaş Plajı",
+      "description": "Gizemli ve doğa güzellikleriyle, doğal oluşlumlu yapısıyla sizleri bekliyor.",
+      "image": "/turist/deliklitas.jpg",
+      "location": "Görele",
+      "district": "Görele",
+      "rating": 4.3,
+      "features": ["Plaj", "Deniz", "Manzara"]
     }
   ]
 }
