@@ -2,10 +2,13 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Instagram, Twitter, Mail, Github, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Mail, Github, Linkedin, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function AboutPage() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F1F5F9] to-white py-16">
       <div className="container mx-auto px-4">
@@ -15,13 +18,31 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto"
         >
+          <div className="flex items-center mb-8">
+            <Button
+              variant="ghost"
+              className="text-green-700 hover:text-green-900 hover:bg-green-50"
+              onClick={() => router.back()}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Geri Dön
+            </Button>
+          </div>
+
           <h1 className="text-4xl font-bold text-green-900 mb-8 text-center">Hakkımda</h1>
           
           <Card className="mb-8">
             <CardContent className="pt-6">
               <div className="prose prose-green max-w-none">
                 <p className="text-lg mb-4">
-                  Merhaba! Ben Tolga Bayrak, bir yazılım geliştiricisi ve Giresun sevdalısıyım. 
+                  Merhaba! Ben <a 
+                    href="https://tolgabayrak.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-700 hover:text-green-900 underline decoration-2 underline-offset-2"
+                  >
+                    Tolga Bayrak
+                  </a>, 
                   Bu projeyi, doğduğum ve büyüdüğüm şehir olan Giresun'u dijital dünyada 
                   hak ettiği şekilde tanıtmak amacıyla geliştirdim.
                 </p>

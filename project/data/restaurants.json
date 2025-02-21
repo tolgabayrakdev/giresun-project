@@ -24,14 +24,14 @@
       },
       {
           "id": "3",
-          "title": "Karadeniz Sofrası",
-          "description": "Otantik atmosferde yöresel Karadeniz mutfağı.",
+          "title": "Serender Restaurant",
+          "description": "Ev yemekleri, ızgara ve sebze yemekleri sunan restoran.",
           "image": "/api/placeholder/400/300",
-          "location": "Çınarlar",
+          "location": "Merkez",
           "district": "Merkez",
-          "rating": 4.4,
+          "rating": 4.5,
           "priceLevel": "₺₺",
-          "features": ["Yöresel", "Kahvaltı", "Aile Mekanı"]
+          "features": ["Yöresel", "Sakin Mekan", "Aile Mekanı"]
       },
       {
           "id": "4",
@@ -42,18 +42,73 @@
           "district": "Merkez",
           "rating": 4.5,
           "priceLevel": "₺₺",
-          "features": ["Yöresel", "Pide", "Aile Mekanı"]
+          "features": ["Kahvaltı", "Sahil", "Aile Mekanı"]
       },
       {
           "id": "5",
           "title": "Kumyalı Simit Fırını",
-          "description": "Giresun'a özgü harika simit ve daha fazlası",
+          "description": "Giresun'a özgü harika simit ve daha fazlası.",
           "image": "/api/placeholder/400/300",
           "location": "Merkez",
           "district": "Merkez",
           "rating": 4.3,
           "priceLevel": "₺",
           "features": ["Yöresel", "Simit", "Fırın"]
+      },
+      {
+          "id": "6",
+          "title": "Şoray Balık Lokantası",
+          "description": "Balık ve deniz mahsüllleri",
+          "image": "/api/placeholder/400/300",
+          "location": "Bulancak",
+          "district": "Bulancak",
+          "rating": 4.4,
+          "priceLevel": "₺",
+          "features": ["Balık", "Deniz Mahsülleri", "Sakin Mekan"]
+      },
+      {
+          "id": "7",
+          "title": "Hasan Tepesi",
+          "description": "Harika manzarası ile sizleri bekliyor",
+          "image": "/api/placeholder/400/300",
+          "location": "Giresun",
+          "district": "Merkez",
+          "rating": 4.3,
+          "priceLevel": "₺₺",
+          "features": ["Manzara", "Doğa", "Sakin Mekan", "Gün batımı"]
+      },
+      {
+        "id": "8",
+        "title": "Giresun Mustafa Patar",
+        "description": "Harika kadayıf çeşitleri ile sizleri bekliyor.",
+        "image": "/api/placeholder/400/300",
+        "location": "Merkez",
+        "district": "Merkez",
+        "rating": 4.6,
+        "priceLevel": "₺",
+        "features": ["Yöresel", "Tatlılar"]
+      },
+      {
+        "id": "9",
+        "title": "Bohça Mantı",
+        "description": "Bohça Mantı, yöresel lezzetleri modern bir sunumla harmanlayarak misafirlerine sunuyor",
+        "image": "/api/placeholder/400/300",
+        "location": "Merkez",
+        "district": "Merkez",
+        "rating": 4.1,
+        "priceLevel": "₺",
+        "features": ["Hamur İşi", "Yöresel"]
+      },
+      {
+        "id": "10",
+        "title": "Kadayıfcım",
+        "description": "Kadayıfcım, sizlere harika kadayıf tatlısını sunuyor",
+        "image": "/api/placeholder/400/300",
+        "location": "Bulancak",
+        "district": "Bulancak",
+        "rating": 4.9,
+        "priceLevel": "₺",
+        "features": ["Yöresel", "Tatlılar"]
       }
   ]
 }

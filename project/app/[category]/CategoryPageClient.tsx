@@ -76,13 +76,14 @@ const ImageWithFallback = ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLI
   const [error, setError] = useState(false);
 
   return (
-    <div className="relative h-64 md:h-full bg-gray-100">
+    <div className="relative h-48 md:h-64 bg-gray-100">
       {!error ? (
         <img
           src={src}
           alt={alt}
           {...props}
           onError={() => setError(true)}
+          className="w-full h-full object-cover"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-100">
@@ -340,44 +341,43 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                   src={place.image}
                                   alt={place.title}
                                   className="w-full h-full object-cover"
-                                  style={{ aspectRatio: '4/3' }}
                                 />
                               </div>
                               
-                              <div className="md:w-2/3 p-6">
+                              <div className="md:w-2/3 p-4 md:p-6">
                                 <div className="flex justify-between items-start mb-2">
-                                  <h3 className="text-xl font-semibold">{place.title}</h3>
+                                  <h3 className="text-lg md:text-xl font-semibold">{place.title}</h3>
                                   <div className="flex items-center">
-                                    <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                                    <span className="text-sm font-medium">{place.rating}</span>
+                                    <Star className="h-3 w-3 md:h-4 md:w-4 text-yellow-400 mr-1" />
+                                    <span className="text-xs md:text-sm font-medium">{place.rating}</span>
                                   </div>
                                 </div>
 
-                                <p className="text-gray-600 mb-4">{place.description}</p>
+                                <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{place.description}</p>
 
-                                <div className="space-y-4">
-                                  <div className="flex flex-wrap gap-2">
+                                <div className="space-y-3 md:space-y-4">
+                                  <div className="flex flex-wrap gap-1 md:gap-2">
                                     {place.features.map((feature) => (
                                       <span
                                         key={feature}
-                                        className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                                        className="text-xs bg-green-100 text-green-800 px-2 py-0.5 md:py-1 rounded-full"
                                       >
                                         {feature}
                                       </span>
                                     ))}
                                   </div>
 
-                                  <div className="flex items-center justify-between pt-4 border-t">
+                                  <div className="flex items-center justify-between pt-3 md:pt-4 border-t">
                                     <div className="flex items-center text-gray-500">
-                                      <MapPin className="h-4 w-4 mr-2" />
-                                      <span className="text-sm">{place.location}</span>
+                                      <MapPin className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
+                                      <span className="text-xs md:text-sm">{place.location}</span>
                                     </div>
 
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-1 md:gap-2">
                                       <Button
                                         variant="outline"
                                         size="sm"
-                                        className="flex items-center gap-2 text-green-600 hover:text-green-700"
+                                        className="text-xs md:text-sm flex items-center gap-1 md:gap-2 text-green-600 hover:text-green-700 px-2 py-1 md:px-3 md:py-2"
                                         onClick={() => {
                                           // Google Maps yol tarifi URL'i
                                           const destination = `${place.title}, ${place.location}, Giresun`;
@@ -400,14 +400,14 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                           }
                                         }}
                                       >
-                                        <Navigation className="h-4 w-4" />
+                                        <Navigation className="h-3 w-3 md:h-4 md:w-4" />
                                         <span className="hidden sm:inline">Yol Tarifi</span>
                                       </Button>
 
                                       <Button
                                         variant="outline"
                                         size="sm"
-                                        className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                                        className="text-xs md:text-sm flex items-center gap-1 md:gap-2 text-blue-600 hover:text-blue-700 px-2 py-1 md:px-3 md:py-2"
                                         onClick={() => {
                                           // Google Maps arama URL'i
                                           const query = `${place.title}, ${place.location}, Giresun`;
@@ -416,7 +416,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                           window.open(url, '_blank');
                                         }}
                                       >
-                                        <MapPin className="h-4 w-4" />
+                                        <MapPin className="h-3 w-3 md:h-4 md:w-4" />
                                         <span className="hidden sm:inline">Konumu Gör</span>
                                       </Button>
                                     </div>
@@ -447,44 +447,43 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                               src={place.image}
                               alt={place.title}
                               className="w-full h-full object-cover"
-                              style={{ aspectRatio: '4/3' }}
                             />
                           </div>
                           
-                          <div className="md:w-2/3 p-6">
+                          <div className="md:w-2/3 p-4 md:p-6">
                             <div className="flex justify-between items-start mb-2">
-                              <h3 className="text-xl font-semibold">{place.title}</h3>
+                              <h3 className="text-lg md:text-xl font-semibold">{place.title}</h3>
                               <div className="flex items-center">
-                                <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                                <span className="text-sm font-medium">{place.rating}</span>
+                                <Star className="h-3 w-3 md:h-4 md:w-4 text-yellow-400 mr-1" />
+                                <span className="text-xs md:text-sm font-medium">{place.rating}</span>
                               </div>
                             </div>
 
-                            <p className="text-gray-600 mb-4">{place.description}</p>
+                            <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{place.description}</p>
 
-                            <div className="space-y-4">
-                              <div className="flex flex-wrap gap-2">
+                            <div className="space-y-3 md:space-y-4">
+                              <div className="flex flex-wrap gap-1 md:gap-2">
                                 {place.features.map((feature) => (
                                   <span
                                     key={feature}
-                                    className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                                    className="text-xs bg-green-100 text-green-800 px-2 py-0.5 md:py-1 rounded-full"
                                   >
                                     {feature}
                                   </span>
                                 ))}
                               </div>
 
-                              <div className="flex items-center justify-between pt-4 border-t">
+                              <div className="flex items-center justify-between pt-3 md:pt-4 border-t">
                                 <div className="flex items-center text-gray-500">
-                                  <MapPin className="h-4 w-4 mr-2" />
-                                  <span className="text-sm">{place.location}</span>
+                                  <MapPin className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
+                                  <span className="text-xs md:text-sm">{place.location}</span>
                                 </div>
 
-                                <div className="flex gap-2">
+                                <div className="flex gap-1 md:gap-2">
                                   <Button
                                     variant="outline"
                                     size="sm"
-                                    className="flex items-center gap-2 text-green-600 hover:text-green-700"
+                                    className="text-xs md:text-sm flex items-center gap-1 md:gap-2 text-green-600 hover:text-green-700 px-2 py-1 md:px-3 md:py-2"
                                     onClick={() => {
                                       // Google Maps yol tarifi URL'i
                                       const destination = `${place.title}, ${place.location}, Giresun`;
@@ -507,14 +506,14 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                       }
                                     }}
                                   >
-                                    <Navigation className="h-4 w-4" />
+                                    <Navigation className="h-3 w-3 md:h-4 md:w-4" />
                                     <span className="hidden sm:inline">Yol Tarifi</span>
                                   </Button>
 
                                   <Button
                                     variant="outline"
                                     size="sm"
-                                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                                    className="text-xs md:text-sm flex items-center gap-1 md:gap-2 text-blue-600 hover:text-blue-700 px-2 py-1 md:px-3 md:py-2"
                                     onClick={() => {
                                       // Google Maps arama URL'i
                                       const query = `${place.title}, ${place.location}, Giresun`;
@@ -523,7 +522,7 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
                                       window.open(url, '_blank');
                                     }}
                                   >
-                                    <MapPin className="h-4 w-4" />
+                                    <MapPin className="h-3 w-3 md:h-4 md:w-4" />
                                     <span className="hidden sm:inline">Konumu Gör</span>
                                   </Button>
                                 </div>
