@@ -576,7 +576,7 @@ export default function Home() {
                   onClick={() => router.push('/gezi-plani')}
                   className="bg-green-700 hover:bg-green-800 text-white font-semibold text-lg px-8 py-6 h-auto"
                 >
-                  Gezi Planı Oluştur
+                  Gezi Planı Oluştur(Demo)
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </motion.div>
