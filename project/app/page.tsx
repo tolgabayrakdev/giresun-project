@@ -12,18 +12,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1 // 0.2'den 0.1'e düşürdük
+      staggerChildren: 0.1 
     }
   }
 };
 
 const itemVariants = {
-  hidden: { y: 10, opacity: 0 }, // y değerini 20'den 10'a düşürdük
+  hidden: { y: 10, opacity: 0 }, 
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5 // Daha hızlı geçiş
+      duration: 0.5 
     }
   }
 };
@@ -37,113 +37,14 @@ const cardVariants = {
     }
   },
   hover: {
-    scale: 1.02, // 1.05'ten 1.02'ye düşürdük
+    scale: 1.02, 
     transition: {
       duration: 0.2
     }
   }
 };
 
-const categories = {
-  turistik: [
-    {
-      title: "Giresun Kalesi",
-      description: "Şehre hakim tepede yer alan tarihi kale, muhteşem manzarası ile ünlüdür.",
-      image: "/turist/giresun-kalesi.jpeg",
-      location: "Merkez",
-    },
-    {
-      title: "Giresun Adası",
-      description: "Doğu Karadeniz'in tek adası, antik dönem kalıntıları ve doğal güzelliği ile öne çıkar.",
-      image: "/turist/giresun-adasi.jpg",
-      location: "Merkez sahil",
-    },
-    {
-      title: "Kümbet Yaylası",
-      description: "1800 metre yükseklikte, yeşilin her tonunu barındıran, şenlikleriyle ünlü yayla.",
-      image: "/turist/kumbet-yaylasi.jpg",
-      location: "Merkeze 40 km",
-    },
-    {
-      title: "Zeytinlik Mahallesi",
-      description: "Tarihi Giresun evlerinin bulunduğu, nostaljik sokakları ile ünlü mahalle.",
-      image: "/turist/zeytinlik-mahallesi.jpg",
-      location: "Merkez",
-    },
-    {
-      title: "Mavi Göl",
-      description: "Dereli ilçesinde bulunan doğal güzelliği ile büyüleyen göl. Kesinlikle ziyaret etmelisiniz.",
-      image: "/turist/mavi-gol.jpg",
-      location: "Dereli",
-    },
-  ],
-  restoranlar: [
-    {
-      title: "Çıtır Balık",
-      description: "Taze Karadeniz balıkları ve meze çeşitleri.",
-      image: "/restaurant/balik-izgara.jpg",
-      location: "Sahil yolu",
-    },
-    {
-      title: "Karadeniz Pide Salonu",
-      description: "Geleneksel Giresun pidesi ve kaygana.",
-      image: "/restaurant/lahmacun.jpg",
-      location: "Merkez",
-    },
-    {
-      title: "Liman Restaurant",
-      description: "Deniz manzaralı, taze balık ve mezeler sunan restoran.",
-      image: "/api/placeholder/400/300",
-      location: "Sahil",
-    },
-    {
-      title: "Fındık Cafe",
-      description: "Yöresel tatlılar ve fındıklı lezzetler.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-    },
-    {
-      title: "Hazal Pide Lahmacun",
-      description: "Lahmacun ve pide çeşitleri",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-    }
-  ],
-  yaylalar: [
-    {
-      title: "Bektaş Yaylası",
-      description: "Doğal güzellikleri ve temiz havasıyla ünlü, kamp ve trekking için ideal yayla.",
-      image: "/api/placeholder/400/300",
-      location: "Dereli",
-    },
-    {
-      title: "Kulakkaya Yaylası",
-      description: "Kış sporları ve doğa yürüyüşleri için popüler, eşsiz manzaralı yayla.",
-      image: "/api/placeholder/400/300",
-      location: "Dereli",
-    },
-  ],
-  festivaller: [
-    {
-      title: "Aksu Festivali",
-      description: "Her yıl Mayıs ayında düzenlenen, müzik, kültür ve sanat etkinliklerinin buluştuğu festival.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-    },
-    {
-      title: "Fındık Festivali",
-      description: "Ağustos ayında düzenlenen, fındık hasadını kutlayan geleneksel festival.",
-      image: "/api/placeholder/400/300",
-      location: "Merkez",
-    },
-    {
-      title: "Yayla Şenlikleri",
-      description: "Yaz aylarında yaylalarda düzenlenen geleneksel horon ve müzik şenlikleri.",
-      image: "/api/placeholder/400/300",
-      location: "Çeşitli Yaylalar",
-    },
-  ],
-};
+
 
 export default function Home() {
   const router = useRouter();
