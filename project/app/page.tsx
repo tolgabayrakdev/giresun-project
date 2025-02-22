@@ -599,13 +599,6 @@ export default function Home() {
               <p className="text-sm md:text-base text-gray-300">
                 Karadeniz'in incisi Giresun'u keşfetmek için en kapsamlı rehber
               </p>
-              <Button 
-                variant="link" 
-                className="text-gray-300 hover:text-white p-0 h-auto font-normal mt-2"
-                onClick={() => router.push('/sss')}
-              >
-                Sıkça Sorulan Sorular
-              </Button>
             </div>
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">İletişim</h3>
