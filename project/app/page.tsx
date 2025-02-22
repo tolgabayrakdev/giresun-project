@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music } from "lucide-react";
+import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -552,6 +552,40 @@ export default function Home() {
       </section>
 
       {/* Öne Çıkan Deneyimler section'ından sonra */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-green-50 rounded-2xl p-8 md:p-12 shadow-lg border border-green-100">
+              <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+                Kişisel Gezi Planınızı Oluşturun
+              </h2>
+              <p className="text-lg text-green-700 mb-8">
+                Tercihlerinize göre özelleştirilmiş, günübirlik Giresun gezi planı oluşturmak için hemen başlayın.
+              </p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Button 
+                  size="lg"
+                  onClick={() => router.push('/gezi-plani')}
+                  className="bg-green-700 hover:bg-green-800 text-white font-semibold text-lg px-8 py-6 h-auto"
+                >
+                  Gezi Planı Oluştur
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SSS section'ı buradan devam eder */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
