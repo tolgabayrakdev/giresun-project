@@ -120,5 +120,15 @@
       "rating": 4.3,
       "features": ["Plaj", "Deniz", "Manzara"]
     }
+    ,{
+      "id": "13",
+      "title": "Göksu Travertenleri",
+      "description": "Doğanın eşsiz güzelliklerinden biri olan Göksu Travertenleri, Mineralli suyun yüzyıllar boyunca taşıdığı kireç mineralleri, bu eşsiz doğal oluşumu meydana getirmiş.",
+      "image": "/turist/goksu-travertenleri.jpg",
+      "location": "Dereli",
+      "district": "Dereli",
+      "rating": 4.8,
+      "features": ["Travertenler", "Doğa", "Manzara"]
+    }
   ]
 }
