@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Clock, MapPin, Coffee, Sunset, TreePine, Palmtree, Building, Waves } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, MapPin, Coffee, Sunset, TreePine, Palmtree, Building, Waves, Map } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import {
@@ -16,6 +16,7 @@ import {
 import placesData from '@/data/places.json';
 import restaurantsData from '@/data/restaurants.json';
 import plateausData from '@/data/plateaus.json';
+import { SharePlan } from "@/components/SharePlan";
 
 type TripPreference = "tarihi" | "dogal" | "kultur" | "deniz";
 type TimeOfDay = "sabah" | "ogle" | "aksam";
@@ -395,6 +396,32 @@ export default function TripPlannerPage() {
                         </div>
                       )}
                     </div>
+
+                    {/* Harita yerine buton ekleyelim */}
+                    <div className="mt-8">
+                      <h3 className="text-lg font-semibold text-green-700 mb-4">
+                        🗺️ Rota
+                      </h3>
+                      <Button
+                        onClick={() => {
+                          // Tüm lokasyonları birleştirip Google Maps'e gönderelim
+                          const locations = generatedPlan.places.join('|');
+                          const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(generatedPlan.places[generatedPlan.places.length - 1])}&waypoints=${encodeURIComponent(locations)}&travelmode=driving`;
+                          window.open(url, '_blank');
+                        }}
+                        className="w-full bg-green-700 hover:bg-green-800 text-white flex items-center justify-center gap-2 py-3"
+                      >
+                        <Map className="h-5 w-5" />
+                        Google Haritalar'da Rotayı Görüntüle
+                      </Button>
+                    </div>
+
+                    {/* Paylaşım butonları */}
+                    <SharePlan plan={{
+                      places: generatedPlan.places,
+                      restaurant: generatedPlan.restaurants[plan.restaurantType],
+                      sunset: plan.wantsSunset ? generatedPlan.sunset : undefined
+                    }} />
 
                     <div className="mt-8 flex justify-center">
                       <Button 
