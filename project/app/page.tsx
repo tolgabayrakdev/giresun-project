@@ -18,18 +18,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1 
+      staggerChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { y: 10, opacity: 0 }, 
+  hidden: { y: 10, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5 
+      duration: 0.5
     }
   }
 };
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-green-900/90 to-green-800/90" />
           <div className="absolute inset-0 backdrop-blur-sm" />
-          <div 
+          <div
             className="absolute inset-0 opacity-10 text-white select-none pointer-events-none"
             style={{
               backgroundImage: "url('/patterns/findik-pattern.png')",
@@ -85,13 +85,13 @@ export default function Home() {
 
         {/* İçerik */}
         <div className="container mx-auto px-4 relative">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center text-white space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-6xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,8 +100,8 @@ export default function Home() {
               Karadeniz'in İncisi <br />
               <span className="text-green-300">Giresun</span>'u Keşfedin
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-lg md:text-xl text-gray-200"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function Home() {
             </motion.p>
 
             {/* Fındık animasyonu */}
-            <motion.div 
+            <motion.div
               className="flex justify-center gap-8 mt-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -133,21 +133,21 @@ export default function Home() {
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-green-900 hover:bg-green-50 font-semibold"
                 onClick={() => document.getElementById('kategoriler')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Keşfetmeye Başla
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
                 onClick={() => router.push('/giresun-hakkinda')}
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -184,7 +184,7 @@ export default function Home() {
       {/* İstatistikler */}
       <section className="py-12 bg-green-900 text-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
             variants={containerVariants}
             initial="hidden"
@@ -197,12 +197,12 @@ export default function Home() {
               { number: "16", text: "İlçe" },
               { number: "%25", text: "Dünya Fındık Üretimi" }
             ].map((stat, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="space-y-2"
                 variants={itemVariants}
               >
-                <motion.div 
+                <motion.div
                   className="text-3xl md:text-4xl font-bold"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -257,7 +257,7 @@ export default function Home() {
       {/* Kategori Butonları Section'ı */}
       <section id="kategoriler" className="py-16 bg-gradient-to-b from-white to-green-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -275,8 +275,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
                 onClick={() => window.location.href = '/turistik'}
               >
@@ -295,8 +295,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
                 onClick={() => window.location.href = '/restoranlar'}
               >
@@ -315,8 +315,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
                 onClick={() => window.location.href = '/yaylalar'}
               >
@@ -335,8 +335,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full h-40 flex flex-col items-center justify-center gap-3 hover:bg-green-50 border-2 hover:border-green-500 hover:shadow-lg transition-all duration-300 group"
                 onClick={() => window.location.href = '/festivaller'}
               >
@@ -356,7 +356,7 @@ export default function Home() {
       {/* Öne Çıkan Yerler */}
       <section className="py-16 bg-gradient-to-b from-green-50 to-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-12 space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +370,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
             variants={containerVariants}
             initial="hidden"
@@ -383,14 +383,14 @@ export default function Home() {
               variants={itemVariants}
             >
               <div className="relative h-[400px]">
-                <img 
-                  src="/turist/giresun-kalesi.jpeg" 
+                <img
+                  src="/turist/giresun-kalesi.jpeg"
                   alt="Tarihi Yerler"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay - Normal durumda hafif gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
-                
+
                 {/* Hover durumunda görünecek overlay */}
                 <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
@@ -424,14 +424,14 @@ export default function Home() {
               variants={itemVariants}
             >
               <div className="relative h-[400px]">
-                <img 
-                  src="/turist/zeytinlik-mahallesi.jpg" 
+                <img
+                  src="/turist/zeytinlik-mahallesi.jpg"
                   alt="Kültür Turu"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay - Normal durumda hafif gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
-                
+
                 {/* Hover durumunda görünecek overlay */}
                 <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
@@ -465,14 +465,14 @@ export default function Home() {
               variants={itemVariants}
             >
               <div className="relative h-[400px]">
-                <img 
-                  src="/turist/kumbet-yaylasi.jpg" 
+                <img
+                  src="/turist/kumbet-yaylasi.jpg"
                   alt="Doğal Güzellikler"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay - Normal durumda hafif gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
-                
+
                 {/* Hover durumunda görünecek overlay */}
                 <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
@@ -509,14 +509,14 @@ export default function Home() {
               variants={itemVariants}
             >
               <div className="relative h-[400px]">
-                <img 
-                  src="/restaurant/balik-izgara.jpg" 
+                <img
+                  src="/restaurant/balik-izgara.jpg"
                   alt="Yerel Lezzetler"
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay - Normal durumda hafif gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:opacity-0" />
-                
+
                 {/* Hover durumunda görünecek overlay */}
                 <div className="absolute inset-0 bg-green-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
@@ -554,7 +554,7 @@ export default function Home() {
       {/* Öne Çıkan Deneyimler section'ından sonra */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -570,14 +570,17 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                className="flex justify-center"
               >
-                <Button 
+                <Button
                   size="lg"
                   onClick={() => router.push('/gezi-plani')}
-                  className="bg-green-700 hover:bg-green-800 text-white font-semibold text-lg px-8 py-6 h-auto"
+                  className="bg-green-700 hover:bg-green-800 text-white font-semibold text-base md:text-lg px-4 md:px-8 py-4 md:py-6 h-auto flex items-center justify-center gap-2"
                 >
-                  Gezi Planı Oluştur(Demo)
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="hidden sm:inline">Gezi Planı Oluştur</span>
+                  <span className="sm:hidden">Plan Oluştur</span>
+                  <span className="text-xs">(Demo)</span>
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
               </motion.div>
             </div>
@@ -588,7 +591,7 @@ export default function Home() {
       {/* SSS section'ı buradan devam eder */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -602,7 +605,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -643,17 +646,17 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">Takip Edin</h3>
               <div className="flex justify-center sm:justify-start gap-4">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
+                <Button
+                  variant="outline"
+                  size="icon"
                   className="bg-transparent text-white border-2 border-white hover:bg-white/20"
                 >
                   <Instagram className="h-5 w-5" />
                   <span className="sr-only">Instagram</span>
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
+                <Button
+                  variant="outline"
+                  size="icon"
                   className="bg-transparent text-white border-2 border-white hover:bg-white/20"
                 >
                   <Twitter className="h-5 w-5" />
@@ -663,8 +666,8 @@ export default function Home() {
             </div>
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">Proje Hakkında</h3>
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className="text-gray-300 hover:text-white p-0 h-auto font-normal"
                 onClick={() => router.push('/hakkimda')}
               >
