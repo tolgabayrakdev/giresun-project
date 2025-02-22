@@ -119,26 +119,32 @@ const historicalEvents = [
   {
     period: "Antik Dönem",
     year: "M.Ö. 2000-546",
-    description: "Bölgede ilk yerleşimler Hititlere kadar uzanır. Daha sonra Miletoslular tarafından 'Kerasous' adıyla bir koloni kenti kurulmuştur.",
-    events: ["Hitit Yerleşimi", "Milet Kolonisi", "Amazon Krallığı"]
+    description: "Bölgede ilk yerleşimler Hititlere kadar uzanır. Daha sonra Miletoslular tarafından 'Kerasous' (Kiraz Şehri) adıyla bir koloni kenti kurulmuştur. Amazon Krallığı'nın önemli yerleşim yerlerinden biri olmuştur.",
+    events: ["Hitit Yerleşimi", "Milet Kolonisi", "Amazon Krallığı", "Kiraz Ticareti"]
   },
   {
     period: "Roma ve Bizans Dönemi",
     year: "M.Ö. 1 - M.S. 1461",
-    description: "Roma İmparatorluğu ve ardından Bizans hakimiyetinde kalan şehir, önemli bir liman kenti olarak gelişmiştir.",
-    events: ["Pontus Krallığı", "Roma Hakimiyeti", "Bizans Dönemi"]
+    description: "Pontus Krallığı'nın önemli bir parçası olan şehir, Roma İmparatorluğu ve ardından Bizans hakimiyetinde önemli bir liman kenti olarak gelişmiştir. Doğu Roma İmparatorluğu döneminde önemli bir ticaret merkezi haline gelmiştir.",
+    events: ["Pontus Krallığı", "Roma Hakimiyeti", "Bizans Dönemi", "Liman Ticareti"]
   },
   {
     period: "Osmanlı Dönemi",
     year: "1461-1923",
-    description: "Fatih Sultan Mehmet döneminde Osmanlı topraklarına katılan Giresun, önemli bir ticaret ve kültür merkezi haline gelmiştir.",
-    events: ["Osmanlı Fethi", "Fındık Ticareti", "Kültürel Gelişim"]
+    description: "Fatih Sultan Mehmet döneminde Osmanlı topraklarına katılan Giresun, önemli bir ticaret ve kültür merkezi haline gelmiştir. 19. yüzyılda 'Vilayet-i Çepni' olarak anılan bölge, Çepni Türklerinin yoğun yerleşim alanı olmuştur. Fındık ticaretinin merkezi haline gelen şehir, ekonomik açıdan büyük gelişme göstermiştir.",
+    events: ["Osmanlı Fethi", "Çepni Türkleri", "Fındık Ticareti", "Kültürel Gelişim"]
+  },
+  {
+    period: "Milli Mücadele Dönemi",
+    year: "1919-1923",
+    description: "Milli Mücadele döneminde önemli bir rol oynayan Giresun'un en önemli şahsiyetlerinden Topal Osman Ağa, Mustafa Kemal Paşa'nın muhafız birliği komutanlığını yapmıştır. Pontus Rum çetelerine karşı verdiği mücadele ile tanınan Osman Ağa, bölgenin Türk hakimiyetinde kalmasında önemli rol oynamıştır.",
+    events: ["Topal Osman Ağa", "Milli Mücadele", "Pontus Meselesi", "Muhafız Birliği"]
   },
   {
     period: "Cumhuriyet Dönemi",
     year: "1923-Günümüz",
-    description: "Cumhuriyetin ilanıyla birlikte modern bir kent kimliği kazanan Giresun, fındık üretimi ve ticaretinde dünya lideri konumuna gelmiştir.",
-    events: ["Şehirleşme", "Ekonomik Kalkınma", "Turizm Gelişimi"]
+    description: "Cumhuriyetin ilanıyla birlikte modern bir kent kimliği kazanan Giresun, fındık üretimi ve ticaretinde dünya lideri konumuna gelmiştir. Şehir, kültürel mirasını koruyarak endüstriyel ve turistik gelişimini sürdürmektedir. Karadeniz'in önemli liman kentlerinden biri olma özelliğini korumaktadır.",
+    events: ["Şehirleşme", "Ekonomik Kalkınma", "Turizm Gelişimi", "Fındık İhracatı"]
   }
 ];
 
