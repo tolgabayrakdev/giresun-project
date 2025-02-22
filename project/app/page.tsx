@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // Sadeleştirilmiş animasyon variants
 const containerVariants = {
@@ -28,26 +34,33 @@ const itemVariants = {
   }
 };
 
-const cardVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.3
-    }
-  },
-  hover: {
-    scale: 1.02, 
-    transition: {
-      duration: 0.2
-    }
-  }
-};
-
-
 
 export default function Home() {
   const router = useRouter();
+
+  // SSS verilerini tanımlayalım
+  const faqs = [
+    {
+      question: "Giresun nerede bulunuyor?",
+      answer: "Giresun, Türkiye'nin Karadeniz Bölgesi'nde yer alan bir sahil şehridir. Doğusunda Trabzon, batısında Ordu, güneyinde Sivas ve Erzincan illeri ile komşudur. Karadeniz sahil şeridinde yaklaşık 121 km'lik bir kıyı şeridine sahiptir."
+    },
+    {
+      question: "Giresun'un meşhur yemekleri nelerdir?",
+      answer: "Giresun'un başlıca meşhur yemekleri arasında: Karalahana çorbası, Pide çeşitleri, Kiremitte Balık, Karalahana sarması, Mısır ekmeği, Kuymak (Muhlama), Giresun Dondurması ve fındıklı tatlılar bulunur. Ayrıca taze Karadeniz balıkları da mutlaka tadılması gereken lezzetler arasındadır."
+    },
+    {
+      question: "Giresun'a nasıl ulaşabilirim?",
+      answer: "Giresun-Ordu Havalimanı üzerinden uçakla, karayolu ile şehirlerarası otobüslerle veya özel araçla ulaşım sağlanabilir. Havalimanı şehir merkezine yaklaşık 50 km uzaklıktadır. Ayrıca şehirlerarası otobüs terminali şehir merkezine yakın bir konumda bulunmaktadır."
+    },
+    {
+      question: "Giresun'da görülmesi gereken yerler nerelerdir?",
+      answer: "Başlıca görülmesi gereken yerler: Giresun Kalesi, Giresun Adası (Karadeniz'in tek adası), Zeytinlik Mahallesi (tarihi evleri), Kümbet Yaylası, Kulakkaya Yaylası, Giresun Müzesi, Meryem Ana Manastırı ve sahil şeridi. Ayrıca şehir merkezindeki tarihi camiler ve çarşılar da gezilmeye değerdir."
+    },
+    {
+      question: "Giresun'da hangi mevsimde gidilmeli?",
+      answer: "Giresun'u ziyaret etmek için en ideal dönem Mayıs-Eylül ayları arasıdır. Yaz aylarında yaylalar ziyaret edilebilir, denize girilebilir ve çeşitli festivallere katılabilirsiniz. Ağustos ayı fındık hasadı nedeniyle ayrıca özel bir dönemdir."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -538,6 +551,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Öne Çıkan Deneyimler section'ından sonra */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+              Sıkça Sorulan Sorular
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+              Giresun hakkında merak edilen soruların cevaplarını bulun
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left text-lg font-semibold text-green-800 hover:text-green-900">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Mobil Uyumlu Footer */}
       <footer className="bg-green-900 text-white mt-8 md:mt-12">
         <div className="container mx-auto px-4 py-8 md:py-12">
@@ -547,6 +599,13 @@ export default function Home() {
               <p className="text-sm md:text-base text-gray-300">
                 Karadeniz'in incisi Giresun'u keşfetmek için en kapsamlı rehber
               </p>
+              <Button 
+                variant="link" 
+                className="text-gray-300 hover:text-white p-0 h-auto font-normal mt-2"
+                onClick={() => router.push('/sss')}
+              >
+                Sıkça Sorulan Sorular
+              </Button>
             </div>
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">İletişim</h3>
