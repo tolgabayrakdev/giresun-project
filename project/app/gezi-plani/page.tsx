@@ -235,12 +235,15 @@ export default function TripPlannerPage() {
 
                     {step === 3 && (
                       <div className="space-y-4">
-                        <h2 className="text-xl font-semibold mb-4 text-green-800">Yemek tercihiniz nedir?</h2>
-                        <div className="grid grid-cols-3 gap-4">
+                        <h2 className="text-xl font-semibold mb-4 text-green-800">
+                          <span className="hidden sm:inline">Yemek tercihiniz nedir?</span>
+                          <span className="sm:hidden">Yemek Tercihi</span>
+                        </h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                           <Button
                             variant={plan.restaurantType === "balik" ? "default" : "outline"}
                             onClick={() => setPlan({ ...plan, restaurantType: "balik" })}
-                            className={`h-24 ${
+                            className={`h-20 sm:h-24 ${
                               plan.restaurantType === "balik" 
                                 ? "bg-green-700 hover:bg-green-800 text-white" 
                                 : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
@@ -248,13 +251,13 @@ export default function TripPlannerPage() {
                           >
                             <div className="text-center">
                               <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span>Balık Restoranı</span>
+                              <span className="text-sm sm:text-base">Balık Restoranı</span>
                             </div>
                           </Button>
                           <Button
                             variant={plan.restaurantType === "yerel" ? "default" : "outline"}
                             onClick={() => setPlan({ ...plan, restaurantType: "yerel" })}
-                            className={`h-24 ${
+                            className={`h-20 sm:h-24 ${
                               plan.restaurantType === "yerel" 
                                 ? "bg-green-700 hover:bg-green-800 text-white" 
                                 : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
@@ -262,13 +265,13 @@ export default function TripPlannerPage() {
                           >
                             <div className="text-center">
                               <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span>Yerel Lezzetler</span>
+                              <span className="text-sm sm:text-base">Yerel Lezzetler</span>
                             </div>
                           </Button>
                           <Button
                             variant={plan.restaurantType === "modern" ? "default" : "outline"}
                             onClick={() => setPlan({ ...plan, restaurantType: "modern" })}
-                            className={`h-24 ${
+                            className={`h-20 sm:h-24 ${
                               plan.restaurantType === "modern" 
                                 ? "bg-green-700 hover:bg-green-800 text-white" 
                                 : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
@@ -276,7 +279,7 @@ export default function TripPlannerPage() {
                           >
                             <div className="text-center">
                               <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span>Modern Kafeler</span>
+                              <span className="text-sm sm:text-base">Modern Kafeler</span>
                             </div>
                           </Button>
                         </div>
