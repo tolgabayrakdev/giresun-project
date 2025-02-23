@@ -573,16 +573,17 @@ export default function Home() {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="flex justify-center"
               >
-                <Button
-                  size="lg"
-                  onClick={() => router.push('/gezi-plani')}
-                  className="bg-green-700 hover:bg-green-800 text-white font-semibold text-base md:text-lg px-4 md:px-8 py-4 md:py-6 h-auto flex items-center justify-center gap-2"
-                >
-                  <span className="hidden sm:inline">Gezi Planı Oluştur</span>
-                  <span className="sm:hidden">Plan Oluştur</span>
-                  <span className="text-xs">(Demo)</span>
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
+                <Link href="/gezi-plani">
+                  <Button
+                    size="lg"
+                    className="bg-green-700 hover:bg-green-800 text-white font-semibold text-base md:text-lg px-4 md:px-8 py-4 md:py-6 h-auto flex items-center justify-center gap-2"
+                  >
+                    <span className="hidden sm:inline">Gezi Planı Oluştur</span>
+                    <span className="sm:hidden">Plan Oluştur</span>
+                    <span className="text-xs">(Demo)</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -647,34 +648,43 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">Takip Edin</h3>
               <div className="flex justify-center sm:justify-start gap-4">
-                <Button
-                  onClick={() => router.push('https://www.instagram.com')}
-                  variant="outline"
-                  size="icon"
-                  className="bg-transparent text-white border-2 border-white hover:bg-white"
+                <Link 
+                  href="https://www.instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="bg-transparent text-white border-2 border-white hover:bg-white"
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="bg-transparent text-white border-2 border-white hover:bg-white"
+                  >
+                    <Instagram className="h-5 w-5" />
+                    <span className="sr-only">Instagram</span>
+                  </Button>
+                </Link>
+                <Link 
+                  href="https://twitter.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="bg-transparent text-white border-2 border-white hover:bg-white"
+                  >
+                    <Twitter className="h-5 w-5" />
+                    <span className="sr-only">Twitter</span>
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">Proje Hakkında</h3>
-              <Link href="/hakkimda" passHref>
-                <Button
-                  variant="link"
-                  className="text-gray-300 hover:text-white p-0 h-auto font-normal"
-                >
-                  Bu projenin hikayesini keşfedin →
-                </Button>
+              <Link 
+                href="/hakkimda" 
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Bu projenin hikayesini keşfedin →
               </Link>
             </div>
           </div>
