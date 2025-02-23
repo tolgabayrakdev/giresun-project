@@ -135,12 +135,12 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center mt-8 px-8 sm:px-0"
+              className="flex flex-col gap-4 justify-center mt-8 px-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <div className="w-full max-w-[280px] mx-auto sm:w-auto">
+              <div className="w-full max-w-[280px] mx-auto">
                 <Button
                   size="lg"
                   className="w-full bg-white text-green-900 hover:bg-green-50 font-semibold"
@@ -149,7 +149,7 @@ export default function Home() {
                   Keşfetmeye Başla
                 </Button>
               </div>
-              <div className="w-full max-w-[280px] mx-auto sm:w-auto">
+              <div className="w-full max-w-[280px] mx-auto">
                 <Link href="/giresun-hakkinda" className="block">
                   <Button
                     size="lg"
