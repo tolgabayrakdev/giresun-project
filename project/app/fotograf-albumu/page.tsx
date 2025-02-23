@@ -61,27 +61,25 @@ export default function PhotoAlbum() {
         </motion.div>
 
         {/* Kategori Filtreleri */}
-        <div className="overflow-x-auto pb-4 mb-8 -mx-4 px-4 md:overflow-visible md:pb-0 md:mb-12 md:mx-0 md:px-0">
-          <div className="flex md:flex-wrap md:justify-center gap-2 min-w-max md:min-w-0">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={`${
-                  selectedCategory === category
-                    ? "bg-green-700 hover:bg-green-800 text-white"
-                    : "border-green-200 text-green-700 hover:border-green-300"
-                } whitespace-nowrap text-sm md:text-base px-4 py-2`}
-              >
-                <span className="flex items-center gap-2">
-                  {category === "Hepsi" && <Filter className="w-4 h-4" />}
-                  {category === "Manzara" && <Camera className="w-4 h-4" />}
-                  {category}
-                </span>
-              </Button>
-            ))}
-          </div>
+        <div className="flex flex-row flex-wrap justify-center gap-2 mb-8 md:mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? "default" : "outline"}
+              onClick={() => setSelectedCategory(category)}
+              className={`${
+                selectedCategory === category
+                  ? "bg-green-700 hover:bg-green-800 text-white"
+                  : "border-green-200 text-green-700 hover:border-green-300"
+              } text-sm md:text-base whitespace-nowrap`}
+            >
+              <span className="flex items-center gap-2">
+                {category === "Hepsi" && <Filter className="w-4 h-4" />}
+                {category === "Manzara" && <Camera className="w-4 h-4" />}
+                {category}
+              </span>
+            </Button>
+          ))}
         </div>
 
         {/* Fotoğraf Grid */}
