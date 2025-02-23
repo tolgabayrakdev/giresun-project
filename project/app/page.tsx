@@ -135,27 +135,31 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+              className="flex flex-col sm:flex-row gap-4 justify-center mt-8 px-8 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <Button
-                size="lg"
-                className="bg-white text-green-900 hover:bg-green-50 font-semibold"
-                onClick={() => document.getElementById('kategoriler')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Keşfetmeye Başla
-              </Button>
-              <Link href="/giresun-hakkinda">
+              <div className="w-full max-w-[280px] mx-auto sm:w-auto">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
+                  className="w-full bg-white text-green-900 hover:bg-green-50 font-semibold"
+                  onClick={() => document.getElementById('kategoriler')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Daha Fazla Bilgi
+                  Keşfetmeye Başla
                 </Button>
-              </Link>
+              </div>
+              <div className="w-full max-w-[280px] mx-auto sm:w-auto">
+                <Link href="/giresun-hakkinda" className="block">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
+                  >
+                    Daha Fazla Bilgi
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -253,6 +257,55 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Fotoğraf Albümü Section'ı */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 md:p-8 shadow-lg text-white relative overflow-hidden">
+              {/* Arka plan deseni */}
+              <div 
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: "url('/patterns/findik-pattern.png')",
+                  backgroundSize: "200px",
+                  backgroundRepeat: "repeat",
+                }}
+              />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                    Fotoğraf Albümü
+                  </h2>
+                  <p className="text-base text-green-100 mb-0 md:mb-2">
+                    Giresun'un en güzel karelerini keşfedin
+                  </p>
+                </div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Link href="/fotograf-albumu">
+                    <Button
+                      size="lg"
+                      className="bg-white text-green-800 hover:bg-green-50 font-semibold px-5 py-3 h-auto flex items-center gap-2"
+                    >
+                      <Camera className="h-5 w-5" />
+                      Albüme Git
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

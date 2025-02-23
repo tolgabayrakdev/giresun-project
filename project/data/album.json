@@ -1,0 +1,59 @@
+{
+  "photos": [
+    {
+      "id": "1",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337501/ph2_fpll3f.jpg",
+      "category": ["Yayla", "Doğa"],
+      "location": "Giresun, Kümbet"
+    },
+    {
+      "id": "2",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337496/ph3_gnexic.jpg",
+      "category": ["Şehir", "Manzara"],
+      "location": "Giresun, Sahil"
+    },
+    {
+      "id": "3",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337490/ph1_sbslyf.jpg",
+      "category": ["Şehir", "Manzara"],
+      "location": "Giresun, Merkez"
+    },
+    {
+      "id": "4",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337489/ph6_q40kbk.jpg",
+      "category": ["Deniz", "Manzara"],
+      "location": "Giresun, Sahil"
+    },
+    {
+      "id": "5",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337487/ph5_dikeva.jpg",
+      "category": ["Şehir", "Manzara"],
+      "location": "Giresun, Merkez"
+    },
+    {
+      "id": "6",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740337479/ph4_offrpr.jpg",
+      "category": ["Şehir", "Manzara"],
+      "location": "Giresun, Merkez"
+    },
+    {
+      "id": "7",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740338529/ph7_kjfhyc.jpg",
+      "category": ["Sahil", "Deniz"],
+      "location": "Giresun, Tirebolu"
+    },
+    {
+      "id": "8",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740338852/ph8_ld1rty.jpg",
+      "category": ["Sahil", "Deniz"],
+      "location": "Giresun"
+    },
+    {
+      "id": "9",
+      "src": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740338855/ph9_gldo3l.jpg",
+      "category": ["Tarihi", "Manzara"],
+      "location": "Giresun, Çakrak"
+    }
+    
+  ]
+}
