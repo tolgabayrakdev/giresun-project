@@ -1,28 +1,58 @@
 {
   "words": [
     {
-      "word": "Çeçe",
-      "meaning": "Yenge, gelinin arkadaşı",
-      "example": "Çeçeler düğünde horon tepti.",
-      "category": "Akrabalık"
-    },
-    {
-      "word": "Fişek",
-      "meaning": "Çevik, hareketli, atik",
-      "example": "Ne fişek adamsın.",
+      "word": "Accuk",
+      "meaning": "Azıcık",
+      "example": "Accuk hızlı gidiyorsun.",
       "category": "Sıfat"
     },
     {
-      "word": "Hoçça",
-      "meaning": "Hoşça, güle güle",
-      "example": "Hoçça kalun.",
-      "category": "Selamlaşma"
+      "word": "Annaklamak",
+      "meaning": "Seyretmek",
+      "example": "Neye annaklıyorsun öyle...",
+      "category": "Sıfat"
     },
     {
-      "word": "İskarpin",
-      "meaning": "Ayakkabı",
-      "example": "İskarpinlerini çıkar da gel.",
-      "category": "Eşya"
+      "word": "Alamuk",
+      "meaning": "Yağmur sonrası ortaya çıkan bunaltıcı hava.",
+      "example": "Bir alamuk geliyor.",
+      "category": "Sıfat"
+    },
+    {
+      "word": "Bezene",
+      "meaning": "Bezelye",
+      "example": "Bu sene tarlada bezene çok olmadı. ",
+      "category": "İsim"
+    },
+    {
+      "word": "Bıldır",
+      "meaning": "Geçen sene",
+      "example": "Bıldır bizim oğlan evlendi.",
+      "category": "İsim"
+    },
+    {
+      "word": "Haccak",
+      "meaning": "Güzel",
+      "example": "Çok haccak olmuşsun.",
+      "category": "Sıfat"
+    },
+    {
+      "word": "Hark",
+      "meaning": "Su kanalı",
+      "example": "Dün benim kız, harka gitti.",
+      "category": "İsim"
+    },
+    {
+      "word": "Zele",
+      "meaning": "Akşam",
+      "example": "Zele bize gelin.",
+      "category": "Sıfat"
+    },
+    {
+      "word": "Ayam",
+      "meaning": "Hava",
+      "example": "Ayam bozdu.",
+      "category": "İsim"
     }
   ]
 }
