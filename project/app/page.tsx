@@ -147,14 +147,15 @@ export default function Home() {
               >
                 Keşfetmeye Başla
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
-                onClick={() => router.push('/giresun-hakkinda')}
-              >
-                Daha Fazla Bilgi
-              </Button>
+              <Link href="/giresun-hakkinda">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent hover:bg-white/20 hover:text-white text-white border-2 border-white font-semibold"
+                >
+                  Daha Fazla Bilgi
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
