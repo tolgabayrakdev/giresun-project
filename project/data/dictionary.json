@@ -77,6 +77,72 @@
       "meaning": "Süt Mısırı",
       "example": "Birazdan fırına pool atacak.",
       "category": "İsim"
+    },
+    {
+      "word": "Eşün",
+      "meaning": "Ekmek çevirme aleti",
+      "example": "Şu eşünü uzat.",
+      "category": "İsim"
+    },
+    {
+      "word": "Erikme",
+      "meaning": "Şımarmak",
+      "example": "Kızım erikmeyin.",
+      "category": "Sıfat"
+    },
+    {
+      "word": "Fıraktı",
+      "meaning": "Odundan örülmüş çit",
+      "example": "Dün gece köpek fıraktıyı kırmış",
+      "category": "İsim"
+    },
+    {
+      "word": "Haltuk",
+      "meaning": "Kayvan bağlamak için kullanılan ip.",
+      "example": "Gelirken haltuk al.",
+      "category": "İsim"
+    },
+    {
+      "word": "Löküz",
+      "meaning": "Gazlı ışık veren lamba",
+      "example": "Köye gelirken loküz al.",
+      "category": "İsim"
+    },
+    {
+      "word": "Patoz",
+      "meaning": "Fındığı sapından ayıran makine",
+      "example": "Yarın patoz gelicek.",
+      "category": "İsim"
+    },
+    {
+      "word": "Zaar",
+      "meaning": "Köpek",
+      "example": "Zaar gibi gezmeyin.",
+      "category": "İsim"
+    },
+    {
+      "word": "Zifir",
+      "meaning": "Sigara dumanı",
+      "example": "Şu zifiri başka yere üfle.",
+      "category": "İsim" 
+    },
+    {
+      "word": "Goruk",
+      "meaning": "İçi boş fındık",
+      "example": "Şu sepetten gorukları seçelim.",
+      "category": "İsim"
+    },
+    {
+      "word": "Gozak",
+      "meaning": "Olgunlaşmamış meyve",
+      "example": "O meyveler daha gozak",
+      "category": "Sıfat"
+    },
+    {
+      "word": "Böce",
+      "meaning": "Fasulye",
+      "example": "Ben böceyi pek sevmiyorum",
+      "category": "İsim"
     }
   ]
 }
