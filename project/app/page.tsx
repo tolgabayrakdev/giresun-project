@@ -11,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 // Sadeleştirilmiş animasyon variants
 const containerVariants = {
@@ -677,7 +678,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-sm md:text-base text-gray-300">
-            <p>© 2025 giresunhakkinda.com. Tüm hakları saklıdır. @tolgabayrak</p>
+            <p>© 2025 giresunhakkinda.com. Tüm hakları saklıdır. <Link href={'https://tolgabayrak.com'}>@tolgabayrak</Link></p>
           </div>
         </div>
       </footer>
