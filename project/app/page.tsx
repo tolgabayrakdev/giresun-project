@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music, ArrowRight } from "lucide-react";
+import { Camera, MapPin, ShoppingBag, Utensils, Trees, Coffee, Mountain, Ship, Menu, Building2, Instagram, Twitter, Music, ArrowRight, Book } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -300,6 +300,56 @@ export default function Home() {
                     >
                       <Camera className="h-5 w-5" />
                       Albüme Git
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sözlük Section'ı - Fotoğraf albümünden hemen sonra */}
+      <section className="py-12 bg-gradient-to-r from-green-50 to-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 md:p-8 shadow-lg text-white relative overflow-hidden">
+              {/* Arka plan deseni */}
+              <div 
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: "url('/patterns/findik-pattern.png')",
+                  backgroundSize: "200px",
+                  backgroundRepeat: "repeat",
+                }}
+              />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">
+                    <Book className="h-6 w-6" />
+                    Giresun Sözlüğü
+                  </h2>
+                  <p className="text-base text-green-100 mb-0 md:mb-2">
+                    Giresun'un yerel kelimelerini ve anlamlarını keşfedin
+                  </p>
+                </div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Link href="/giresun-sozlugu">
+                    <Button
+                      size="lg"
+                      className="bg-white text-green-800 hover:bg-green-50 font-semibold px-5 py-3 h-auto flex items-center gap-2"
+                    >
+                      <Book className="h-5 w-5" />
+                      Sözlüğe Git
                     </Button>
                   </Link>
                 </motion.div>
