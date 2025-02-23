@@ -668,17 +668,22 @@ export default function Home() {
             </div>
             <div className="text-center sm:text-left">
               <h3 className="text-lg md:text-xl font-bold mb-4">Proje Hakkında</h3>
-              <Button
-                variant="link"
-                className="text-gray-300 hover:text-white p-0 h-auto font-normal"
-                onClick={() => router.push('/hakkimda')}
-              >
-                Bu projenin hikayesini keşfedin →
-              </Button>
+              <Link href="/hakkimda" passHref>
+                <Button
+                  variant="link"
+                  className="text-gray-300 hover:text-white p-0 h-auto font-normal"
+                >
+                  Bu projenin hikayesini keşfedin →
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-sm md:text-base text-gray-300">
-            <p>© 2025 giresunhakkinda.com. Tüm hakları saklıdır. <Link href={'https://tolgabayrak.com'}>@tolgabayrak</Link></p>
+            <p>© 2025 giresunhakkinda.com. Tüm hakları saklıdır.
+              <a href="https://tolgabayrak.com" target="_blank" rel="noopener noreferrer">
+                @tolgabayrak
+              </a>
+            </p>
           </div>
         </div>
       </footer>
