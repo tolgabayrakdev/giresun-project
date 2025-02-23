@@ -647,9 +647,10 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-bold mb-4">Takip Edin</h3>
               <div className="flex justify-center sm:justify-start gap-4">
                 <Button
+                  onClick={() => router.push('https://www.instagram.com')}
                   variant="outline"
                   size="icon"
-                  className="bg-transparent text-white border-2 border-white hover:bg-white/20"
+                  className="bg-transparent text-white border-2 border-white hover:bg-white"
                 >
                   <Instagram className="h-5 w-5" />
                   <span className="sr-only">Instagram</span>
@@ -657,7 +658,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="bg-transparent text-white border-2 border-white hover:bg-white/20"
+                  className="bg-transparent text-white border-2 border-white hover:bg-white"
                 >
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
