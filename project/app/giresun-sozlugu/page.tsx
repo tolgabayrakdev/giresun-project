@@ -24,7 +24,7 @@ interface Word {
 
 const words: Word[] = dictionaryData.words;
 
-const categories = ["Hepsi", "Akrabalık", "Selamlaşma", "Eşya", "Sıfat", "Yemek", "Günlük Hayat"];
+const categories = ["Hepsi", "Akrabalık", "Selamlaşma", "Fiil", "Sıfat", "Yemek", "Günlük Hayat"];
 
 export default function Dictionary() {
   const [searchTerm, setSearchTerm] = useState("");

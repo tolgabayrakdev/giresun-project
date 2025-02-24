@@ -143,6 +143,24 @@
       "meaning": "Fasulye",
       "example": "Ben böceyi pek sevmiyorum",
       "category": "İsim"
+    },
+    {
+      "word": "Çimmek",
+      "meaning": "Banyo yapmak",
+      "example": "Bu işten sonra güzel bir çimmeceğim.",
+      "category": "Fiil"
+    },
+    {
+      "word": "Tesbermek",
+      "meaning": "Kurumak",
+      "example": "Şu kilim bi tesbersin.",
+      "category": "Fiil"
+    },
+    {
+      "word": "Şelek",
+      "meaning": "Küçük örme sırt sepeti",
+      "example": "Pazardan yeni bir şelek aldım.",
+      "category": "Eşya"
     }
   ]
 }
