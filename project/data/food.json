@@ -37,9 +37,18 @@
       "id": "3",
       "name": "Mısır Ekmeği",
       "description": "Geleneksel yöntemlerle yapılan mısır unu ekmeği.",
-      "ingredients": ["Mısır Unu", "Su", "Tuz"],
+      "ingredients": ["Mısır Unu", "Su", "Tuz", "Maya"],
+      "preparation": [
+        "Mısır unu geniş bir kaba alınır",
+        "Ilık su, tuz ve maya ilave edilir",
+        "Yumuşak bir hamur elde edilene kadar yoğrulur",
+        "Hamur mayalanması için 30 dakika bekletilir",
+        "Yağlanmış tepsiye hamur yayılır",
+        "Üzeri çizilerek desenler yapılır",
+        "Önceden ısıtılmış fırında altı üstü kızarana kadar pişirilir"
+      ],
       "category": "Hamur İşi",
-      "image": "/food/misir-ekmegi.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg"
     }
   ]
 } 
