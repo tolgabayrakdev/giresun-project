@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Utensils } from "lucide-react";
 import Link from "next/link";
 import foodData from '@/data/food.json';
+import { ShareRecipe } from "@/components/ShareRecipe";
 
 
 const categories = ["Hepsi", "Ana Yemek", "Çorba", "Hamur İşi", "Tatlı", "Deniz Ürünü"];
@@ -127,6 +128,9 @@ export default function LocalFoodClient() {
                       </ol>
                     </div>
                   )}
+
+                  {/* Paylaşım Butonları */}
+                  <ShareRecipe food={food} />
                 </div>
               </motion.div>
             ))}
