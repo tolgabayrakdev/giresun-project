@@ -263,7 +263,7 @@ export default function Home() {
       {/* Fotoğraf Albümü ve Sözlük Section'ı */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Fotoğraf Albümü Kartı */}
             <motion.div
               className="max-w-xl mx-auto w-full"
@@ -347,6 +347,51 @@ export default function Home() {
                       >
                         <Book className="h-5 w-5" />
                         Sözlüğe Git
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Yöresel Yemekler Kartı */}
+            <motion.div
+              className="max-w-xl mx-auto w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 shadow-lg text-white relative overflow-hidden h-full">
+                <div 
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: "url('/patterns/findik-pattern.png')",
+                    backgroundSize: "200px",
+                    backgroundRepeat: "repeat",
+                  }}
+                />
+                
+                <div className="relative z-10 flex flex-col items-center justify-between gap-4 h-full">
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <Utensils className="h-6 w-6" />
+                      Yöresel Lezzetler
+                    </h2>
+                    <p className="text-sm text-green-100">
+                      Giresun'un eşsiz mutfağını keşfedin
+                    </p>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Link href="/yoresel-yemekler">
+                      <Button
+                        size="lg"
+                        className="bg-white text-green-800 hover:bg-green-50 font-semibold px-4 py-2 h-auto flex items-center gap-2"
+                      >
+                        <Utensils className="h-5 w-5" />
+                        Yöresel Lezzetlere Git
                       </Button>
                     </Link>
                   </motion.div>

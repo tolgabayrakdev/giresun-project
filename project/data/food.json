@@ -1,0 +1,28 @@
+{
+  "foods": [
+    {
+      "id": "1",
+      "name": "Karalahana(Pancar) Çorbası",
+      "description": "Karalahana, mısır unu ve fasulye ile yapılan besleyici bir çorba. Ordu ili tarafından tescillenmiş bir lezzetdir. Giresunda yıllar boyunca köylerde sürekli yapılmaktadır.",
+      "ingredients": ["Karalahana", "Mısır Unu", "Kuru Fasulye", "Soğan", "Tereyağı"],
+      "category": "Çorba",
+      "image": "/food/karalahana-corbasi.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Kiremitte Hamsi",
+      "description": "Kiremit üzerinde pişirilen taze hamsi balığı.",
+      "ingredients": ["Hamsi", "Tereyağı", "Sarımsak", "Maydanoz"],
+      "category": "Deniz Ürünü",
+      "image": "/food/kiremitte-hamsi.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Mısır Ekmeği",
+      "description": "Geleneksel yöntemlerle yapılan mısır unu ekmeği.",
+      "ingredients": ["Mısır Unu", "Su", "Tuz"],
+      "category": "Hamur İşi",
+      "image": "/food/misir-ekmegi.jpg"
+    }
+  ]
+} 
