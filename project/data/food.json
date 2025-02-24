@@ -3,18 +3,35 @@
     {
       "id": "1",
       "name": "Karalahana(Pancar) Çorbası",
-      "description": "Karalahana, mısır unu ve fasulye ile yapılan besleyici bir çorba. Ordu ili tarafından tescillenmiş bir lezzetdir. Giresunda yıllar boyunca köylerde sürekli yapılmaktadır.",
+      "description": "Karalahana, mısır unu ve fasulye ile yapılan besleyici bir çorba.",
       "ingredients": ["Karalahana", "Mısır Unu", "Kuru Fasulye", "Soğan", "Tereyağı"],
+      "preparation": [
+        "Kuru fasulyeler bir gece önceden ıslatılır",
+        "Karahanalar yıkanıp doğranır",
+        "Soğanlar yemeklik doğranıp tereyağında kavrulur",
+        "Yumuşayan fasulyeler ve karahanalar ilave edilir",
+        "Son olarak mısır unu eklenerek kıvam alana kadar pişirilir"
+      ],
       "category": "Çorba",
-      "image": "/food/karalahana-corbasi.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427163/o2cflqjjfpakejcpgnpo.jpg"
     },
     {
       "id": "2",
-      "name": "Kiremitte Hamsi",
-      "description": "Kiremit üzerinde pişirilen taze hamsi balığı.",
-      "ingredients": ["Hamsi", "Tereyağı", "Sarımsak", "Maydanoz"],
+      "name": "Hamsi Pilavı",
+      "description": "Hamsili pilav, hamsi balığının pilav ile buluşarak harika bir ahenk sunmasıdır",
+      "ingredients": ["Hamsi", "Pirinç", "Soğan", "Tereyağı", "Karabiber", "Tuz"],
+      "preparation": [
+        "Hamsilerin kılçıkları çıkarılır",
+        "Pirinç yıkanıp süzülür",
+        "Soğanlar yemeklik doğranıp tereyağında kavrulur",
+        "Pirinç ilave edilip kavrulur",
+        "Tepsiye bir kat hamsi dizilir",
+        "Üzerine hazırlanan pirinç dökülür",
+        "En üste tekrar hamsi dizilir",
+        "Fırında pişirilir"
+      ],
       "category": "Deniz Ürünü",
-      "image": "/food/kiremitte-hamsi.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427435/hamsi-pilav_z4exmh.jpg"
     },
     {
       "id": "3",
