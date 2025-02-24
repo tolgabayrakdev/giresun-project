@@ -260,102 +260,100 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fotoğraf Albümü Section'ı */}
+      {/* Fotoğraf Albümü ve Sözlük Section'ı */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 md:p-8 shadow-lg text-white relative overflow-hidden">
-              {/* Arka plan deseni */}
-              <div 
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: "url('/patterns/findik-pattern.png')",
-                  backgroundSize: "200px",
-                  backgroundRepeat: "repeat",
-                }}
-              />
-              
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                    Fotoğraf Albümü
-                  </h2>
-                  <p className="text-base text-green-100 mb-0 md:mb-2">
-                    Giresun'un en güzel karelerini keşfedin
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Fotoğraf Albümü Kartı */}
+            <motion.div
+              className="max-w-xl mx-auto w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 shadow-lg text-white relative overflow-hidden h-full">
+                <div 
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: "url('/patterns/findik-pattern.png')",
+                    backgroundSize: "200px",
+                    backgroundRepeat: "repeat",
+                  }}
+                />
+                
+                <div className="relative z-10 flex flex-col items-center justify-between gap-4 h-full">
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <Camera className="h-6 w-6" />
+                      Fotoğraf Albümü
+                    </h2>
+                    <p className="text-sm text-green-100">
+                      Giresun'un en güzel karelerini keşfedin
+                    </p>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Link href="/fotograf-albumu">
+                      <Button
+                        size="lg"
+                        className="bg-white text-green-800 hover:bg-green-50 font-semibold px-4 py-2 h-auto flex items-center gap-2"
+                      >
+                        <Camera className="h-5 w-5" />
+                        Albüme Git
+                      </Button>
+                    </Link>
+                  </motion.div>
                 </div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Link href="/fotograf-albumu">
-                    <Button
-                      size="lg"
-                      className="bg-white text-green-800 hover:bg-green-50 font-semibold px-5 py-3 h-auto flex items-center gap-2"
-                    >
-                      <Camera className="h-5 w-5" />
-                      Albüme Git
-                    </Button>
-                  </Link>
-                </motion.div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Sözlük Section'ı - Fotoğraf albümünden hemen sonra */}
-      <section className="py-12 bg-gradient-to-r from-green-50 to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 md:p-8 shadow-lg text-white relative overflow-hidden">
-              {/* Arka plan deseni */}
-              <div 
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: "url('/patterns/findik-pattern.png')",
-                  backgroundSize: "200px",
-                  backgroundRepeat: "repeat",
-                }}
-              />
-              
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">
-                    <Book className="h-6 w-6" />
-                    Giresun Sözlüğü
-                  </h2>
-                  <p className="text-base text-green-100 mb-0 md:mb-2">
-                    Giresun'un yerel kelimelerini ve anlamlarını keşfedin
-                  </p>
+            {/* Sözlük Kartı */}
+            <motion.div
+              className="max-w-xl mx-auto w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="bg-gradient-to-r from-green-800 to-green-700 rounded-xl p-6 shadow-lg text-white relative overflow-hidden h-full">
+                <div 
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: "url('/patterns/findik-pattern.png')",
+                    backgroundSize: "200px",
+                    backgroundRepeat: "repeat",
+                  }}
+                />
+                
+                <div className="relative z-10 flex flex-col items-center justify-between gap-4 h-full">
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <Book className="h-6 w-6" />
+                      Giresun Sözlüğü
+                    </h2>
+                    <p className="text-sm text-green-100">
+                      Giresun'un yerel kelimelerini keşfedin
+                    </p>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Link href="/giresun-sozlugu">
+                      <Button
+                        size="lg"
+                        className="bg-white text-green-800 hover:bg-green-50 font-semibold px-4 py-2 h-auto flex items-center gap-2"
+                      >
+                        <Book className="h-5 w-5" />
+                        Sözlüğe Git
+                      </Button>
+                    </Link>
+                  </motion.div>
                 </div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Link href="/giresun-sozlugu">
-                    <Button
-                      size="lg"
-                      className="bg-white text-green-800 hover:bg-green-50 font-semibold px-5 py-3 h-auto flex items-center gap-2"
-                    >
-                      <Book className="h-5 w-5" />
-                      Sözlüğe Git
-                    </Button>
-                  </Link>
-                </motion.div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
