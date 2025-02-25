@@ -1,4 +1,41 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://giresunhakkinda.com/sitemap.xml 
+# Sitemaps
+Sitemap: https://giresunhakkinda.com/sitemap.xml
+
+# Ana Sayfalar
+Allow: /giresun-hakkinda
+Allow: /yoresel-yemekler
+Allow: /giresun-sozlugu
+Allow: /turistik
+Allow: /restoranlar
+Allow: /yaylalar
+Allow: /festivaller
+Allow: /gezi-plani
+
+# Yemek Sayfaları
+Allow: /yoresel-yemekler/*
+
+# Sözlük Sayfaları
+Allow: /giresun-sozlugu/*
+
+# Medya ve Statik Dosyalar
+Allow: /images/
+Allow: /assets/
+
+# Özel Sayfalar
+Allow: /hakkimda
+
+# Yönetim ve API Rotaları
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+
+# Geçici Dosyalar
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+
+# Crawl Gecikmesi
+Crawl-delay: 10 

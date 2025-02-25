@@ -1,74 +1,51 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Twitter, Share2, Copy } from "lucide-react";
-import { useState } from "react";
+import { Share2, Copy } from "lucide-react";
 
 interface ShareRecipeProps {
   food: {
     name: string;
     description: string;
-    ingredients: string[];
-    preparation: string[];
   };
+  slug?: string;
+}
+
+// Slug oluşturma fonksiyonu
+function createSlug(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ı/g, 'i')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 export function ShareRecipe({ food }: ShareRecipeProps) {
-  const [copied, setCopied] = useState(false);
+  const recipeUrl = `https://giresunhakkinda.com/yoresel-yemekler/${createSlug(food.name)}`;
 
-  const shareText = `🍽️ ${food.name}\n\n📝 ${food.description}\n\n📋 Malzemeler:\n${food.ingredients.map(i => `• ${i}`).join('\n')}\n\n👩‍🍳 Hazırlanışı:\n${food.preparation.map((step, index) => `${index + 1}. ${step}`).join('\n')}\n\nDaha fazla Giresun lezzeti için: giresunhakkinda.com/yoresel-yemekler`;
-
-  const shareToTwitter = () => {
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-    window.open(url, '_blank');
-  };
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(shareText);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Kopyalama başarısız:', err);
-    }
+  const handleCopy = () => {
+    navigator.clipboard.writeText(recipeUrl);
   };
 
   return (
-    <div className="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
-      <span className="text-sm text-gray-500 mr-2">Tarifi Paylaş:</span>
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-sm text-gray-500 flex items-center gap-1">
+        <Share2 className="w-4 h-4" />
+        Bağlantıyı Kopyala:
+      </span>
       <Button
         variant="outline"
         size="icon"
-        onClick={shareToTwitter}
-        className="bg-[#1DA1F2] hover:bg-[#1a8cd8] text-white border-none hover:text-white h-8 w-8"
+        className="w-8 h-8 text-gray-600 hover:text-green-700 hover:border-green-200"
+        onClick={handleCopy}
       >
-        <Twitter className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={copyToClipboard}
-        className={`${
-          copied 
-            ? "bg-green-600 hover:bg-green-700" 
-            : "bg-gray-600 hover:bg-gray-700"
-        } text-white border-none hover:text-white h-8 w-8 relative group`}
-      >
-        {copied ? (
-          <>
-            <Copy className="h-4 w-4" />
-            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap">
-              Kopyalandı!
-            </span>
-          </>
-        ) : (
-          <>
-            <Share2 className="h-4 w-4" />
-            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap">
-              Kopyala
-            </span>
-          </>
-        )}
+        <Copy className="w-4 h-4" />
       </Button>
     </div>
   );
