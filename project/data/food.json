@@ -119,7 +119,26 @@
       ],
       "category": "Sebze Yemekleri",
       "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Fasulye Turşusu Kavurması",
+      "description": "Turşunun kavrularak daha lezzetli hale geldiği harika bir yemek.",
+      "ingredients": ["Turşu", "Tereyağı", "Soğan"],
+      "detailedIngredients": [
+        "2 tabak fasulye turşusu",
+        "1 adet orta boy soğan",
+        "1 kaşık tereyağı",
+        "1 kaşık sıvıyağ"
+      ],
+      "preparation": [
+        "Fasulye turşusu güzelce bol suyla yıkanır.",
+        "Ardından turşu küçük parçalar halinde doğranıp tavada erimiş terayağın içine eklenir. Soğan ve sıvıyağ ile karıştırılıp kavrulur.",
+        "Kapağı kapatıralarak 8-10 dakika pişmeye bırakılır.",
+        "Ve hazır. Sıcak bir şekilde servis edebilirsiniz."
+      ],
+      "category": "Sebze Yemekleri",
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg"
     }
-    
   ]
 } 
