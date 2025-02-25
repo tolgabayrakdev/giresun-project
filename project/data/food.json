@@ -5,6 +5,13 @@
       "name": "Karalahana(Pancar) Çorbası",
       "description": "Karalahana, mısır unu ve fasulye ile yapılan besleyici bir çorba.",
       "ingredients": ["Karalahana", "Mısır Unu", "Kuru Fasulye", "Soğan", "Tereyağı"],
+      "detailedIngredients": [
+        "2 demet karalahana",
+        "1 su bardağı mısır unu",
+        "1 su bardağı kuru fasulye",
+        "2 adet orta boy soğan",
+        "2 yemek kaşığı tereyağı"
+      ],
       "preparation": [
         "Kuru fasulyeler bir gece önceden ıslatılır",
         "Karahanalar yıkanıp doğranır",
@@ -20,6 +27,14 @@
       "name": "Hamsi Pilavı",
       "description": "Hamsili pilav, hamsi balığının pilav ile buluşarak harika bir ahenk sunmasıdır",
       "ingredients": ["Hamsi", "Pirinç", "Soğan", "Tereyağı", "Karabiber", "Tuz"],
+      "detailedIngredients": [
+        "1 kg hamsi",
+        "2 su bardağı pirinç",
+        "2 adet orta boy soğan",
+        "3 yemek kaşığı tereyağı",
+        "1 tatlı kaşığı karabiber",
+        "Yeterince tuz"
+      ],
       "preparation": [
         "Hamsilerin kılçıkları çıkarılır",
         "Pirinç yıkanıp süzülür",
@@ -38,6 +53,12 @@
       "name": "Mısır Ekmeği",
       "description": "Geleneksel yöntemlerle yapılan mısır unu ekmeği.",
       "ingredients": ["Mısır Unu", "Su", "Tuz", "Maya"],
+      "detailedIngredients": [
+        "3 su bardağı mısır unu",
+        "2 su bardağı ılık su",
+        "1 tatlı kaşığı tuz",
+        "1 paket kuru maya"
+      ],
       "preparation": [
         "Mısır unu geniş bir kaba alınır",
         "Ilık su, tuz ve maya ilave edilir",
@@ -49,6 +70,30 @@
       ],
       "category": "Hamur İşi",
       "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Fasulye Diblesi",
+      "description": "Giresun usulü fasulye diblesi.",
+      "ingredients": ["Taze Fasulye", "Pirinç", "Tereyağı", "Soğan", "Kırmızı pul piper"],
+      "detailedIngredients": [
+        "1 kg taze fasulye",
+        "1 su bardağı pirinç",
+        "2 adet soğan",
+        "2 çorba kaşısı tereyağı",
+        "1.5 çay bardağı su",
+        "Tuz",
+        "Kırmızı pul piper"
+      ],
+      "preparation": [
+        "Fasulyeler ayıklanıp ince bir şekilde kıyılır",
+        "Tencereye doğranmış fasülye eklenip, üzerine yıkanmış piriç ilave edilir.",
+        "Bir sıra daha fasulye eklendikten sonra en üste soğanlar eklenir",
+        "Pirinçler uzayıp pişinceye kadar kısık ateşte pişirilir",
+        "Ağzı kapatılarak 15 dakika demlendirip, service hazırlayabilirsiniz"
+      ],
+      "category": "Sebze Yemekleri",
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg"
     }
   ]
 } 

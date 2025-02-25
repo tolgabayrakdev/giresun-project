@@ -12,6 +12,7 @@ interface FoodDetailClientProps {
     description: string;
     category: string;
     ingredients: string[];
+    detailedIngredients: string[];
     preparation?: string[];
     image: string;
   };
@@ -80,8 +81,8 @@ export default function FoodDetailClient({ food }: FoodDetailClientProps) {
               <ChefHat className="h-6 w-6" />
               Malzemeler
             </h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {food.ingredients.map((ingredient, index) => (
+            <ul className="grid grid-cols-1 gap-3">
+              {food.detailedIngredients.map((ingredient, index) => (
                 <li
                   key={index}
                   className="flex items-center gap-2 text-gray-700"
