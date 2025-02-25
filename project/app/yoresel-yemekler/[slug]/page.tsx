@@ -19,9 +19,9 @@ function createSlug(name: string) {
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 // Metadata oluşturma
