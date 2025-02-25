@@ -3,11 +3,12 @@ import { notFound } from 'next/navigation';
 import foodData from '@/data/food.json';
 import FoodDetailClient from './FoodDetailClient';
 
-interface Props {
+type Props = {
   params: {
     slug: string;
   };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 // Slug oluşturma fonksiyonu
 function createSlug(name: string) {
@@ -99,7 +100,7 @@ function generateStructuredData(food: any) {
   };
 }
 
-export default function FoodDetailPage({ params }: Props) {
+export default async function FoodDetailPage({ params }: Props) {
   const food = foodData.foods.find(
     (food) => createSlug(food.name) === params.slug
   );
