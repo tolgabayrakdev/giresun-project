@@ -94,6 +94,32 @@
       ],
       "category": "Sebze Yemekleri",
       "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Isırgan Yemeği",
+      "description": "Giresun mutfağına özgü, un, tereyağı ve sarımsak ile yapılan geleneksel ısırgan yemeği.",
+      "ingredients": ["Isırgan otu", "Un", "Tereyağı", "Sarımsak", "Tuz", "Su"],
+      "detailedIngredients": [
+        "500 gr taze ısırgan otu",
+        "3 çorba kaşığı un",
+        "2 çorba kaşığı tereyağı",
+        "3 diş sarımsak",
+        "1 su bardağı su",
+        "Tuz"
+      ],
+      "preparation": [
+        "Isırgan otlarını güzelce yıkayın ve kaynar suda 3-5 dakika haşlayın.",
+        "Haşlanan ısırgan otlarını süzerek ince ince doğrayın.",
+        "Bir tavada tereyağını eritip unu ekleyin ve kokusu çıkana kadar kavurun.",
+        "Üzerine doğranmış ısırganları ekleyerek karıştırın.",
+        "Sarımsakları ezip karışıma ekleyin, ardından bir su bardağı suyu ilave edin.",
+        "Kıvam alana kadar karıştırarak pişirin.",
+        "Tuzunu ekleyip ocaktan alın ve sıcak olarak servis edin."
+      ],
+      "category": "Sebze Yemekleri",
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg"
     }
+    
   ]
 } 
