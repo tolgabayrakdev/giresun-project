@@ -3,11 +3,6 @@ import { notFound } from 'next/navigation';
 import foodData from '@/data/food.json';
 import FoodDetailClient from './FoodDetailClient';
 
-type PageProps = {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
 // Slug oluşturma fonksiyonu
 function createSlug(name: string) {
   return name
@@ -23,8 +18,14 @@ function createSlug(name: string) {
     .replace(/^-|-$/g, '');
 }
 
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
 // Metadata oluşturma
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const food = foodData.foods.find(
     (food) => createSlug(food.name) === params.slug
   );
@@ -98,7 +99,7 @@ function generateStructuredData(food: any) {
   };
 }
 
-export default async function FoodDetailPage({ params }: { params: { slug: string } }) {
+export default function FoodDetailPage({ params }: Props) {
   const food = foodData.foods.find(
     (food) => createSlug(food.name) === params.slug
   );
