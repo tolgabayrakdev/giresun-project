@@ -5,7 +5,7 @@ import FoodDetailClient from './FoodDetailClient';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 // Slug oluşturma fonksiyonu
@@ -24,10 +24,9 @@ function createSlug(name: string) {
 }
 
 // Metadata oluşturma
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === resolvedParams.slug
+    (food) => createSlug(food.name) === params.slug
   );
 
   if (!food) {
@@ -99,10 +98,9 @@ function generateStructuredData(food: any) {
   };
 }
 
-export default async function FoodDetailPage({ params }: PageProps) {
-  const resolvedParams = await params;
+export default async function FoodDetailPage({ params }: { params: { slug: string } }) {
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === resolvedParams.slug
+    (food) => createSlug(food.name) === params.slug
   );
 
   if (!food) {
