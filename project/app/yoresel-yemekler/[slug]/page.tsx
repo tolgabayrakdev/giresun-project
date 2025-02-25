@@ -26,8 +26,9 @@ type Props = {
 
 // Metadata oluşturma
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === params.slug
+    (food) => createSlug(food.name) === resolvedParams.slug
   );
 
   if (!food) {
@@ -99,9 +100,10 @@ function generateStructuredData(food: any) {
   };
 }
 
-export default function FoodDetailPage({ params }: Props) {
+export default async function FoodDetailPage({ params }: Props) {
+  const resolvedParams = await params;
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === params.slug
+    (food) => createSlug(food.name) === resolvedParams.slug
   );
 
   if (!food) {
