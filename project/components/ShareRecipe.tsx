@@ -1,14 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Share2, Copy } from "lucide-react";
+import { Share2 } from "lucide-react";
+import { useState } from "react";
 
 interface ShareRecipeProps {
   food: {
     name: string;
     description: string;
   };
-  slug?: string;
 }
 
 // Slug oluşturma fonksiyonu
@@ -27,26 +27,24 @@ function createSlug(name: string) {
 }
 
 export function ShareRecipe({ food }: ShareRecipeProps) {
+  const [copied, setCopied] = useState(false);
   const recipeUrl = `https://giresunhakkinda.com/yoresel-yemekler/${createSlug(food.name)}`;
 
-  const handleCopy = () => {
+  const handleShare = () => {
     navigator.clipboard.writeText(recipeUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="text-sm text-gray-500 flex items-center gap-1">
-        <Share2 className="w-4 h-4" />
-        Bağlantıyı Kopyala:
-      </span>
-      <Button
-        variant="outline"
-        size="icon"
-        className="w-8 h-8 text-gray-600 hover:text-green-700 hover:border-green-200"
-        onClick={handleCopy}
-      >
-        <Copy className="w-4 h-4" />
-      </Button>
-    </div>
+    <Button
+      variant="outline"
+      size="sm"
+      className="text-gray-600 hover:text-green-700 hover:border-green-200"
+      onClick={handleShare}
+    >
+      <Share2 className="w-4 h-4 mr-2" />
+      {copied ? "Kopyalandı!" : "Paylaş"}
+    </Button>
   );
 } 
