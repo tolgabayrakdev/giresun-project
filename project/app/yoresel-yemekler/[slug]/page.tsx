@@ -3,10 +3,8 @@ import { notFound } from 'next/navigation';
 import foodData from '@/data/food.json';
 import FoodDetailClient from './FoodDetailClient';
 
-type Props = {
-  params: {
-    slug: string;
-  };
+type PageProps = {
+  params: Promise<{ slug: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
@@ -26,9 +24,10 @@ function createSlug(name: string) {
 }
 
 // Metadata oluşturma
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === params.slug
+    (food) => createSlug(food.name) === resolvedParams.slug
   );
 
   if (!food) {
@@ -100,9 +99,10 @@ function generateStructuredData(food: any) {
   };
 }
 
-export default async function FoodDetailPage({ params }: Props) {
+export default async function FoodDetailPage({ params }: PageProps) {
+  const resolvedParams = await params;
   const food = foodData.foods.find(
-    (food) => createSlug(food.name) === params.slug
+    (food) => createSlug(food.name) === resolvedParams.slug
   );
 
   if (!food) {
