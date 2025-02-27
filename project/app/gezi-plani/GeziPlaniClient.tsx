@@ -21,6 +21,8 @@ import { SharePlan } from "@/components/SharePlan";
 type TripPreference = "tarihi" | "dogal" | "kultur" | "deniz";
 type TimeOfDay = "sabah" | "ogle" | "aksam";
 type RestaurantType = "balik" | "yerel" | "modern";
+type District = "merkez" | "bulancak" | "gorele" | "tirebolu" | "espiye" | "kesap";
+type DifficultyLevel = "kolay" | "orta" | "zor";
 
 interface TripPlan {
   preference: TripPreference;
@@ -28,6 +30,10 @@ interface TripPlan {
   duration: number;
   restaurantType: RestaurantType;
   wantsSunset: boolean;
+  selectedDistrict: District;
+  numberOfDays: number;
+  difficultyLevel: DifficultyLevel;
+  season: string;
 }
 
 export default function GeziPlaniClient() {
@@ -38,7 +44,13 @@ export default function GeziPlaniClient() {
     timeOfDay: "sabah",
     duration: 4,
     restaurantType: "yerel",
-    wantsSunset: true
+    wantsSunset: true,
+    selectedDistrict: "merkez",
+    numberOfDays: 1,
+    difficultyLevel: "kolay",
+    season: new Date().getMonth() >= 2 && new Date().getMonth() <= 4 ? "ilkbahar" :
+           new Date().getMonth() >= 5 && new Date().getMonth() <= 7 ? "yaz" :
+           new Date().getMonth() >= 8 && new Date().getMonth() <= 10 ? "sonbahar" : "kis"
   });
 
   const [showPlan, setShowPlan] = useState(false);
@@ -112,7 +124,40 @@ export default function GeziPlaniClient() {
 
   const generatePlan = () => {
     const selectedPlan = plans[plan.preference];
-    setGeneratedPlan(selectedPlan);
+    
+    // İlçeye göre filtreleme
+    const filteredPlaces = selectedPlan.places.filter((place: string) => {
+      const placeData = placesData.turistik.find(p => p.title === place);
+      return placeData?.district?.toLowerCase() === plan.selectedDistrict;
+    });
+
+    // Mesafeye göre optimizasyon (eğer varsa location bilgisini kullan)
+    const optimizedPlaces = filteredPlaces.sort((a: string, b: string) => {
+      const placeA = placesData.turistik.find(p => p.title === a);
+      const placeB = placesData.turistik.find(p => p.title === b);
+      
+      // Location bilgisinden yaklaşık bir mesafe hesabı
+      const getDistance = (place: any) => {
+        if (!place?.location) return 0;
+        // Merkez noktasından uzaklığa göre basit bir sıralama
+        return place.location.includes("Merkez") ? 0 : 1;
+      };
+
+      return getDistance(placeA) - getDistance(placeB);
+    });
+
+    // Gün sayısına göre yer sayısını ayarlama
+    const placesPerDay = Math.ceil(optimizedPlaces.length / plan.numberOfDays);
+    const finalPlaces = optimizedPlaces.slice(0, placesPerDay * plan.numberOfDays);
+
+    setGeneratedPlan({
+      ...selectedPlan,
+      places: finalPlaces,
+      dailyPlans: Array.from({ length: plan.numberOfDays }, (_, i) => ({
+        day: i + 1,
+        places: finalPlaces.slice(i * placesPerDay, (i + 1) * placesPerDay)
+      }))
+    });
     setShowPlan(true);
   };
 
@@ -216,106 +261,144 @@ export default function GeziPlaniClient() {
 
                     {step === 2 && (
                       <div className="space-y-4">
-                        <h2 className="text-xl font-semibold mb-4 text-green-800">Günün hangi saatinde başlamak istersiniz?</h2>
-                        <Select
-                          value={plan.timeOfDay}
-                          onValueChange={(value: TimeOfDay) => setPlan({ ...plan, timeOfDay: value })}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Bir zaman seçin" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="sabah">Sabah (09:00)</SelectItem>
-                            <SelectItem value="ogle">Öğle (12:00)</SelectItem>
-                            <SelectItem value="aksam">Akşam (15:00)</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <h2 className="text-xl font-semibold mb-4 text-green-800">Hangi ilçede gezmek istersiniz?</h2>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                          <Button
+                            variant={plan.selectedDistrict === "merkez" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "merkez" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "merkez" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Merkez</span>
+                          </Button>
+                          <Button
+                            variant={plan.selectedDistrict === "bulancak" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "bulancak" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "bulancak" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Bulancak</span>
+                          </Button>
+                          <Button
+                            variant={plan.selectedDistrict === "gorele" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "gorele" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "gorele" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Görele</span>
+                          </Button>
+                          <Button
+                            variant={plan.selectedDistrict === "tirebolu" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "tirebolu" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "tirebolu" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Tirebolu</span>
+                          </Button>
+                          <Button
+                            variant={plan.selectedDistrict === "espiye" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "espiye" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "espiye" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Espiye</span>
+                          </Button>
+                          <Button
+                            variant={plan.selectedDistrict === "kesap" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, selectedDistrict: "kesap" })}
+                            className={`h-20 ${
+                              plan.selectedDistrict === "kesap" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <span>Keşap</span>
+                          </Button>
+                        </div>
                       </div>
                     )}
 
                     {step === 3 && (
                       <div className="space-y-4">
-                        <h2 className="text-xl font-semibold mb-4 text-green-800">
-                          <span className="hidden sm:inline">Yemek tercihiniz nedir?</span>
-                          <span className="sm:hidden">Yemek Tercihi</span>
-                        </h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                          <Button
-                            variant={plan.restaurantType === "balik" ? "default" : "outline"}
-                            onClick={() => setPlan({ ...plan, restaurantType: "balik" })}
-                            className={`h-20 sm:h-24 ${
-                              plan.restaurantType === "balik" 
-                                ? "bg-green-700 hover:bg-green-800 text-white" 
-                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
-                            }`}
-                          >
-                            <div className="text-center">
-                              <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span className="text-sm sm:text-base">Balık Restoranı</span>
-                            </div>
-                          </Button>
-                          <Button
-                            variant={plan.restaurantType === "yerel" ? "default" : "outline"}
-                            onClick={() => setPlan({ ...plan, restaurantType: "yerel" })}
-                            className={`h-20 sm:h-24 ${
-                              plan.restaurantType === "yerel" 
-                                ? "bg-green-700 hover:bg-green-800 text-white" 
-                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
-                            }`}
-                          >
-                            <div className="text-center">
-                              <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span className="text-sm sm:text-base">Yerel Lezzetler</span>
-                            </div>
-                          </Button>
-                          <Button
-                            variant={plan.restaurantType === "modern" ? "default" : "outline"}
-                            onClick={() => setPlan({ ...plan, restaurantType: "modern" })}
-                            className={`h-20 sm:h-24 ${
-                              plan.restaurantType === "modern" 
-                                ? "bg-green-700 hover:bg-green-800 text-white" 
-                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
-                            }`}
-                          >
-                            <div className="text-center">
-                              <Coffee className="h-6 w-6 mb-2 mx-auto" />
-                              <span className="text-sm sm:text-base">Modern Kafeler</span>
-                            </div>
-                          </Button>
+                        <h2 className="text-xl font-semibold mb-4 text-green-800">Kaç günlük bir gezi planlıyorsunuz?</h2>
+                        <div className="grid grid-cols-3 gap-4">
+                          {[1, 2, 3].map((day) => (
+                            <Button
+                              key={day}
+                              variant={plan.numberOfDays === day ? "default" : "outline"}
+                              onClick={() => setPlan({ ...plan, numberOfDays: day })}
+                              className={`h-20 ${
+                                plan.numberOfDays === day 
+                                  ? "bg-green-700 hover:bg-green-800 text-white" 
+                                  : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                              }`}
+                            >
+                              <span>{day} Gün</span>
+                            </Button>
+                          ))}
                         </div>
                       </div>
                     )}
 
                     {step === 4 && (
                       <div className="space-y-4">
-                        <h2 className="text-xl font-semibold mb-4 text-green-800">Gün batımını izlemek ister misiniz?</h2>
-                        <div className="grid grid-cols-2 gap-4">
+                        <h2 className="text-xl font-semibold mb-4 text-green-800">Tercih ettiğiniz zorluk seviyesi nedir?</h2>
+                        <div className="grid grid-cols-3 gap-4">
                           <Button
-                            variant={plan.wantsSunset ? "default" : "outline"}
-                            onClick={() => setPlan({ ...plan, wantsSunset: true })}
-                            className={`h-24 ${
-                              plan.wantsSunset 
+                            variant={plan.difficultyLevel === "kolay" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, difficultyLevel: "kolay" })}
+                            className={`h-20 ${
+                              plan.difficultyLevel === "kolay" 
                                 ? "bg-green-700 hover:bg-green-800 text-white" 
                                 : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
                             }`}
                           >
                             <div className="text-center">
-                              <Sunset className="h-6 w-6 mb-2 mx-auto" />
-                              <span>Evet, harika olur!</span>
+                              <span>Kolay</span>
+                              <p className="text-xs mt-1">Rahat yürüyüş</p>
                             </div>
                           </Button>
                           <Button
-                            variant={!plan.wantsSunset ? "default" : "outline"}
-                            onClick={() => setPlan({ ...plan, wantsSunset: false })}
-                            className={`h-24 ${
-                              !plan.wantsSunset 
+                            variant={plan.difficultyLevel === "orta" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, difficultyLevel: "orta" })}
+                            className={`h-20 ${
+                              plan.difficultyLevel === "orta" 
                                 ? "bg-green-700 hover:bg-green-800 text-white" 
                                 : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
                             }`}
                           >
                             <div className="text-center">
-                              <Clock className="h-6 w-6 mb-2 mx-auto" />
-                              <span>Hayır, teşekkürler</span>
+                              <span>Orta</span>
+                              <p className="text-xs mt-1">Biraz yürüyüş</p>
+                            </div>
+                          </Button>
+                          <Button
+                            variant={plan.difficultyLevel === "zor" ? "default" : "outline"}
+                            onClick={() => setPlan({ ...plan, difficultyLevel: "zor" })}
+                            className={`h-20 ${
+                              plan.difficultyLevel === "zor" 
+                                ? "bg-green-700 hover:bg-green-800 text-white" 
+                                : "border-green-200 hover:border-green-300 text-green-700 hover:text-green-800"
+                            }`}
+                          >
+                            <div className="text-center">
+                              <span>Zor</span>
+                              <p className="text-xs mt-1">Yoğun aktivite</p>
                             </div>
                           </Button>
                         </div>
@@ -362,42 +445,48 @@ export default function GeziPlaniClient() {
               >
                 <Card className="border-green-100 shadow-lg">
                   <CardContent className="pt-6">
-                    <h2 className="text-2xl font-semibold mb-6 text-green-800">İşte Size Özel Gezi Planınız!</h2>
+                    <h2 className="text-2xl font-semibold mb-6 text-green-800">
+                      {plan.numberOfDays} Günlük Gezi Planınız - {plan.selectedDistrict.charAt(0).toUpperCase() + plan.selectedDistrict.slice(1)}
+                    </h2>
                     
                     <div className="space-y-6">
-                      <div>
-                        <h3 className="text-lg font-semibold text-green-700 mb-2">
-                          📍 Gezilecek Yerler
-                        </h3>
-                        <div className="space-y-2">
-                          {generatedPlan.places.map((place: string, index: number) => (
-                            <div key={index} className="flex items-center gap-2 text-gray-600">
-                              <span className="font-medium">{index + 1}.</span>
-                              {place}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h3 className="text-lg font-semibold text-green-700 mb-2">
-                          🍽️ Önerilen Restaurant
-                        </h3>
-                        <p className="text-gray-600">
-                          {generatedPlan.restaurants[plan.restaurantType]}
-                        </p>
-                      </div>
-
-                      {plan.wantsSunset && (
-                        <div>
-                          <h3 className="text-lg font-semibold text-green-700 mb-2">
-                            🌅 Gün Batımı
+                      {generatedPlan.dailyPlans.map((dayPlan: any, dayIndex: number) => (
+                        <div key={dayIndex} className="border-b pb-4 last:border-b-0">
+                          <h3 className="text-lg font-semibold text-green-700 mb-4">
+                            {dayIndex + 1}. Gün
                           </h3>
-                          <p className="text-gray-600">
-                            {generatedPlan.sunset}
-                          </p>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="font-medium text-green-600 mb-2">📍 Gezilecek Yerler</h4>
+                              <div className="space-y-2">
+                                {dayPlan.places.map((place: string, index: number) => (
+                                  <div key={index} className="flex items-center gap-2 text-gray-600">
+                                    <span className="font-medium">{index + 1}.</span>
+                                    {place}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div>
+                              <h4 className="font-medium text-green-600 mb-2">🍽️ Önerilen Restaurant</h4>
+                              <p className="text-gray-600">
+                                {generatedPlan.restaurants[plan.restaurantType]}
+                              </p>
+                            </div>
+
+                            {plan.wantsSunset && dayIndex === generatedPlan.dailyPlans.length - 1 && (
+                              <div>
+                                <h4 className="font-medium text-green-600 mb-2">🌅 Gün Batımı</h4>
+                                <p className="text-gray-600">
+                                  {generatedPlan.sunset}
+                                </p>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      )}
+                      ))}
                     </div>
 
                     {/* Harita yerine buton ekleyelim */}
