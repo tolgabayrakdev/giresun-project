@@ -139,6 +139,26 @@
       ],
       "category": "Sebze Yemekleri",
       "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Samaksa",
+      "description": "Siyah Üzüm Pekmezi ile hazırlanan samaksa, yöresel bir tatlıdır.",
+      "ingredients": ["Pekmez", "Su", "Mısır Unu"],
+      "detailedIngredients": [
+        "Yarım kilo üzüm pekmezi",
+        "700ml su",
+        "Yarım kilo mısır unu"
+      ],
+      "preparation": [
+        "Öncellikle suyu kaynatın.",
+        "Ve sonra pekmez ilave edilip, devalı olarak 30 saniye karıştırılır.",
+        "Ardından mısır unu ilave edilir ve pürüzsüz kıvam elde edilene kadar yavaşca karıştırıp, muhallebi kıvamına gelinceye kadar kaynatılır.",
+        "İsteğine göre kaselere koyulup ardından soğmasını bekleyin.",
+        "Tercihe göre üzerine kaymak veya fındık ilave edebilirsiniz."
+      ],
+      "category": "Tatlılar",
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740684607/samaksa_rc8ka3.png"
     }
   ]
 } 
