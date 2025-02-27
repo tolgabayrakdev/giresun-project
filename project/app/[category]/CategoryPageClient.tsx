@@ -194,6 +194,104 @@ const historicalPlaceDetails: Record<string, HistoricalDetails> = {
         details: "Koruma altına alınan ve turizme açılan dönem"
       }
     ]
+  },
+  "Giresun Müzesi": {
+    longHistory: `Giresun Müzesi'nin binası, 19. yüzyılın sonlarında Rum Ortodoks Kilisesi olarak inşa edilmiş tarihi bir yapıdır. Yapı, dönemin önemli dini merkezlerinden biri olan Gogora Kilisesi (Hagios Nikolaos Kilisesi) olarak hizmet vermiştir.
+
+    1923 yılında Lozan Antlaşması sonrası yaşanan mübadele döneminde kilise işlevini yitirmiş ve bir süre depo olarak kullanılmıştır. 1948 yılında Hükümet Konağı olarak hizmet vermeye başlayan bina, 1967 yılında müze olarak kullanılması kararlaştırılmıştır.
+
+    1988 yılında resmi olarak Giresun Müzesi adıyla ziyarete açılan yapı, bölgenin arkeolojik ve etnografik eserlerinin sergilendiği önemli bir kültür merkezi haline gelmiştir. Müze koleksiyonu, bölgede yapılan arkeolojik kazılardan elde edilen eserler ve yerel halktan toplanan etnografik malzemelerle sürekli zenginleştirilmiştir.`,
+    
+    architecture: `Müze binası, 19. yüzyıl Rum dini mimarisinin özelliklerini taşıyan görkemli bir yapıdır. Neo-klasik tarzda inşa edilen bina, kesme taştan yapılmış olup, karakteristik kilise mimarisi özelliklerini hala korumaktadır.
+
+    Yapının dış cephesinde kullanılan taş işçiliği, pencere kemerleri ve süslemeleri dönemin mimari özelliklerini yansıtmaktadır. İç mekanda yüksek tavanlar, geniş pencereler ve orijinal mimari detaylar korunmuştur.
+
+    Bina, müzeye dönüştürülürken yapılan restorasyonlarda, orijinal mimari özelliklerine sadık kalınarak modern müzecilik standartlarına uygun hale getirilmiştir. Sergi salonları, eserlerin kronolojik ve tematik olarak sergilenmesine olanak sağlayacak şekilde düzenlenmiştir.`,
+    
+    culturalImportance: `Giresun Müzesi, hem binasının tarihi kimliği hem de içerdiği koleksiyonlarla şehrin kültürel mirasının önemli bir parçasıdır. Yapının Gogora Kilisesi'nden müzeye dönüşüm süreci, Giresun'un yakın tarihindeki sosyal ve kültürel değişimi yansıtmaktadır.
+
+    Müze, Doğu Karadeniz Bölgesi'nin tarih öncesi dönemlerden günümüze kadar olan kültürel mirasını korumakta ve sergilemektedir. Özellikle Roma, Bizans ve Osmanlı dönemlerine ait arkeolojik eserler, bölgenin zengin tarihini gözler önüne sermektedir.
+
+    Etnografya bölümünde sergilenen eserler, yöresel yaşam kültürünü, geleneksel el sanatlarını ve sosyal yaşamı belgelemesi açısından büyük önem taşımaktadır.`,
+    
+    modernDay: `Günümüzde müze, arkeoloji ve etnografya olmak üzere iki ana bölümden oluşmaktadır. Arkeoloji bölümünde Helenistik, Roma ve Bizans dönemlerine ait eserler sergilenmektedir.
+
+    Etnografya bölümünde ise yöresel kıyafetler, el sanatları, günlük yaşam eşyaları ve geleneksel yaşamı yansıtan objeler bulunmaktadır. Ayrıca müzede sikke koleksiyonu ve el yazması eserler de sergilenmektedir.`,
+    
+    visitingHours: "Pazartesi hariç her gün 08:30 - 17:30 arası ziyarete açıktır.",
+    entranceFee: "Müze kart geçerlidir. Normal giriş ücreti: 15 TL",
+    transportation: "Şehir merkezinde yer almaktadır. Toplu taşıma ve taksi ile kolayca ulaşılabilir.",
+    tips: [
+      "Fotoğraf çekimi için önceden izin alınması gerekmektedir",
+      "Rehberli turlar için önceden randevu alınabilir",
+      "Ziyaret için en az 1-2 saat ayırmanız önerilir",
+      "Müze kart edinmeniz durumunda ücretsiz giriş yapabilirsiniz",
+      "Sergi salonlarında flash kullanımı yasaktır"
+    ],
+    historicalPeriods: [
+      {
+        period: "Kuruluş Dönemi (1967-1988)",
+        details: "Koleksiyonların toplanması ve müzenin oluşturulma süreci"
+      },
+      {
+        period: "Açılış ve İlk Dönem (1988-2000)",
+        details: "Müzenin resmi açılışı ve ilk sergilerin düzenlenmesi"
+      },
+      {
+        period: "Modernizasyon (2000-2010)",
+        details: "Sergi alanlarının yenilenmesi ve koleksiyonun genişletilmesi"
+      },
+      {
+        period: "Günümüz (2010-günümüz)",
+        details: "Modern müzecilik anlayışıyla hizmet vermeye devam etmektedir"
+      }
+    ]
+  },
+  "Seyyid Vakkas Türbesi": {
+    longHistory: `Seyyid Vakkas Türbesi, 15. yüzyılda yaşamış olan İslam alimi ve mutasavvıf Seyyid Vakkas Hazretleri'nin türbesidir. Seyyid Vakkas, Giresun'un manevi mimarlarından biri olarak kabul edilmekte olup, şehrin İslamlaşma sürecinde önemli rol oynamıştır.
+
+    Rivayetlere göre Seyyid Vakkas, Horasan erenlerinden olup, Anadolu'nun İslamlaşması sürecinde Giresun'a gelmiş ve burada ilim ve irşad faaliyetlerinde bulunmuştur.`,
+    
+    architecture: `Türbe, klasik Osmanlı türbe mimarisinin özelliklerini taşımaktadır. Sekizgen planlı olan yapı, kesme taştan inşa edilmiş olup, kubbe ile örtülüdür.
+
+    Türbenin iç mekanı sade bir düzenlemeye sahiptir. Ortada Seyyid Vakkas Hazretleri'nin sandukası yer almaktadır. Duvarlar hat yazıları ve Kur'an-ı Kerim ayetleriyle süslenmiştir.`,
+    
+    culturalImportance: `Seyyid Vakkas Türbesi, yüzyıllardır Giresun'un önemli bir ziyaret ve manevi merkezi olma özelliğini korumaktadır. Türbe, hem şehir halkı hem de çevre illerden gelen ziyaretçiler için önemli bir inanç turizmi noktasıdır.
+
+    Seyyid Vakkas'ın öğretileri ve manevi mirası, bölge halkının dini ve kültürel yaşamında önemli bir yere sahiptir.`,
+    
+    modernDay: `Günümüzde türbe, restore edilerek ziyarete açık tutulmaktadır. Özellikle dini bayramlarda ve mübarek günlerde yoğun ziyaretçi akınına uğramaktadır.
+
+    Türbe çevresinde yapılan düzenlemeler ve peyzaj çalışmalarıyla ziyaretçilere daha iyi bir ortam sunulmaktadır. Ayrıca türbe kompleksi içinde bir de mescit bulunmaktadır.`,
+    
+    visitingHours: "Her gün 24 saat ziyarete açıktır.",
+    entranceFee: "Giriş ücretsizdir.",
+    transportation: "Şehir merkezinden minibüs ve taksi ile ulaşım sağlanabilir.",
+    tips: [
+      "Ziyaret adabına uygun kıyafet tercih edilmelidir",
+      "Cuma günleri ve kandil gecelerinde ziyaretçi yoğunluğu yaşanmaktadır",
+      "Türbe içinde fotoğraf çekimi için izin alınması gerekmektedir",
+      "Abdest almak isteyenler için şadırvan mevcuttur",
+      "Sessizliğe dikkat edilmesi önemlidir"
+    ],
+    historicalPeriods: [
+      {
+        period: "Kuruluş Dönemi (15. yy)",
+        details: "Seyyid Vakkas'ın yaşadığı ve türbenin ilk inşa edildiği dönem"
+      },
+      {
+        period: "Osmanlı Dönemi",
+        details: "Türbenin bakımı ve onarımlarının yapıldığı, ziyaret mekanı olarak kullanıldığı dönem"
+      },
+      {
+        period: "Cumhuriyet Dönemi",
+        details: "Türbenin korunması ve restore edildiği dönem"
+      },
+      {
+        period: "Modern Dönem",
+        details: "Kapsamlı restorasyon çalışmaları ve çevre düzenlemeleriyle bugünkü halini almıştır"
+      }
+    ]
   }
 };
 
