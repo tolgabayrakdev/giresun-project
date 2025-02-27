@@ -93,7 +93,7 @@
     {
       "id": "10",
       "title": "Seyyid Vakkas Türbesi",
-      "description": "Rivâyete göre peygamberin soyundan gelen Seyyid Vakkas ve birlikleri Giresun'u almak için büyük mücadele verirler. ",
+      "description": "Rivâyete göre peygamberin soyundan gelen Seyyid Vakkas ve birlikleri Giresun'u almak için büyük mücadele verip şehit olmuş ve şehit olduğu bu yerde toprağa verilmiştir.",
       "image": "/turist/seyyid-vakkas.jpg",
       "location": "Merkez",
       "district": "Merkez",
@@ -139,6 +139,16 @@
       "district": "Görele",
       "rating": 4.5,
       "features": ["Kamp", "Doğa", "Manzara"]
+    },
+    {
+      "id": "15",
+      "title": "Giresun Müzesi",
+      "description": "Giresun müzesi, eski adı Gogora Kilisesi olan bir tarihi muzedir. İçerisinde Arkeolojik ve Etnografik eserleri barındırır.",
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740685297/giresun-muze_e5zx27.jpg",
+      "location": "Merkez",
+      "district": "Merkez",
+      "rating": 4.5,
+      "features": ["Müze", "Tarihi", "Etnografik"]
     }
   ]
 }
