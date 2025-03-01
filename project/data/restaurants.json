@@ -142,6 +142,17 @@
         "rating": 4.6,
         "priceLevel": "₺₺",
         "features": ["Kahvaltı", "Sahil", "Aile Mekanı", "Deniz"]
+    },
+    {
+      "id": "14",
+      "title": "Efendi Restaurant",
+      "description": "Geniş bir yemek menüsü ile sizleri bekliyor. Deniz manzarası ile sakin ve ferah bir mekan sunuyor.",
+      "image": "/restaurant/efendi-restaurant.jpg",
+      "location": "Merkez",
+      "district": "Merkez",
+      "rating": 4.1,
+      "priceLevel": "₺₺",
+      "features": ["Yöresel", "Deniz", "Aile Mekanı", "Sakin Mekan", "Et Yemekleri", "Kahvaltı"]
     }
   ]
 }
