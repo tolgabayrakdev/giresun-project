@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, Users, ChefHat } from "lucide-react";
+import { ArrowLeft, ChefHat } from "lucide-react";
 import Link from "next/link";
 import { ShareRecipe } from "@/components/ShareRecipe";
 

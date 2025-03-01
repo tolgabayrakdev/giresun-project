@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Search, Book, ChevronDown } from "lucide-react";
+import { ArrowLeft, Search, Book } from "lucide-react";
 import Link from "next/link";
 import dictionaryData from '@/data/dictionary.json';
 import {

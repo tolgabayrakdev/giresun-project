@@ -3,16 +3,9 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Clock, MapPin, Coffee, Sunset, TreePine, Palmtree, Building, Waves, Map } from "lucide-react";
+import { ArrowLeft, ArrowRight, TreePine, Palmtree, Building, Waves, Map } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import placesData from '@/data/places.json';
 import restaurantsData from '@/data/restaurants.json';
 import plateausData from '@/data/plateaus.json';

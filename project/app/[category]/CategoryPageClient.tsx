@@ -26,7 +26,7 @@ import placesData from '@/data/places.json';
 import restaurantsData from '@/data/restaurants.json';
 import plateausData from '@/data/plateaus.json';
 import festivalsData from '@/data/festivals.json';
-import { BasePlace, Restaurant, PlacesData } from '@/types/places';
+import { BasePlace, Restaurant } from '@/types/places';
 import {
   Dialog,
   DialogContent,
@@ -35,11 +35,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-// Kategoriler için veri tipleri
-type Location = {
-  lat: number;
-  lng: number;
-};
+
 
 // İlçe bazlı filtreleme için yeni tip
 type District = 'Merkez' | 'Dereli' | 'Bulancak' | 'Tirebolu' | 'Görele' | 
