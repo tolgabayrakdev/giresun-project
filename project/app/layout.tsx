@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   verification: {
-    google: "Google Search Console doğrulama kodu buraya gelecek",
+    google: "IT-kb6k_dsHjrRgpNgJ5BhNbSoTvPWfCU2-ZtpkBUUg",
   },
   alternates: {
     canonical: "https://giresunhakkinda.com",
