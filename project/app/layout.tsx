@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   verification: {
-    google: "Google Search Console doğrulama kodu buraya gelecek",
+    google: "IT-kb6k_dsHjrRgpNgJ5BhNbSoTvPWfCU2-ZtpkBUUg",
   },
   alternates: {
     canonical: "https://giresunhakkinda.com",
@@ -79,7 +79,6 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-      <meta name="google-site-verification" content="IT-kb6k_dsHjrRgpNgJ5BhNbSoTvPWfCU2-ZtpkBUUg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
