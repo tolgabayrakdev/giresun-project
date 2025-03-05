@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Giresun Rehberi - Karadeniz'in İncisi",
     template: "%s | Giresun Rehberi"
   },
-  description: "Giresun'un doğal güzellikleri, tarihi yerleri, yaylaları, festivalleri, yerel lezzetleri ve yöresel sözlüğü hakkında kapsamlı rehber. Giresun mutfağının eşsiz tatları, şehrin kültürel mirası, fotoğraf albümü, gezi planı oluşturma ve daha fazlası için ziyaret edin.",
+  description: "Giresun'un doğal güzellikleri, tarihi yerleri, yaylaları, festivalleri ve mutfağı hakkında kapsamlı bir rehber. Gezi planı oluşturun ve şehri keşfedin.",
   keywords: [
     "Giresun",
     "Karadeniz",
