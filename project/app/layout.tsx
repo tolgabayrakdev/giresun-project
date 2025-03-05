@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   verification: {
-    google: "IT-kb6k_dsHjrRgpNgJ5BhNbSoTvPWfCU2-ZtpkBUUg",
+    google: "hP1_YQgMg9sJlKVN5q5X1a-UWhlD20obxuia6sS6aAs",
   },
   alternates: {
     canonical: "https://giresunhakkinda.com",
