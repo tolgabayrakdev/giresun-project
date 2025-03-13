@@ -115,6 +115,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        <link rel="canonical" href="https://giresunhakkinda.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
