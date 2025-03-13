@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Tolga Bayrak" }],
   creator: "Tolga Bayrak",
-  publisher: "giresunhakkinda.com",
+  publisher: "www.giresunhakkinda.com",
   robots: {
     index: true,
     follow: true,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://giresunhakkinda.com",
+    url: "https://www.giresunhakkinda.com",
     siteName: "Giresun Rehberi",
     title: "Giresun Rehberi - Karadeniz'in İncisi",
     description: "Giresun'un doğal güzellikleri, tarihi yerleri, yaylaları, festivalleri, yerel lezzetleri ve yöresel sözlüğü hakkında kapsamlı rehber. Giresun mutfağının eşsiz tatları, şehrin kültürel mirası, fotoğraf albümü, gezi planı oluşturma ve daha fazlası için ziyaret edin.",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     google: "hP1_YQgMg9sJlKVN5q5X1a-UWhlD20obxuia6sS6aAs",
   },
   alternates: {
-    canonical: "https://giresunhakkinda.com",
+    canonical: "https://www.giresunhakkinda.com",
   },
 };
 
@@ -80,10 +80,10 @@ const jsonLd = {
   "description": "Giresun'un kapsamlı turizm ve gezi rehberi. Doğal güzellikler, tarihi yerler, yaylalar, festivaller, yerel lezzetler ve yöresel sözlük içerir.",
   "publisher": {
     "@type": "Organization",
-    "name": "giresunhakkinda.com",
+    "name": "www.giresunhakkinda.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://giresunhakkinda.com/logo.png"
+      "url": "https://www.giresunhakkinda.com/logo.png"
     }
   },
   "about": {

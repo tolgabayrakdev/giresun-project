@@ -8,11 +8,11 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.giresunhakkinda.com',
+            value: 'giresunhakkinda.com',
           },
         ],
         permanent: true,
-        destination: 'https://giresunhakkinda.com/:path*',
+        destination: 'https://www.giresunhakkinda.com/:path*',
       },
     ]
   },
@@ -42,13 +42,13 @@ const nextConfig: NextConfig = {
     ]
   },
   images: {
-    domains: ['giresunhakkinda.com'],
+    domains: ['www.giresunhakkinda.com', 'giresunhakkinda.com'],
     minimumCacheTTL: 60,
   },
   trailingSlash: false,
   poweredByHeader: false,
   env: {
-    NEXT_PUBLIC_SITE_URL: 'https://giresunhakkinda.com',
+    NEXT_PUBLIC_SITE_URL: 'https://www.giresunhakkinda.com',
   }
 };
 
