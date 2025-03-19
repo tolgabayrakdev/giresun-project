@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'Karadeniz mutfağı',
       'yöresel yemek',
       'tarif',
-      ...food.ingredients
+      ...food.recipeIngredient
     ],
     openGraph: {
       title: `${food.name} - Giresun Mutfağından Özel Tarif`,
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: 'tr_TR',
       images: [
         {
-          url: food.image,
+          url: food.image[0].url,
           width: 1200,
           height: 630,
           alt: food.name
@@ -67,36 +67,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${food.name} - Giresun Mutfağından`,
       description: food.description,
-      images: [food.image]
+      images: [food.image[0].url]
     }
   };
 }
 
-// Structured Data
-function generateStructuredData(food: any) {
+// Client component için food nesnesini dönüştürme
+function transformFoodForClient(food: any) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Recipe',
     name: food.name,
     description: food.description,
-    image: food.image,
-    recipeCategory: food.category,
-    recipeCuisine: 'Türk Mutfağı - Karadeniz',
-    recipeIngredient: food.ingredients,
-    recipeInstructions: food.preparation?.map((step: string) => ({
-      '@type': 'HowToStep',
-      text: step
-    })),
-    author: {
-      '@type': 'Organization',
-      name: 'Giresun Rehberi'
-    },
-    datePublished: '2024-03-20',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '150'
-    }
+    category: food.recipeCategory,
+    ingredients: food.recipeIngredient.map((ingredient: string) => ingredient.split(',')[0]),
+    detailedIngredients: food.recipeIngredient,
+    preparation: food.recipeInstructions.map((step: any) => step.text),
+    image: food.image[0].url
   };
 }
 
@@ -110,15 +95,15 @@ export default async function FoodDetailPage({ params }: Props) {
     notFound();
   }
 
-  const structuredData = generateStructuredData(food);
+  const clientFood = transformFoodForClient(food);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(food) }}
       />
-      <FoodDetailClient food={food} />
+      <FoodDetailClient food={clientFood} />
     </>
   );
 } 

@@ -23,14 +23,27 @@ function createSlug(name: string) {
     .replace(/^-|-$/g, '');
 }
 
-const categories = ["Hepsi", "Ana Yemek", "Çorba", "Hamur İşi", "Tatlı", "Deniz Ürünü"];
+const categories = ["Hepsi", "Sebze Yemekleri", "Çorba", "Hamur İşi", "Tatlılar", "Deniz Ürünü"];
+
+// Client component için food nesnesini dönüştürme
+function transformFoodForClient(food: any) {
+  return {
+    name: food.name,
+    description: food.description,
+    category: food.recipeCategory,
+    ingredients: food.recipeIngredient.map((ingredient: string) => ingredient.split(',')[0]),
+    detailedIngredients: food.recipeIngredient,
+    preparation: food.recipeInstructions.map((step: any) => step.text),
+    image: food.image[0].url
+  };
+}
 
 export default function LocalFoodClient() {
   const [selectedCategory, setSelectedCategory] = useState("Hepsi");
 
   const filteredFoods = selectedCategory === "Hepsi"
     ? foodData.foods
-    : foodData.foods.filter(food => food.category === selectedCategory);
+    : foodData.foods.filter(food => food.recipeCategory === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-16">
@@ -98,66 +111,69 @@ export default function LocalFoodClient() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence>
-            {filteredFoods.map((food) => (
-              <motion.div
-                key={food.id}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow group"
-              >
-                <Link href={`/yoresel-yemekler/${createSlug(food.name)}`}>
-                  <div className="aspect-video relative overflow-hidden">
-                    <img
-                      src={food.image}
-                      alt={food.name}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-green-700/80 text-white text-sm rounded-full">
-                        {food.category}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-green-800 mb-2">{food.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{food.description}</p>
-                    
-                    {/* Malzemeler */}
-                    <div className="space-y-2 mb-4">
-                      <h4 className="font-semibold text-green-700">Malzemeler:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {food.ingredients.slice(0, 3).map((ingredient, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full"
-                          >
-                            {ingredient}
-                          </span>
-                        ))}
-                        {food.ingredients.length > 3 && (
-                          <span className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full">
-                            +{food.ingredients.length - 3} daha
-                          </span>
-                        )}
+            {filteredFoods.map((food) => {
+              const clientFood = transformFoodForClient(food);
+              return (
+                <motion.div
+                  key={food.id}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow group"
+                >
+                  <Link href={`/yoresel-yemekler/${createSlug(food.name)}`}>
+                    <div className="aspect-video relative overflow-hidden">
+                      <img
+                        src={clientFood.image}
+                        alt={clientFood.name}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 right-4">
+                        <span className="px-3 py-1 bg-green-700/80 text-white text-sm rounded-full">
+                          {clientFood.category}
+                        </span>
                       </div>
                     </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-green-800 mb-2">{clientFood.name}</h3>
+                      <p className="text-gray-600 text-sm mb-4">{clientFood.description}</p>
+                      
+                      {/* Malzemeler */}
+                      <div className="space-y-2 mb-4">
+                        <h4 className="font-semibold text-green-700">Malzemeler:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {clientFood.ingredients.slice(0, 3).map((ingredient: string, index: number) => (
+                            <span
+                              key={index}
+                              className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full"
+                            >
+                              {ingredient}
+                            </span>
+                          ))}
+                          {clientFood.ingredients.length > 3 && (
+                            <span className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full">
+                              +{clientFood.ingredients.length - 3} daha
+                            </span>
+                          )}
+                        </div>
+                      </div>
 
-                    {/* Tarifi Gör Yazısı */}
-                    <div className="mt-4 flex items-center text-green-700 font-medium group-hover:text-green-800">
-                      <span>Tarifi Gör</span>
-                      <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      {/* Tarifi Gör Yazısı */}
+                      <div className="mt-4 flex items-center text-green-700 font-medium group-hover:text-green-800">
+                        <span>Tarifi Gör</span>
+                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
 
-                {/* Paylaşım Butonları */}
-                <div className="px-6 pb-6">
-                  <ShareRecipe food={food} />
-                </div>
-              </motion.div>
-            ))}
+                  {/* Paylaşım Butonları */}
+                  <div className="px-6 pb-6">
+                    <ShareRecipe food={clientFood} />
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>

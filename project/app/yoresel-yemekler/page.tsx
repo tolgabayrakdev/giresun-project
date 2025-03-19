@@ -39,19 +39,22 @@ const structuredData = {
     "position": index + 1,
     "name": food.name,
     "description": food.description,
-    "recipeCategory": food.category,
-    "recipeIngredient": food.ingredients,
-    "recipeInstructions": food.preparation?.map(step => ({
+    "recipeCategory": food.recipeCategory,
+    "recipeIngredient": food.recipeIngredient,
+    "recipeInstructions": food.recipeInstructions.map((instruction: { text: string }) => ({
       "@type": "HowToStep",
-      "text": step
+      "text": instruction.text
     })),
-    "image": food.image,
+    "image": food.image[0].url,
     "author": {
       "@type": "Organization",
-      "name": "Giresun Rehberi"
+      "name": "Giresun Mutfağı",
+      "url": "https://giresun-mutfagi.vercel.app"
     },
     "recipeCuisine": "Türk Mutfağı - Karadeniz",
-    "areaServed": "Giresun, Türkiye"
+    "areaServed": "Giresun, Türkiye",
+    "datePublished": food.datePublished,
+    "aggregateRating": food.aggregateRating
   }))
 };
 
