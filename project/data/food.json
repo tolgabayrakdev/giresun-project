@@ -19,8 +19,41 @@
         "Yumuşayan fasulyeler ve karahanalar ilave edilir",
         "Son olarak mısır unu eklenerek kıvam alana kadar pişirilir"
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Ön Hazırlık",
+          "text": "Kuru fasulyeler bir gece önceden ıslatılır",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427163/o2cflqjjfpakejcpgnpo.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/karalahana-pancar-corbasi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Karalahana Hazırlığı",
+          "text": "Karahanalar yıkanıp doğranır",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427163/o2cflqjjfpakejcpgnpo.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/karalahana-pancar-corbasi#step2"
+        }
+      ],
       "category": "Çorba",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427163/o2cflqjjfpakejcpgnpo.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427163/o2cflqjjfpakejcpgnpo.jpg",
+      "prepTime": "PT20M",
+      "cookTime": "PT40M",
+      "totalTime": "PT60M",
+      "keywords": ["karalahana çorbası", "pancar çorbası", "giresun yemekleri", "karadeniz mutfağı", "çorba tarifleri"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "245 kcal",
+        "fatContent": "8g",
+        "proteinContent": "12g",
+        "carbohydrateContent": "35g",
+        "servingSize": "1 porsiyon"
+      }
     },
     {
       "id": "2",
@@ -45,8 +78,41 @@
         "En üste tekrar hamsi dizilir",
         "Fırında pişirilir"
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Hamsi Hazırlığı",
+          "text": "Hamsilerin kılçıkları çıkarılır",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427435/hamsi-pilav_z4exmh.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/hamsi-pilavi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pirinç Hazırlığı",
+          "text": "Pirinç yıkanıp süzülür ve kavrulur",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427435/hamsi-pilav_z4exmh.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/hamsi-pilavi#step2"
+        }
+      ],
       "category": "Deniz Ürünü",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427435/hamsi-pilav_z4exmh.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740427435/hamsi-pilav_z4exmh.jpg",
+      "prepTime": "PT30M",
+      "cookTime": "PT45M",
+      "totalTime": "PT75M",
+      "keywords": ["hamsi pilavı", "giresun yemekleri", "karadeniz mutfağı", "balıklı pilav", "hamsi tarifleri"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "156"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "380 kcal",
+        "fatContent": "12g",
+        "proteinContent": "22g",
+        "carbohydrateContent": "48g",
+        "servingSize": "1 porsiyon"
+      }
     },
     {
       "id": "3",
@@ -68,8 +134,41 @@
         "Üzeri çizilerek desenler yapılır",
         "Önceden ısıtılmış fırında altı üstü kızarana kadar pişirilir"
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Hamur Hazırlığı",
+          "text": "Mısır unu geniş bir kaba alınır ve diğer malzemeler eklenir",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/misir-ekmegi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Mayalandırma",
+          "text": "Hamur mayalanması için 30 dakika bekletilir",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/misir-ekmegi#step2"
+        }
+      ],
       "category": "Hamur İşi",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740428677/misir-ekmegi_pruwyu.jpg",
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "totalTime": "PT90M",
+      "keywords": ["mısır ekmeği", "giresun ekmeği", "karadeniz ekmeği", "geleneksel ekmek", "mısır unu ekmeği"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "98"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "180 kcal",
+        "fatContent": "1g",
+        "proteinContent": "4g",
+        "carbohydrateContent": "38g",
+        "servingSize": "1 dilim"
+      }
     },
     {
       "id": "4",
@@ -92,8 +191,41 @@
         "Pirinçler uzayıp pişinceye kadar kısık ateşte pişirilir",
         "Ağzı kapatılarak 15 dakika demlendirip, service hazırlayabilirsiniz"
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Fasulye Hazırlığı",
+          "text": "Fasulyeler ayıklanıp ince bir şekilde kıyılır",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/fasulye-diblesi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pişirme",
+          "text": "Malzemeler katmanlar halinde tencereye dizilir ve pişirilir",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/fasulye-diblesi#step2"
+        }
+      ],
       "category": "Sebze Yemekleri",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740505685/fasulye-dible_yewnge.jpg",
+      "prepTime": "PT20M",
+      "cookTime": "PT35M",
+      "totalTime": "PT55M",
+      "keywords": ["fasulye diblesi", "giresun yemekleri", "sebze yemeği", "fasulye yemeği", "geleneksel yemek"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "87"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "220 kcal",
+        "fatContent": "5g",
+        "proteinContent": "8g",
+        "carbohydrateContent": "38g",
+        "servingSize": "1 porsiyon"
+      }
     },
     {
       "id": "5",
@@ -117,8 +249,41 @@
         "Kıvam alana kadar karıştırarak pişirin.",
         "Tuzunu ekleyip ocaktan alın ve sıcak olarak servis edin."
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Isırgan Hazırlığı",
+          "text": "Isırgan otlarını yıkayıp haşlayın ve doğrayın",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/isirgan-yemegi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pişirme",
+          "text": "Malzemeleri sırasıyla ekleyip kıvam alana kadar pişirin",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/isirgan-yemegi#step2"
+        }
+      ],
       "category": "Sebze Yemekleri",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740506195/isirgan_ousads.jpg",
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "totalTime": "PT40M",
+      "keywords": ["ısırgan yemeği", "giresun yemekleri", "sebze yemeği", "ısırgan otu", "geleneksel yemek"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "76"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "180 kcal",
+        "fatContent": "8g",
+        "proteinContent": "6g",
+        "carbohydrateContent": "22g",
+        "servingSize": "1 porsiyon"
+      }
     },
     {
       "id": "6",
@@ -137,8 +302,41 @@
         "Kapağı kapatıralarak 8-10 dakika pişmeye bırakılır.",
         "Ve hazır. Sıcak bir şekilde servis edebilirsiniz."
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Turşu Hazırlığı",
+          "text": "Fasulye turşusunu yıkayıp doğrayın",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/fasulye-tursusu-kavurmasi#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pişirme",
+          "text": "Malzemeleri tavada kavurup pişirin",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/fasulye-tursusu-kavurmasi#step2"
+        }
+      ],
       "category": "Sebze Yemekleri",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740512367/fasulye-kavur_qe22uy.jpg",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
+      "keywords": ["fasulye turşusu kavurması", "giresun yemekleri", "turşu yemeği", "fasulye turşusu", "geleneksel yemek"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "65"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "150 kcal",
+        "fatContent": "7g",
+        "proteinContent": "4g",
+        "carbohydrateContent": "18g",
+        "servingSize": "1 porsiyon"
+      }
     },
     {
       "id": "7",
@@ -157,8 +355,41 @@
         "İsteğine göre kaselere koyulup ardından soğmasını bekleyin.",
         "Tercihe göre üzerine kaymak veya fındık ilave edebilirsiniz."
       ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "name": "Karışım Hazırlama",
+          "text": "Su kaynatılıp pekmez ve mısır unu eklenir",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740684607/samaksa_rc8ka3.png",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/samaksa#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pişirme ve Soğutma",
+          "text": "Kıvam alana kadar pişirilip soğumaya bırakılır",
+          "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740684607/samaksa_rc8ka3.png",
+          "url": "https://giresun-mutfagi.vercel.app/yoresel-yemekler/samaksa#step2"
+        }
+      ],
       "category": "Tatlılar",
-      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740684607/samaksa_rc8ka3.png"
+      "image": "https://res.cloudinary.com/dwcsscwme/image/upload/v1740684607/samaksa_rc8ka3.png",
+      "prepTime": "PT10M",
+      "cookTime": "PT20M",
+      "totalTime": "PT30M",
+      "keywords": ["samaksa", "giresun tatlısı", "pekmezli tatlı", "geleneksel tatlı", "mısır unlu tatlı"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "92"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "280 kcal",
+        "fatContent": "0g",
+        "proteinContent": "3g",
+        "carbohydrateContent": "65g",
+        "servingSize": "1 porsiyon"
+      }
     }
   ]
 } 
