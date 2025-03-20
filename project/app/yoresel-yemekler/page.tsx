@@ -54,7 +54,18 @@ const structuredData = {
     "recipeCuisine": "Türk Mutfağı - Karadeniz",
     "areaServed": "Giresun, Türkiye",
     "datePublished": food.datePublished,
-    "aggregateRating": food.aggregateRating
+    "aggregateRating": food.aggregateRating,
+    "prepTime": food.prepTime,
+    "cookTime": food.cookTime,
+    "totalTime": food.totalTime,
+    "keywords": food.keywords,
+    "recipeYield": food.recipeYield,
+    "nutrition": food.nutrition,
+    "@id": `https://giresun-mutfagi.vercel.app/yoresel-yemekler/${food.id}`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://giresun-mutfagi.vercel.app/yoresel-yemekler/${food.id}`
+    }
   }))
 };
 
