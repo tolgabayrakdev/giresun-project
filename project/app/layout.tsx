@@ -116,6 +116,9 @@ export default function RootLayout({
     <html lang="tr">
       <head>
         <link rel="canonical" href="https://giresunhakkinda.com" />
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2712035708314627"
+          crossOrigin="anonymous"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
